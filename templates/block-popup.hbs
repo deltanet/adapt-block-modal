@@ -1,0 +1,39 @@
+{{! Maintainers - Robert Peek}}
+<div class="block-popup-inner" {{_blockPopup._classes}}>
+
+    <a href="#" class="block-popup-open-button" style="top:{{_blockPopup._buttonPosition._top}}%; left:{{_blockPopup._buttonPosition._left}}%;" role="button" aria-label="{{_blockPopup._ariaLabels.openPopup}}">
+        <span class="block-popup-open-button-text">{{_blockPopup._buttonTitle}}</span>
+    </a>
+
+    <div class="block-popup-shadow"></div>
+
+	<div class="block-popup-content">
+        <div class="content-popup-done clearfix">
+            <a href="#" class="content-popup-icon-close icon icon-cross" aria="{{_accessibility._ariaLabels.popUp}}"></a>
+        </div>
+        <div class="block-popup-content-inner">
+            <div class="block-popup-content-item component-item">
+                <div class="block-popup-content-item-inner component-item-inner clearfix">
+                    <div class="block-popup-contents">
+                        <div class="block-popup-contents-inner">
+                            {{#if _blockPopup.title}}
+                                <h5 class="block-popup-content-title">
+                                    {{{_blockPopup.title}}}
+                                </h5>
+                            {{/if}}
+                            {{#if _blockPopup.body}}
+                                <div class="block-popup-content-body">
+                                    {{{_blockPopup.body}}}
+                                </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="block-popup-item-graphic">
+                        <img src="{{_blockPopup._itemGraphic.src}}" alt="{{_blockPopup._itemGraphic.alt}}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

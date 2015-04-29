@@ -1,0 +1,18 @@
+{
+  "name": "adapt-block-popup",
+  "version": "0.0.1",
+  "homepage": "https://github.com/deltanet/adapt-block-popup",
+  "authors": [
+    "Robert Peek <robert@delta-net.co.uk>"
+  ],
+  "displayName" : "adapt-block-popup",
+  "extension" : "adapt-block-popup",
+  "description": "An extension that allows a button to be added to a block which opens more content in a popup",
+  "main": "/js/adapt-block-popup.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-extension"
+  ],
+  "license": "GPLv3",
+  "targetAttribute": "_block-popup"
+}

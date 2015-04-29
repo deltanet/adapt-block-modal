@@ -1,0 +1,32 @@
+// To go in the block.json file
+
+{
+    "_id": "b-05_1",
+    "_parentId": "a-05_1",
+    "_type": "block",
+    "_classes": "",
+    "title": "",
+    "displayTitle": "",
+    "body": "",
+    "_blockPopup": {
+        "_classes": "",
+        "_buttonTitle": "Resources",
+        "_buttonPosition": {
+            "_top":0,
+            "_left":0
+        },
+        "_ariaLabels": {
+            "openPopup": "Resources item. Select here to open."
+        },
+        "_ariaRegions": {
+            "articleReveal": ""
+        },
+        "title": "Resources",
+        "body": "<br>You can take a look at the Act and Regulations by following the links in the Resources section.",
+        "_itemGraphic": {
+            "src": "course/en/images/resource_icon.png",
+            "alt": "alt text"
+        }
+    },
+    "_trackingId": 0
+}
