@@ -10,23 +10,40 @@
     "body": "",
     "_blockPopup": {
         "_classes": "",
-        "_buttonTitle": "Resources",
-        "_buttonPosition": {
-            "_top":0,
-            "_left":0
+        "_buttonTitle": "Button title",
+        "_buttonGraphic": {
+            "src": "course/en/images/resource_btn.png",
+            "srcHover":"course/en/images/resource_btn_over.png",
+            "srcVisited":"course/en/images/resource_btn.png",
+            "alt": "alt text"
         },
         "_ariaLabels": {
-            "openPopup": "Resources item. Select here to open."
+            "openPopup": "Item. Select here to open."
         },
         "_ariaRegions": {
             "articleReveal": ""
         },
-        "title": "Resources",
-        "body": "<br>You can take a look at the Act and Regulations by following the links in the Resources section.",
+        "title": "title text",
+        "body": "body text",
         "_itemGraphic": {
-            "src": "course/en/images/resource_icon.png",
-            "alt": "alt text"
+            "src": "",
+            "alt": ""
         }
     },
     "_trackingId": 0
+}
+
+// Exapmle of styling put in theme.less
+//
+// Button will appear on the right of the Block.
+// If no image is used in the popup the text can be styled to fill the whole width.
+/*
+
+.customBlockPopup {
+    float: right !important;
+    margin-right: @block-title-padding-sides !important;
+
+    .block-popup-contents {
+        width: 100% !important;
+    }
 }

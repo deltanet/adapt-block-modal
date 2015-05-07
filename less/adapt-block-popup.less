@@ -1,11 +1,10 @@
 .block-popup {
-
+	
 	.block-popup-inner {
-		
+		position: relative;
 	}
 
 	.block-popup-open-button {
-		position: relative;
 		background-color: @item-color;
 		text-decoration:none;
 		cursor: pointer;
@@ -30,6 +29,20 @@
 		text-decoration:none;
 		font-weight: bold;
 		text-align: center;
+	}
+
+	.block-popup-graphic-button {
+		img {
+			display: block;
+		}		
+		&.block-popup-button-states-image {
+			.item-states-image.default;
+			.no-touch & {
+				&:hover {
+					.item-states-image.hover;
+				}
+			}											
+		}
 	}
 
 	.block-popup-shadow {
@@ -116,5 +129,38 @@
 			}
 		}
 	}
+}
 
+.item-states-image {
+
+	.default {
+		img.block-popup-button-image-hover {
+			display: none;
+		}			
+		img.block-popup-button-image-visited {
+			display:none;
+		}		
+	}
+	.hover {
+		> img {
+			display:none;
+		}
+		img.block-popup-button-image-hover {
+			display: block;
+		}			
+		img.block-popup-button-image-visited {
+			display:none;
+		}
+	}
+	.visited {
+		> img {
+			display:none;
+		}
+		img.block-popup-button-image-hover {
+			display: none !important;
+		}			
+		img.block-popup-button-image-visited {
+			display:block !important;
+		}
+	}
 }

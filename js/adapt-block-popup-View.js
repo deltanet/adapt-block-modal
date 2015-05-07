@@ -23,6 +23,7 @@ define(function(require) {
         },
 
         events: {
+            "click .block-popup-graphic-button":"openPopup",
             "click .block-popup-open-button":"openPopup",
             "click .content-popup-icon-close":"closeContent",
         },
