@@ -21,7 +21,7 @@
             "openPopup": "Item. Select here to open."
         },
         "_ariaRegions": {
-            "articleReveal": ""
+            "blockPopup": ""
         },
         "title": "title text",
         "body": "body text",
@@ -35,13 +35,18 @@
 
 // Exapmle of styling put in theme.less
 //
-// Button will appear on the right of the Block.
-// If no image is used in the popup the text can be styled to fill the whole width.
 /*
-
 .customBlockPopup {
-    float: right !important;
-    margin-right: @block-title-padding-sides !important;
+
+    //Button will appear on the right of the Block.
+
+    .block-popup-graphic-button {
+        margin-top: -9px !important;
+        margin-right: 30px !important;
+        float: right !important;
+    }
+
+    // If no image is used in the popup the text can be styled to fill the whole width.
 
     .block-popup-contents {
         width: 100% !important;
