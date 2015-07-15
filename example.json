@@ -1,32 +1,45 @@
-// To go in the block.json file
+// Add to Article, Block or component JSON
 
-{
-    "_id": "b-05_1",
-    "_parentId": "a-05_1",
-    "_type": "block",
+// Then specify in "_location" which element the extension is associated to.
+// Values for "_location" are "article" "block" "component".
+
+"_blockPopup": {
+    "_location":"block",
     "_classes": "",
-    "title": "",
-    "displayTitle": "",
-    "body": "",
-    "_blockPopup": {
-        "_classes": "",
-        "_buttonTitle": "Resources",
-        "_buttonPosition": {
-            "_top":0,
-            "_left":0
-        },
-        "_ariaLabels": {
-            "openPopup": "Resources item. Select here to open."
-        },
-        "_ariaRegions": {
-            "articleReveal": ""
-        },
-        "title": "Resources",
-        "body": "<br>You can take a look at the Act and Regulations by following the links in the Resources section.",
-        "_itemGraphic": {
-            "src": "course/en/images/resource_icon.png",
-            "alt": "alt text"
-        }
+    "_buttonTitle": "Button title",
+    "_buttonGraphic": {
+        "src": "course/en/images/resource_btn.png",
+        "srcHover":"course/en/images/resource_btn_over.png",
+        "srcVisited":"course/en/images/resource_btn_visited.png",
+        "alt": "alt text"
     },
-    "_trackingId": 0
+    "_ariaLabels": {
+        "openPopup": "Item. Select here to open."
+    },
+    "title": "title text",
+    "body": "body text",
+    "_itemGraphic": {
+        "src": "",
+        "alt": ""
+    }
+},
+
+// Exapmle of styling put in theme.less
+//
+/*
+.customBlockPopup {
+
+    //Button will appear on the right.
+
+    .block-popup-graphic-button {
+        margin-top: -9px;
+        margin-right: @block-title-padding-sides;
+        float: right;
+    }
+
+    // If no image is used in the popup the text can be styled to fill the whole width.
+
+    .block-popup-contents {
+        width: 100% !important;
+    }
 }
