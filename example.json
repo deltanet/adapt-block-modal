@@ -6,6 +6,7 @@
 "_blockPopup": {
     "_location":"block",
     "_classes": "",
+<<<<<<< HEAD
     "_buttonTitle": "Button title",
     "_buttonGraphic": {
         "src": "course/en/images/resource_btn.png",
@@ -23,18 +24,56 @@
         "alt": ""
     }
 },
+=======
+    "title": "",
+    "displayTitle": "",
+    "body": "",
+    "_blockPopup": {
+        "_classes": "",
+        "_buttonTitle": "Button title",
+        "_buttonGraphic": {
+            "src": "course/en/images/resource_btn.png",
+            "srcHover":"course/en/images/resource_btn_over.png",
+            "srcVisited":"course/en/images/resource_btn.png",
+            "alt": "alt text"
+        },
+        "_ariaLabels": {
+            "openPopup": "Item. Select here to open."
+        },
+        "_ariaRegions": {
+            "blockPopup": ""
+        },
+        "title": "title text",
+        "body": "body text",
+        "_itemGraphic": {
+            "src": "",
+            "alt": ""
+        }
+    },
+    "_trackingId": 0
+}
+>>>>>>> origin/master
 
 // Exapmle of styling put in theme.less
 //
 /*
 .customBlockPopup {
 
+<<<<<<< HEAD
     //Button will appear on the right.
 
     .block-popup-graphic-button {
         margin-top: -9px;
         margin-right: @block-title-padding-sides;
         float: right;
+=======
+    //Button will appear on the right of the Block.
+
+    .block-popup-graphic-button {
+        margin-top: -9px !important;
+        margin-right: 30px !important;
+        float: right !important;
+>>>>>>> origin/master
     }
 
     // If no image is used in the popup the text can be styled to fill the whole width.
