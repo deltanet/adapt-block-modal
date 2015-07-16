@@ -9,6 +9,7 @@
     "displayTitle": "",
     "body": "",
     "_blockPopup": {
+        "_location":"block", // Value here are "article" "block" "component"
         "_classes": "",
         "_buttonTitle": "Resources",
         "_buttonPosition": {
