@@ -1,19 +1,17 @@
 .block-popup {
 
 	.block-popup-inner {
-		
 	}
 
 	.block-popup-open-button {
+		float: right;
 		position: relative;
 		background-color: @item-color;
 		text-decoration:none;
 		cursor: pointer;
 		padding: 10px 20px;
 		&.visited {
-		  .block-popup-open-button-icon {
-			color: @item-visited-color;
-		  }
+		  background-color: @item-visited-color;
 		  &.show:hover {
 			background-color: @item-hover-color;
 			cursor:default; 
@@ -30,6 +28,28 @@
 		text-decoration:none;
 		font-weight: bold;
 		text-align: center;
+	}
+
+	.block-popup-graphic-button {
+		float: right;
+		position: relative;
+		img {
+			display: block;
+		}		
+		&.block-popup-button-states-image {
+			.item-states-image.default;
+			.no-touch & {
+				&:hover {
+					.item-states-image.hover;
+				}
+			}
+		}
+		&.visited {
+		  .item-states-image.visited;
+		  &.show:hover {
+			.item-states-image.hover;
+		  }
+		}
 	}
 
 	.block-popup-shadow {
@@ -69,6 +89,10 @@
 		max-width: @device-width-large;
 		margin: auto;
 		padding-bottom: 50px;
+	}
+
+	.block-popup-content-item {
+		display:none;
 	}
 
 	.block-popup-content-item-inner {
@@ -116,5 +140,38 @@
 			}
 		}
 	}
+}
 
+.item-states-image {
+
+	.default {
+		img.block-popup-button-image-hover {
+			display: none;
+		}			
+		img.block-popup-button-image-visited {
+			display:none;
+		}		
+	}
+	.hover {
+		> img {
+			display:none;
+		}
+		img.block-popup-button-image-hover {
+			display: block;
+		}			
+		img.block-popup-button-image-visited {
+			display:none;
+		}
+	}
+	.visited {
+		> img {
+			display:none;
+		}
+		img.block-popup-button-image-hover {
+			display: none !important;
+		}			
+		img.block-popup-button-image-visited {
+			display:block !important;
+		}
+	}
 }
