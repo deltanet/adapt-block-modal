@@ -3,7 +3,7 @@
 // Then specify in "_location" which element the extension is associated to.
 // Values for "_location" are "article" "block" "component".
 
-"_blockPopup": {
+"_iconPopup": {
     "_location":"block",
     "_items": [
         {

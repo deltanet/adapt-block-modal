@@ -1,19 +1,19 @@
 {
-  "name": "adapt-block-popup",
+  "name": "adapt-icon-popup",
   "version": "0.0.1",
-  "description": "An extension that allows a button to be added to a block which opens more content in a popup",
+  "description": "An extension that allows a button to be added to an article, block or component which opens more content in a popup",
   "main": "",
   "scripts": {
     "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/deltanet/adapt-block-popup.git"
+    "url": "https://github.com/deltanet/adapt-icon-popup.git"
   },
-  "author": "AdaptLearning",
+  "author": "DeltaNet",
   "license": "GPL v3",
   "bugs": {
-    "url": "https://github.com/deltanet/adapt-block-popup/issues"
+    "url": "https://github.com/deltanet/adapt-icon-popup/issues"
   },
   "devDependencies": {
     "karma": "0.10",
