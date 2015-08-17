@@ -10,7 +10,7 @@ define(function(require) {
 
     var IconPopupView = Backbone.View.extend({
 
-        className: "icon-popup",
+        className: "extension-icon-popup",
 
         initialize: function () {
             this.listenTo(Adapt, 'remove', this.remove);
