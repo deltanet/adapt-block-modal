@@ -2,50 +2,17 @@
 <div class="icon-popup-inner {{_iconPopup._classes}}">
 
     {{#each _iconPopup._items}}
-        {{#if _buttonGraphic}}
+        {{#if _buttonGraphic._isEnabled}}
         <a href="#" class="icon-popup-graphic-button icon-popup-button-states-image" role="button" aria-label="{{_ariaLabels.openPopup}}">
             <img src="{{_buttonGraphic.src}}" alt="{{_buttonGraphic.alt}}"/>
             <img src="{{_buttonGraphic.srcHover}}" class="icon-popup-button-image-hover" alt="{{_buttonGraphic.alt}}" title="{{_buttonGraphic.title}}" >
             <img src="{{_buttonGraphic.srcVisited}}" class="icon-popup-button-image-visited" alt="{{_buttonGraphic.alt}}" title="{{_buttonGraphic.title}}" >
         </a>
             {{else}}
-            <a href="#" class="icon-popup-open-button" role="button" aria-label="{{_ariaLabels.openPopup}}">
+            <a href="#" class="icon-popup-open-button {{#if _buttonIcon._isEnabled}}icon {{_buttonIcon._icon}}{{/if}}" role="button" aria-label="{{_ariaLabels.openPopup}}">
                 <span class="icon-popup-open-button-text">{{_buttonTitle}}</span>
             </a>
         {{/if}}
     {{/each}}
-
-    <div class="icon-popup-shadow"></div>
-
-    <div class="icon-popup-content">
-        <div class="content-popup-done clearfix">
-            <a href="#" class="content-popup-icon-close icon icon-cross" aria="{{_accessibility._ariaLabels.popUp}}"></a>
-        </div>
-        <div class="icon-popup-content-inner">
-            {{#each _iconPopup._items}}
-            <div class="icon-popup-content-item component-item">
-                <div class="icon-popup-content-item-inner component-item-inner clearfix">
-                    <div class="icon-popup-contents">
-                        <div class="icon-popup-contents-inner">
-                            {{#if title}}
-                                <h5 class="icon-popup-content-title">
-                                    {{{title}}}
-                                </h5>
-                            {{/if}}
-                            {{#if body}}
-                                <div class="icon-popup-content-body">
-                                    {{{body}}}
-                                </div>
-                            {{/if}}
-                        </div>
-                    </div>
-                    <div class="icon-popup-item-graphic">
-                        <img src="{{_itemGraphic.src}}" alt="{{_itemGraphic.alt}}"/>
-                    </div>
-                </div>
-            </div>
-            {{/each}}
-        </div>
-    </div>
 
 </div>

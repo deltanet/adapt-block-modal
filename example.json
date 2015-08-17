@@ -1,38 +1,26 @@
 // Add to Article, Block or component JSON
 
-// Then specify in "_location" which element the extension is associated to.
-// Values for "_location" are "article" "block" "component".
-
 "_iconPopup": {
-    "_location":"block",
+    "_classes": "",
     "_items": [
         {
-            "_classes": "",
-            "_buttonTitle": "Button title",
-            "_ariaLabels": {
-                "openPopup": "Item. Select here to open."
+            "_buttonTitle": "Resources",
+            "_buttonIcon": {
+                "_isEnabled": false,
+                "_icon": "icon-book"
             },
-            "title": "title text 1",
-            "body": "body text 1",
-            "_itemGraphic": {
-                "src": "",
-                "alt": ""
-            }
-        },
-        {
-            "_classes": "",
-            "_buttonTitle": "Button title",
             "_buttonGraphic": {
+                "_isEnabled": false,
                 "src": "course/en/images/resource_btn.png",
                 "srcHover":"course/en/images/resource_btn_over.png",
                 "srcVisited":"course/en/images/resource_btn_visited.png",
-                "alt": "alt text"
+                "alt": "Resources"
             },
             "_ariaLabels": {
-                "openPopup": "Item. Select here to open."
+                "openPopup": "Resources item. Select here to open."
             },
-            "title": "title text 2",
-            "body": "body text 2",
+            "title": "Resources",
+            "body": "This is the 'icon-popup' extension using a simple text button to represent resources text.",
             "_itemGraphic": {
                 "src": "",
                 "alt": ""

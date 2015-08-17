@@ -1,27 +1,29 @@
 .icon-popup {
 	.icon-popup-inner {
-		position: absolute;
+		position: relative;
 		top: 0;
 		right: 0;
 		float: right;
+		z-index: 1;
 	}
 
 	.icon-popup-open-button {
 		float: right;
 		position: relative;
 		background-color: @item-color;
+		color: @item-text-color;
 		text-decoration:none;
 		cursor: pointer;
-		padding: 10px 20px;
+		padding: 20px;
 		&.visited {
 		  background-color: @item-visited-color;
 		  &.show:hover {
-			background-color: @item-hover-color;
+			background-color: @item-color-hover;
 			cursor:default; 
 		  }
 		}
 		&:hover {
-			background-color: @item-hover-color;
+			background-color: @item-color-hover;
 		}
 	}
   
@@ -52,95 +54,6 @@
 		  &.show:hover {
 			.item-states-image.hover;
 		  }
-		}
-	}
-
-	.icon-popup-shadow {
-		display: none;
-		opacity: 0;
-		position: fixed;
-		z-index: 998;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		background-color: @transparency;
-	}
-
-	.icon-popup-content {
-		position: fixed;
-		top: 50%;
-		left: 0;
-		width: 100%;
-		overflow: hidden;
-		background-color: @secondary-color;
-		display:none;
-		opacity:0;
-		z-index: 999;
-
-		@media all and (max-width:(@device-width-small - 1)) {
-		 	margin:0!important;
-		 	top: 0;
-		 	height: 100%;
-			overflow-y: scroll;
-		    -webkit-overflow-scrolling: touch;
-		}
-
-	}
-
-	.icon-popup-content-inner {
-		max-width: @device-width-large;
-		margin: auto;
-		padding-bottom: 50px;
-	}
-
-	.icon-popup-content-item {
-		display:none;
-	}
-
-	.icon-popup-content-item-inner {
-		padding: 0 20px 20px;
-	}
-
-	.icon-popup-contents {
-		width: 60%;
-		float: left;
-		@media all and (max-width:(@device-width-medium - 1)) {
-		 	width: auto;
-		 	margin-bottom: 20px;
-		}
-	}
-
-	.icon-popup-contents-inner {
-		margin-right: 20px;
-	}
-
-	.icon-popup-item-graphic {
-		width: 40%;
-	    float: right;
-	    text-align: center;
-	    @media all and (max-width:(@device-width-medium - 1)) {
-		 	width: auto;
-		}
-	}
-
-	.icon-popup-content-title {
-		color: @background-color;
-	}
-
-	.icon-popup-content-body {
-		color: @background-color;
-	}
-
-	.content-popup-icon-close {
-		float:right;
-		color:@background-color;
-		padding: 10px;
-		font-size: 26px;
-		.no-touch & {
-			&:hover {
-				color:@item-hover-color;
-			}
 		}
 	}
 }
