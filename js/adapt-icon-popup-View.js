@@ -23,15 +23,15 @@ define(function(require) {
             "click .icon-popup-open-button":"openPopup"
         },
 
-        preRender: function() {
-        },
+        preRender: function() {},
 
         render: function () {
 
             var data = this.model.toJSON();
             var template = Handlebars.templates["icon-popup"];
 
-            $(this.el).html(template(data)).prependTo('.' + this.model.get("_id") + " > ." + this.model.get("_type")+"-inner");
+            $(this.el).html(template(data)).prependTo('.' + this.model.get("_id"));
+            console.log(this.model.get("_id"));
         },
         
         openPopup: function(event) {

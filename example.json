@@ -4,9 +4,9 @@
     "_classes": "",
     "_items": [
         {
-            "_buttonTitle": "Resources",
+            "_buttonTitle": "",
             "_buttonIcon": {
-                "_isEnabled": false,
+                "_isEnabled": true,
                 "_icon": "icon-book"
             },
             "_buttonGraphic": {

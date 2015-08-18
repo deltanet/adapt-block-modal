@@ -1,20 +1,20 @@
 .extension-icon-popup {
+	position: relative;
+	width: 100%;
+	float: right;
 	.icon-popup-inner {
 		position: relative;
-		top: 0;
-		right: 0;
-		float: right;
 		z-index: 1;
+        float: right;
 	}
 
 	.icon-popup-open-button {
-		float: right;
-		position: relative;
+        float: right;
 		background-color: @item-color;
 		color: @item-text-color;
 		text-decoration:none;
 		cursor: pointer;
-		padding: 20px;
+		padding: @component-padding;
 		&.visited {
 		  background-color: @item-visited-color;
 		  &.show:hover {
@@ -28,7 +28,6 @@
 	}
   
   	.icon-popup-open-button-text {
-		position:relative;
 		color: @item-text-color;
 		text-decoration:none;
 		font-weight: bold;
@@ -37,7 +36,6 @@
 
 	.icon-popup-graphic-button {
 		float: right;
-		position: relative;
 		img {
 			display: block;
 		}		
