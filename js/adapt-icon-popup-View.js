@@ -31,7 +31,6 @@ define(function(require) {
             var template = Handlebars.templates["icon-popup"];
 
             $(this.el).html(template(data)).prependTo('.' + this.model.get("_id"));
-            console.log(this.model.get("_id"));
         },
         
         openPopup: function(event) {
