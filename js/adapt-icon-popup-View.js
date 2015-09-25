@@ -39,13 +39,20 @@ define(function(require) {
 
             var $item = $(event.currentTarget);
             var currentItem = this.getCurrentItem($item.index());
-            var popupObject = {
-                title: currentItem.title,
-                body: "<div class='icon-popup-notify-body'>" +
-                currentItem.body + "</div><img class='icon-popup-notify-graphic' src='"+
-                currentItem._itemGraphic.src +"' alt='"+
-                currentItem._itemGraphic.alt +"'/>"
-            };
+            if (currentItem._itemGraphic.src != null) {
+                var popupObject = {
+                    title: currentItem.title,
+                    body: "<div class='icon-popup-notify-body-small'>" +
+                    currentItem.body + "</div><img class='icon-popup-notify-graphic-small' src='"+
+                    currentItem._itemGraphic.src +"' alt='"+
+                    currentItem._itemGraphic.alt +"'/>"
+                };
+            } else {
+                var popupObject = {
+                    title: currentItem.title,
+                    body: "<div class='icon-popup-notify-body'>" + currentItem.body +"'/>"
+                };
+            }
 
             Adapt.trigger("notify:popup", popupObject);
             $item.addClass("visited");

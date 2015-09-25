@@ -15,7 +15,7 @@
 		cursor: pointer;
 		padding: @item-padding;
 		&.visited {
-		  background-color: @item-visited-color;
+		  background-color: @item-color-visited;
 		  &.show:hover {
 			background-color: @item-color-hover;
 			cursor:default; 
@@ -52,6 +52,52 @@
 			.item-states-image.hover;
 		  }
 		}
+	}
+}
+
+.icon-popup-notify-body {
+	float: left;
+	.dir-rtl & {
+		float: right;
+	}
+	padding-bottom: @notify-padding-bottom;
+}
+
+.icon-popup-notify-graphic {
+	float: right;
+	.dir-rtl & {
+		float: left;
+	}
+	padding-bottom: @notify-padding-bottom;
+	@media (min-width: (@device-width-medium + 1)) {
+		margin-top: -@notify-title-padding-bottom;
+	}
+}
+
+.icon-popup-notify-body-small {
+	float: left;
+	.dir-rtl & {
+		float: right;
+	}
+	padding-bottom: @component-padding;
+	@media (min-width: (@device-width-medium + 1)) {
+		padding-right: 2%;
+		.dir-rtl & {
+			padding-left: 2%;
+		}
+		width: 58%;
+	}
+}
+
+.icon-popup-notify-graphic-small {
+	float: right;
+	.dir-rtl & {
+		float: left;
+	}
+	padding-bottom: @notify-padding-bottom;
+	@media (min-width: (@device-width-medium + 1)) {
+		width: 40%;
+		margin-top: -@notify-title-padding-bottom;
 	}
 }
 
