@@ -30,7 +30,7 @@ define(function(require) {
             var data = this.model.toJSON();
             var template = Handlebars.templates["icon-popup"];
 
-            $(this.el).html(template(data)).prependTo('.' + this.model.get("_id"));
+            $(this.el).html(template(data)).prependTo('.' + this.model.get("_id") + " > ."+this.model.get("_type")+"-inner");
         },
         
         openPopup: function(event) {
