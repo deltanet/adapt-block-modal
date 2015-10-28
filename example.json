@@ -28,3 +28,9 @@
         }
     ]
 },
+
+// Accessibility supported courses require ARIA instruction - apply to _globals in course.json
+
+"_iconPopup": {
+    "iconPopup": "Icon popup. Select an item to trigger a popup that includes an image with display text. Select the close button to close the popup."
+}

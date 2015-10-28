@@ -1,12 +1,12 @@
 {{! Maintainers - Robert Peek}}
-<div class="icon-popup-inner {{_iconPopup._classes}}">
+<div class="icon-popup-inner {{_iconPopup._classes}}" aria-label="{{_globals._extensions._iconPopup.iconPopup}}" {{#if _globals._extensions._iconPopup.iconPopup}}tabindex="0"{{/if}}>
 
     {{#each _iconPopup._items}}
         {{#if _buttonGraphic._isEnabled}}
         <a href="#" class="icon-popup-graphic-button icon-popup-button-states-image" role="button" aria-label="{{_ariaLabels.openPopup}}">
-            <img src="{{_buttonGraphic.src}}" alt="{{_buttonGraphic.alt}}"/>
-            <img src="{{_buttonGraphic.srcHover}}" class="icon-popup-button-image-hover" alt="{{_buttonGraphic.alt}}" title="{{_buttonGraphic.title}}" >
-            <img src="{{_buttonGraphic.srcVisited}}" class="icon-popup-button-image-visited" alt="{{_buttonGraphic.alt}}" title="{{_buttonGraphic.title}}" >
+            <img src="{{_buttonGraphic.src}}" alt="{{_buttonGraphic.alt}}" title="{{_buttonGraphic.title}}"/>
+            <img src="{{_buttonGraphic.srcHover}}" class="icon-popup-button-image-hover" alt="{{_buttonGraphic.alt}}" title="{{_buttonGraphic.title}}"/>
+            <img src="{{_buttonGraphic.srcVisited}}" class="icon-popup-button-image-visited" alt="{{_buttonGraphic.alt}}" title="{{_buttonGraphic.title}}"/>
         </a>
             {{else}}
             <a href="#" class="icon-popup-open-button {{#if _buttonIcon._isEnabled}}icon {{_buttonIcon._icon}}{{/if}}" role="button" aria-label="{{_ariaLabels.openPopup}}">
