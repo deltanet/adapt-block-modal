@@ -1,26 +1,33 @@
 .extension-icon-popup {
+
 	.icon-popup-inner {
-		position: relative;
-		z-index: 1;
-        float: right;
+		position: absolute;
+		right: 0px;
+		top: 0;
+		z-index: 20;
         .dir-rtl & {
-			float: left;
+        	right: inherit;
+			left: 0px;
 		}
 		&.article {
+			.dir-rtl & {
+			}
 		}
 		&.block {
+			.dir-rtl & {
+			}
 		}
 		&.component {
 			.dir-rtl & {
-				margin-left: -@component-padding !important;
 			}
 		}
 	}
 
 	.icon-popup-open-button {
-        float: right;
+        right: 0px;
         .dir-rtl & {
-			float: left;
+        	right: inherit;
+			left: 0px;
 		}
 		background-color: @item-color;
 		color: @item-text-color;
@@ -47,9 +54,10 @@
 	}
 
 	.icon-popup-graphic-button {
-		float: right;
+		right: 0px;
 		.dir-rtl & {
-			float: left;
+			right: inherit;
+			left: 0px;
 		}
 		img {
 			display: block;
