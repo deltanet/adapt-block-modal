@@ -1,23 +1,26 @@
 .extension-icon-popup {
 
 	.icon-popup-inner {
-		position: absolute;
 		right: 0px;
-		top: 0;
-		z-index: 20;
+		top: 0px;
+		z-index: 1;
         .dir-rtl & {
         	right: inherit;
 			left: 0px;
 		}
-		&.article {
+		&.icon-popup-article {
+			float: right;
+			.dir-rtl & {
+				float: left;
+			}
+		}
+		&.icon-popup-block {
+			position: absolute;
 			.dir-rtl & {
 			}
 		}
-		&.block {
-			.dir-rtl & {
-			}
-		}
-		&.component {
+		&.icon-popup-component {
+			position: absolute;
 			.dir-rtl & {
 			}
 		}
