@@ -1,9 +1,3 @@
-/*
-* adapt-icon-popup
-* License - http://github.com/adaptlearning/adapt_framework/LICENSE
-* Maintainers - Robert Peek <robert@delta-net.co.uk>
-*/
-
 define(function(require) {
 
     var Adapt = require('coreJS/adapt');
@@ -45,7 +39,7 @@ define(function(require) {
 
             if (event) event.preventDefault();
 
-            var $item = $(event.currentTarget);
+            var $item = $(event.currentTarget).parent();
             var currentItem = this.getCurrentItem($item.index());
             var popupObject = {
                 title: currentItem.title,
@@ -61,7 +55,7 @@ define(function(require) {
         },
 
         getCurrentItem: function(index) {
-            return this.model.get('_iconPopup')._items[index];
+            return this.model.get("_iconPopup")._items[index];
         }
 
     });
