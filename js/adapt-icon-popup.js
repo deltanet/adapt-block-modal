@@ -13,8 +13,8 @@ define(function(require) {
         },
 
         events: {
-            "click .icon-popup-graphic-button":"openPopup",
-            "click .icon-popup-open-button":"openPopup"
+            "click .icon-popup-graphic-button":"onItemClicked",
+            "click .icon-popup-open-button":"onItemClicked"
         },
 
         preRender: function() {},
@@ -34,38 +34,45 @@ define(function(require) {
             this.$('.icon-popup-inner').addClass('icon-popup-'+this.model.get("_type"));
 
         },
-        
-        openPopup: function(event) {
 
+        onItemClicked: function(event) {
             if (event) event.preventDefault();
 
-            var $item = $(event.currentTarget).parent();
-            var currentItem = this.getCurrentItem($item.index());
-            var popupObject = {
-                title: currentItem.title,
-                body: "<div class='icon-popup-notify-body'>" +
-                currentItem.body + "</div><img class='icon-popup-notify-graphic' src='"+
-                currentItem._itemGraphic.src +"' alt='"+
-                currentItem._itemGraphic.alt +"'/>"
-            };
+            var $link = $(event.currentTarget);
+            var $item = $link;
+            var itemModel = this.model.get('_iconPopup')._items[$link.index() - 1];
 
-            Adapt.trigger("notify:popup", popupObject);
-            $item.addClass("visited");
+            this.showItemContent(itemModel);
+        },
+
+        showItemContent: function(itemModel) {
+            if(this.isPopupOpen) return;// ensure multiple clicks don't open multiple notify popups
+
+            console.log(itemModel);
+
+            Adapt.trigger("notify:popup", {
+                title: itemModel.title,
+                body: "<div class='icon-popup-notify-body'>" + itemModel.body + "</div>" +
+                    "<img class='icon-popup-notify-graphic' src='" +
+                    itemModel._itemGraphic.src + "' alt='" +
+                    itemModel._itemGraphic.alt + "'/></div>"
+            });
+
+            this.isPopupOpen = true;
 
             ///// Audio /////
             if (this.model.get('_iconPopup')._audio._isEnabled && Adapt.audio.audioClip[this.model.get('_iconPopup')._audio._channel].status==1) {
                 // Determine which filetype to play
-                if (Adapt.audio.audioClip[this.model.get('_iconPopup')._audio._channel].canPlayType('audio/ogg')) this.audioFile = currentItem._audio.ogg;
-                if (Adapt.audio.audioClip[this.model.get('_iconPopup')._audio._channel].canPlayType('audio/mpeg')) this.audioFile = currentItem._audio.mp3;
+                if (Adapt.audio.audioClip[this.model.get('_iconPopup')._audio._channel].canPlayType('audio/ogg')) this.audioFile = itemModel._audio.ogg;
+                if (Adapt.audio.audioClip[this.model.get('_iconPopup')._audio._channel].canPlayType('audio/mpeg')) this.audioFile = itemModel._audio.mp3;
                 // Trigger audio
                 Adapt.trigger('audio:playAudio', this.audioFile, this.model.get('_id'), this.model.get('_iconPopup')._audio._channel);
             }
             ///// End of Audio /////
 
-        },
-
-        getCurrentItem: function(index) {
-            return this.model.get("_iconPopup")._items[index];
+            Adapt.once("notify:closed", _.bind(function() {
+                this.isPopupOpen = false;
+            }, this));
         }
 
     });
