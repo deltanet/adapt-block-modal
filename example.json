@@ -30,8 +30,7 @@
                 "alt": ""
             },
             "_audio": {
-                "mp3": "course/en/audio/***.mp3",
-                "ogg": "course/en/audio/***.ogg"
+                "src": "course/en/audio/***.mp3"
             }
         }
     ]

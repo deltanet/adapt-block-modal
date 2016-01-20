@@ -48,8 +48,6 @@ define(function(require) {
         showItemContent: function(itemModel) {
             if(this.isPopupOpen) return;// ensure multiple clicks don't open multiple notify popups
 
-            console.log(itemModel);
-
             Adapt.trigger("notify:popup", {
                 title: itemModel.title,
                 body: "<div class='icon-popup-notify-body'>" + itemModel.body + "</div>" +
@@ -62,11 +60,8 @@ define(function(require) {
 
             ///// Audio /////
             if (this.model.get('_iconPopup')._audio._isEnabled && Adapt.audio.audioClip[this.model.get('_iconPopup')._audio._channel].status==1) {
-                // Determine which filetype to play
-                if (Adapt.audio.audioClip[this.model.get('_iconPopup')._audio._channel].canPlayType('audio/ogg')) this.audioFile = itemModel._audio.ogg;
-                if (Adapt.audio.audioClip[this.model.get('_iconPopup')._audio._channel].canPlayType('audio/mpeg')) this.audioFile = itemModel._audio.mp3;
                 // Trigger audio
-                Adapt.trigger('audio:playAudio', this.audioFile, this.model.get('_id'), this.model.get('_iconPopup')._audio._channel);
+                Adapt.trigger('audio:playAudio', itemModel._audio.src, this.model.get('_id'), this.model.get('_iconPopup')._audio._channel);
             }
             ///// End of Audio /////
 
