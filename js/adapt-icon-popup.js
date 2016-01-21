@@ -50,7 +50,7 @@ define(function(require) {
 
             Adapt.trigger("notify:popup", {
                 title: itemModel.title,
-                body: "<div class='icon-popup-notify-body'>" + itemModel.body + "</div>" +
+                body: "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body'>" + itemModel.body + "</div>" +
                     "<img class='icon-popup-notify-graphic' src='" +
                     itemModel._itemGraphic.src + "' alt='" +
                     itemModel._itemGraphic.alt + "'/></div>"
