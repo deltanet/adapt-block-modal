@@ -11,7 +11,7 @@
             "_buttonTitle": "",
             "_buttonIcon": {
                 "_isEnabled": true,
-                "_icon": "icon-book"
+                "_icon": "icon-book" // "icon-light-bulb" -- "icon-warning"
             },
             "_buttonGraphic": {
                 "_isEnabled": false,
