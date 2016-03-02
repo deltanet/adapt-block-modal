@@ -49,6 +49,7 @@ define(function(require) {
             if(this.isPopupOpen) return;// ensure multiple clicks don't open multiple notify popups
 
             Adapt.trigger("notify:popup", {
+                header: itemModel._notifyGraphic.src,
                 title: itemModel.title,
                 body: "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body'>" + itemModel.body + "</div>" +
                     "<img class='icon-popup-notify-graphic' src='" +
