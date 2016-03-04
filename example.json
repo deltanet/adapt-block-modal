@@ -13,6 +13,9 @@
                 "_isEnabled": true,
                 "_icon": "icon-book" // "icon-light-bulb" -- "icon-warning"
             },
+            "_notifyGraphic": {
+                "src": "adapt/css/assets/resource-icon.png" // "resource-icon" -- "warning-icon" -- "dyk-icon" -- "warning-icon"
+            },
             "_buttonGraphic": {
                 "_isEnabled": false,
                 "src": "course/en/images/resource_btn.png",
