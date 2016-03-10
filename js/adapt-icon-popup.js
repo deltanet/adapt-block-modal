@@ -24,12 +24,7 @@ define(function(require) {
             var data = this.model.toJSON();
             var template = Handlebars.templates["icon-popup"];
 
-            // Article
-            if(this.model.get("_type")=="article") {
-                $(this.el).html(template(data)).prependTo('.' + this.model.get("_id"));
-            } else {
-                $(this.el).html(template(data)).appendTo('.' + this.model.get("_id") + '>.' +this.model.get("_type")+'-inner');
-            }
+            $(this.el).html(template(data)).prependTo('.' + this.model.get("_id") + '>.' +this.model.get("_type")+'-inner');
            
             this.$('.icon-popup-inner').addClass('icon-popup-'+this.model.get("_type"));
 
