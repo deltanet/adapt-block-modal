@@ -9,6 +9,6 @@ An extension that allows a button to be added to an article, block or component 
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-icon-popup/graphs/contributors)     
 **Accessibility support:** Yes  
 **RTL support:** Yes
-**Authoring tool support:** no
+**Authoring tool support:** yes
 ----------------------------
 
