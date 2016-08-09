@@ -25,7 +25,7 @@ define(function(require) {
             var template = Handlebars.templates["icon-popup"];
 
             $(this.el).html(template(data)).prependTo('.' + this.model.get("_id") + '>.' +this.model.get("_type")+'-inner');
-           
+
             this.$('.icon-popup-inner').addClass('icon-popup-'+this.model.get("_type"));
 
         },
@@ -61,13 +61,18 @@ define(function(require) {
             }
             ///// End of Audio /////
 
+            // Check completion
+            if (itemModel._setCompletion) {
+              this.model.set("_isComplete", true);
+            }
+
             Adapt.once("notify:closed", _.bind(function() {
                 this.isPopupOpen = false;
             }, this));
         }
 
     });
-    
+
     Adapt.on('articleView:postRender blockView:postRender componentView:postRender', function(view) {
         if (view.model.get("_iconPopup")) {
           new IconPopup({model:view.model});
