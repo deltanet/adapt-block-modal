@@ -72,6 +72,15 @@
                     "type":"object",
                     "required":true,
                     "properties":{
+                      "_setCompletion": {
+                        "type":"boolean",
+                        "required":false,
+                        "default": "false",
+                        "title": "Set Completion",
+                        "inputType": { "type": "Boolean", "options": [false, true]},
+                        "validators": [],
+                        "help": "Sets the article to complete when the button is selected."
+                      },
                       "_buttonTitle": {
                         "type":"string",
                         "required":true,
@@ -293,6 +302,15 @@
                     "type":"object",
                     "required":true,
                     "properties":{
+                      "_setCompletion": {
+                        "type":"boolean",
+                        "required":false,
+                        "default": "false",
+                        "title": "Set Completion",
+                        "inputType": { "type": "Boolean", "options": [false, true]},
+                        "validators": [],
+                        "help": "Sets the block to complete when the button is selected."
+                      },
                       "_buttonTitle": {
                         "type":"string",
                         "required":true,
@@ -514,6 +532,15 @@
                     "type":"object",
                     "required":true,
                     "properties":{
+                      "_setCompletion": {
+                        "type":"boolean",
+                        "required":false,
+                        "default": "false",
+                        "title": "Set Completion",
+                        "inputType": { "type": "Boolean", "options": [false, true]},
+                        "validators": [],
+                        "help": "Sets the component to complete when the button is selected."
+                      },
                       "_buttonTitle": {
                         "type":"string",
                         "required":true,
@@ -683,4 +710,5 @@
         }
       }
     }
+  }
 }

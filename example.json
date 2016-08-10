@@ -8,6 +8,7 @@
     },
     "_items": [
         {
+            "_setCompletion": true,
             "_buttonTitle": "",
             "_buttonIcon": {
                 "_isEnabled": true,
