@@ -35,14 +35,14 @@
 		  background-color: @item-visited-color;
 		  &.show:hover {
 			background-color: @item-color-hover;
-			cursor:default; 
+			cursor:default;
 		  }
 		}
 		&:hover {
 			background-color: @item-color-hover;
 		}
 	}
-  
+
   	.icon-popup-open-button-text {
 		color: @item-text-color;
 		text-decoration:none;
@@ -57,7 +57,7 @@
 		}
 		img {
 			display: block;
-		}		
+		}
 		&.icon-popup-button-states-image {
 			.item-states-image.default;
 			.no-touch & {
@@ -119,10 +119,10 @@
 	.default {
 		img.icon-popup-button-image-hover {
 			display: none;
-		}			
+		}
 		img.icon-popup-button-image-visited {
 			display:none;
-		}		
+		}
 	}
 	.hover {
 		> img {
@@ -130,7 +130,7 @@
 		}
 		img.icon-popup-button-image-hover {
 			display: block;
-		}			
+		}
 		img.icon-popup-button-image-visited {
 			display:none;
 		}
@@ -141,9 +141,14 @@
 		}
 		img.icon-popup-button-image-hover {
 			display: none !important;
-		}			
+		}
 		img.icon-popup-button-image-visited {
 			display:block !important;
 		}
 	}
+}
+
+.icon-popup-prompt-image {
+    height: 130px;
+    padding-bottom: @component-padding;
 }

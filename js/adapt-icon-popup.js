@@ -43,13 +43,23 @@ define(function(require) {
         showItemContent: function(itemModel) {
             if(this.isPopupOpen) return;// ensure multiple clicks don't open multiple notify popups
 
+            // Set variable to use when adding the header image to the notify popup
+            if(itemModel._notifyGraphic.src && !itemModel._notifyGraphic.src == "") {
+              this.headerImage = "<div class='icon-popup-prompt-image'><img src='"+itemModel._notifyGraphic.src+"'/></div>";
+            } else {
+              this.headerImage = "";
+            }
+
+            // Set variable to use when adding the image to the notify popup
+            if(itemModel._itemGraphic.src && !itemModel._itemGraphic.src == "") {
+              this.itemImage = "<img class='icon-popup-notify-graphic' src='" +itemModel._itemGraphic.src + "' alt='" +itemModel._itemGraphic.alt + "'/>";
+            } else {
+              this.itemImage = "";
+            }
+
             Adapt.trigger("notify:popup", {
-                header: itemModel._notifyGraphic.src,
-                title: itemModel.title,
-                body: "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body'>" + itemModel.body + "</div>" +
-                    "<img class='icon-popup-notify-graphic' src='" +
-                    itemModel._itemGraphic.src + "' alt='" +
-                    itemModel._itemGraphic.alt + "'/></div>"
+                title: this.headerImage+itemModel.title,
+                body: "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body'>" + itemModel.body + "</div>" +this.itemImage+"</div>"
             });
 
             this.isPopupOpen = true;
