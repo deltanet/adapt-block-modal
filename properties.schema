@@ -10,7 +10,6 @@
       "properties":{
         "config": {
           "type":"object"
-          }
         },
         "course": {
           "type":"object"
@@ -711,3 +710,4 @@
       }
     }
   }
+}
