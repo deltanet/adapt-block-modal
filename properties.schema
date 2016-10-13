@@ -200,7 +200,7 @@
                         "type":"string",
                         "required":false,
                         "default": "",
-                        "title": "Title",
+                        "title": "Body",
                         "inputType": "TextArea"
                       },
                       "_itemGraphic": {
@@ -430,7 +430,7 @@
                         "type":"string",
                         "required":false,
                         "default": "",
-                        "title": "Title",
+                        "title": "Body",
                         "inputType": "TextArea"
                       },
                       "_itemGraphic": {
@@ -660,7 +660,7 @@
                         "type":"string",
                         "required":false,
                         "default": "",
-                        "title": "Title",
+                        "title": "Body",
                         "inputType": "TextArea"
                       },
                       "_itemGraphic": {
