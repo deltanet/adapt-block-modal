@@ -86,7 +86,7 @@
                         "default": "",
                         "title": "Button Title",
                         "inputType": "Text",
-                        "validators": ["required"],
+                        "validators": [],
                         "help": "This text will display as the item text"
                       },
                       "_buttonIcon": {
@@ -316,7 +316,7 @@
                         "default": "",
                         "title": "Button Title",
                         "inputType": "Text",
-                        "validators": ["required"],
+                        "validators": [],
                         "help": "This text will display as the item text"
                       },
                       "_buttonIcon": {
@@ -546,7 +546,7 @@
                         "default": "",
                         "title": "Button Title",
                         "inputType": "Text",
-                        "validators": ["required"],
+                        "validators": [],
                         "help": "This text will display as the item text"
                       },
                       "_buttonIcon": {
