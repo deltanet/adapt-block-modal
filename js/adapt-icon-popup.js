@@ -34,10 +34,11 @@ define(function(require) {
             if (event) event.preventDefault();
 
             var $link = $(event.currentTarget);
-            var $item = $link;
-            var itemModel = this.model.get('_iconPopup')._items[$link.index() - 1];
-
-            this.showItemContent(itemModel);
+            var $item = $link.parent();
+            var itemModel = this.model.get('_iconPopup')._items[$item.index()];
+            if (itemModel) {
+              this.showItemContent(itemModel);
+            }
         },
 
         showItemContent: function(itemModel) {
@@ -65,7 +66,7 @@ define(function(require) {
             this.isPopupOpen = true;
 
             ///// Audio /////
-            if (this.model.get('_iconPopup')._audio._isEnabled && Adapt.audio.audioClip[this.model.get('_iconPopup')._audio._channel].status==1) {
+            if (this.model.get('_iconPopup')._audio._isEnabled && Adapt.audio && Adapt.audio.audioClip[this.model.get('_iconPopup')._audio._channel].status==1) {
                 // Trigger audio
                 Adapt.trigger('audio:playAudio', itemModel._audio.src, this.model.get('_id'), this.model.get('_iconPopup')._audio._channel);
             }
