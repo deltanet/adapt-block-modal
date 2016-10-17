@@ -1,7 +1,8 @@
 {{! Maintainers - Robert Peek}}
-<div class="icon-popup-inner {{_iconPopup._classes}}" aria-label="{{_globals._extensions._iconPopup.iconPopup}}" {{#if _globals._extensions._iconPopup.iconPopup}}tabindex="0"{{/if}}>
-
+<div class="icon-popup-inner {{_iconPopup._classes}}" aria-label="{{_globals._extensions._iconPopup.iconPopup}}" tabindex="0">
+  <div class="icon-popup-items">
     {{#each _iconPopup._items}}
+    <div class="icon-popup-item" data-id="item-{{@index}}">
         {{#if _buttonGraphic._isEnabled}}
         <a href="#" class="icon-popup-graphic-button icon-popup-button-states-image" role="button" aria-label="{{_ariaLabels.openPopup}}">
             <img src="{{_buttonGraphic.src}}" alt="{{_buttonGraphic.alt}}" title="{{_buttonGraphic.title}}"/>
@@ -13,6 +14,7 @@
                 <span class="icon-popup-open-button-text">{{_buttonTitle}}</span>
             </button>
         {{/if}}
+      </div>
     {{/each}}
-
+  </div>
 </div>

@@ -34,8 +34,8 @@ define(function(require) {
             if (event) event.preventDefault();
 
             var $link = $(event.currentTarget);
-            var $item = $link;
-            var itemModel = this.model.get('_iconPopup')._items[$link.index()];
+            var $item = $link.parent();
+            var itemModel = this.model.get('_iconPopup')._items[$item.index()];
             if (itemModel) {
               this.showItemContent(itemModel);
             }
