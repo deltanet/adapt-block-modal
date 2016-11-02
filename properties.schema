@@ -87,7 +87,8 @@
                         "title": "Button Title",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "This text will display as the item text"
+                        "help": "This text will display as the item text",
+                        "translatable": true
                       },
                       "_buttonIcon": {
                         "type":"object",
@@ -169,7 +170,8 @@
                             "default": "",
                             "inputType": "Text",
                             "validators": [],
-                            "help": "Alternative text for this items button graphic"
+                            "help": "Alternative text for this items button graphic",
+                            "translatable": true
                           }
                         }
                       },
@@ -184,7 +186,8 @@
                             "default": "",
                             "title": "Popup Aria Label",
                             "inputType": "Text",
-                            "validators": []
+                            "validators": [],
+                            "translatable": true
                           }
                         }
                       },
@@ -194,14 +197,16 @@
                         "default": "",
                         "title": "Title",
                         "inputType": "Text",
-                        "validators": [""]
+                        "validators": [""],
+                        "translatable": true
                       },
                       "body": {
                         "type":"string",
                         "required":false,
                         "default": "",
                         "title": "Body",
-                        "inputType": "TextArea"
+                        "inputType": "TextArea",
+                        "translatable": true
                       },
                       "_itemGraphic": {
                         "type":"object",
@@ -221,7 +226,8 @@
                             "default": "",
                             "inputType": "Text",
                             "validators": [],
-                            "help": "Alternative text for item graphic"
+                            "help": "Alternative text for item graphic",
+                            "translatable": true
                           }
                         }
                       },
@@ -317,7 +323,8 @@
                         "title": "Button Title",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "This text will display as the item text"
+                        "help": "This text will display as the item text",
+                        "translatable": true
                       },
                       "_buttonIcon": {
                         "type":"object",
@@ -399,7 +406,8 @@
                             "default": "",
                             "inputType": "Text",
                             "validators": [],
-                            "help": "Alternative text for this items button graphic"
+                            "help": "Alternative text for this items button graphic",
+                            "translatable": true
                           }
                         }
                       },
@@ -414,7 +422,8 @@
                             "default": "",
                             "title": "Popup Aria Label",
                             "inputType": "Text",
-                            "validators": []
+                            "validators": [],
+                            "translatable": true
                           }
                         }
                       },
@@ -424,14 +433,16 @@
                         "default": "",
                         "title": "Title",
                         "inputType": "Text",
-                        "validators": [""]
+                        "validators": [""],
+                        "translatable": true
                       },
                       "body": {
                         "type":"string",
                         "required":false,
                         "default": "",
                         "title": "Body",
-                        "inputType": "TextArea"
+                        "inputType": "TextArea",
+                        "translatable": true
                       },
                       "_itemGraphic": {
                         "type":"object",
@@ -451,7 +462,8 @@
                             "default": "",
                             "inputType": "Text",
                             "validators": [],
-                            "help": "Alternative text for item graphic"
+                            "help": "Alternative text for item graphic",
+                            "translatable": true
                           }
                         }
                       },
@@ -547,7 +559,8 @@
                         "title": "Button Title",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "This text will display as the item text"
+                        "help": "This text will display as the item text",
+                        "translatable": true
                       },
                       "_buttonIcon": {
                         "type":"object",
@@ -629,7 +642,8 @@
                             "default": "",
                             "inputType": "Text",
                             "validators": [],
-                            "help": "Alternative text for this items button graphic"
+                            "help": "Alternative text for this items button graphic",
+                            "translatable": true
                           }
                         }
                       },
@@ -644,7 +658,8 @@
                             "default": "",
                             "title": "Popup Aria Label",
                             "inputType": "Text",
-                            "validators": []
+                            "validators": [],
+                            "translatable": true
                           }
                         }
                       },
@@ -654,14 +669,16 @@
                         "default": "",
                         "title": "Title",
                         "inputType": "Text",
-                        "validators": [""]
+                        "validators": [""],
+                        "translatable": true
                       },
                       "body": {
                         "type":"string",
                         "required":false,
                         "default": "",
                         "title": "Body",
-                        "inputType": "TextArea"
+                        "inputType": "TextArea",
+                        "translatable": true
                       },
                       "_itemGraphic": {
                         "type":"object",
@@ -681,7 +698,8 @@
                             "default": "",
                             "inputType": "Text",
                             "validators": [],
-                            "help": "Alternative text for item graphic"
+                            "help": "Alternative text for item graphic",
+                            "translatable": true
                           }
                         }
                       },
