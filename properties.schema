@@ -35,7 +35,7 @@
                 },
                 "_classes": {
                   "type": "string",
-                  "required": true,
+                  "required": false,
                   "title": "Classes",
                   "inputType": "Text",
                   "validators": []
@@ -54,11 +54,11 @@
                     },
                     "_channel": {
                       "type":"number",
-                      "required":true,
+                      "required":false,
                       "default": 0,
                       "title": "Channel Number",
-                      "inputType": "Number",
-                      "validators": ["required", "number"],
+                      "inputType": {"type": "Select", "options": [0, 1, 2]},
+                      "validators": ["number"],
                       "help": "channels represent the number of items defined in the course.json settings, by default there are 0, 1 and 2 available (3 _audioItems in the array)"
                     }
                   }
@@ -290,11 +290,11 @@
                     },
                     "_channel": {
                       "type":"number",
-                      "required":true,
+                      "required":false,
                       "default": 0,
                       "title": "Channel Number",
-                      "inputType": "Number",
-                      "validators": ["required", "number"],
+                      "inputType": {"type": "Select", "options": [0, 1, 2]},
+                      "validators": ["number"],
                       "help": "channels represent the number of items defined in the course.json settings, by default there are 0, 1 and 2 available (3 _audioItems in the array)"
                     }
                   }
@@ -526,11 +526,11 @@
                     },
                     "_channel": {
                       "type":"number",
-                      "required":true,
+                      "required":false,
                       "default": 0,
                       "title": "Channel Number",
-                      "inputType": "Number",
-                      "validators": ["required", "number"],
+                      "inputType": {"type": "Select", "options": [0, 1, 2]},
+                      "validators": ["number"],
                       "help": "channels represent the number of items defined in the course.json settings, by default there are 0, 1 and 2 available (3 _audioItems in the array)"
                     }
                   }
