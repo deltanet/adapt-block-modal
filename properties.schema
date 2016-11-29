@@ -43,7 +43,7 @@
                 "_audio": {
                   "type":"object",
                   "required":false,
-                  "legend": "Audio",
+                  "title": "Audio",
                   "properties":{
                     "_isEnabled": {
                       "type":"boolean",
@@ -133,7 +133,7 @@
                       "_buttonGraphic": {
                         "type":"object",
                         "required":false,
-                        "legend": "Button Graphic",
+                        "title": "Button Graphic",
                         "properties":{
                           "_isEnabled": {
                             "type":"boolean",
@@ -241,7 +241,7 @@
                             "type": "string",
                             "required": false,
                             "default": "",
-                            "title": "Audio",
+                            "title": "Item Audio",
                             "inputType": "Asset:audio",
                             "validators": [],
                             "help": "Optional audio which will be played with the item body text"
@@ -281,7 +281,7 @@
                 "_audio": {
                   "type":"object",
                   "required":false,
-                  "legend": "Audio",
+                  "title": "Audio",
                   "properties":{
                     "_isEnabled": {
                       "type":"boolean",
@@ -371,7 +371,7 @@
                       "_buttonGraphic": {
                         "type":"object",
                         "required":false,
-                        "legend": "Button Graphic",
+                        "title": "Button Graphic",
                         "properties":{
                           "_isEnabled": {
                             "type":"boolean",
@@ -479,7 +479,7 @@
                             "type": "string",
                             "required": false,
                             "default": "",
-                            "title": "Audio",
+                            "title": "Item Audio",
                             "inputType": "Asset:audio",
                             "validators": [],
                             "help": "Optional audio which will be played with the item body text"
@@ -519,7 +519,7 @@
                 "_audio": {
                   "type":"object",
                   "required":false,
-                  "legend": "Audio",
+                  "title": "Audio",
                   "properties":{
                     "_isEnabled": {
                       "type":"boolean",
@@ -609,7 +609,7 @@
                       "_buttonGraphic": {
                         "type":"object",
                         "required":false,
-                        "legend": "Button Graphic",
+                        "title": "Button Graphic",
                         "properties":{
                           "_isEnabled": {
                             "type":"boolean",
@@ -717,7 +717,7 @@
                             "type": "string",
                             "required": false,
                             "default": "",
-                            "title": "Audio",
+                            "title": "Item Audio",
                             "inputType": "Asset:audio",
                             "validators": [],
                             "help": "Optional audio which will be played with the item body text"
