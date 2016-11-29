@@ -28,14 +28,14 @@
                 "_isEnabled": {
                   "type":"boolean",
                   "required":true,
-                  "title": "Enabled",
+                  "title": "Is enabled",
                   "inputType": { "type": "Boolean", "options": [false, true]},
                   "validators": [],
-                  "help": "Turns Block Reveal on and off. Acceptable values are true and false."
+                  "help": "Turns Icon Popup on and off. Acceptable values are true and false."
                 },
                 "_classes": {
                   "type": "string",
-                  "required": false,
+                  "required": true,
                   "title": "Classes",
                   "inputType": "Text",
                   "validators": []
@@ -43,12 +43,13 @@
                 "_audio": {
                   "type":"object",
                   "required":false,
+                  "legend": "Audio",
                   "properties":{
                     "_isEnabled": {
                       "type":"boolean",
                       "required":false,
                       "default": "false",
-                      "title": "Audio Enabled",
+                      "title": "Is enabled",
                       "inputType": { "type": "Boolean", "options": [false, true]},
                       "validators": []
                     },
@@ -56,10 +57,10 @@
                       "type":"number",
                       "required":false,
                       "default": 0,
-                      "title": "Channel Number",
+                      "title": "Channel",
                       "inputType": {"type": "Select", "options": [0, 1, 2]},
                       "validators": ["number"],
-                      "help": "channels represent the number of items defined in the course.json settings, by default there are 0, 1 and 2 available (3 _audioItems in the array)"
+                      "help": "Channels represent the number of items defined in the course project settings, by default there are 0, 1 and 2 available"
                     }
                   }
                 },
@@ -80,6 +81,21 @@
                         "validators": [],
                         "help": "Sets the article to complete when the button is selected."
                       },
+                      "_notifyGraphic": {
+                        "type":"object",
+                        "required":false,
+                        "properties":{
+                          "src": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "title": "Item Header Graphic",
+                            "inputType": "Asset:image",
+                            "validators": [],
+                            "help": "Select a graphic to be displayed above the item title"
+                          }
+                        }
+                      },
                       "_buttonTitle": {
                         "type":"string",
                         "required":true,
@@ -87,7 +103,7 @@
                         "title": "Button Title",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "This text will display as the item text",
+                        "help": "This text will display on the button",
                         "translatable": true
                       },
                       "_buttonIcon": {
@@ -98,7 +114,7 @@
                           "_isEnabled": {
                             "type":"boolean",
                             "required":true,
-                            "title": "Enabled",
+                            "title": "Is enabled",
                             "inputType": { "type": "Boolean", "options": [false, true]},
                             "validators": [],
                             "help": "Turns button icons on and off. Acceptable values are true and false."
@@ -109,36 +125,23 @@
                             "title": "Icon",
                             "default": "icon-info",
                             "inputType": "Text",
-                            "validators": []
-                          }
-                        }
-                      },
-                      "_notifyGraphic": {
-                        "type":"object",
-                        "required":false,
-                        "properties":{
-                          "src": {
-                            "type": "string",
-                            "required": false,
-                            "default": "",
-                            "title": "Notify Graphic",
-                            "inputType": "Asset:image",
                             "validators": [],
-                            "help": "Select a graphic to be used in the notify alert"
+                            "help": "Add a CSS class to show the desired icon."
                           }
                         }
                       },
                       "_buttonGraphic": {
                         "type":"object",
                         "required":false,
+                        "legend": "Button Graphic",
                         "properties":{
                           "_isEnabled": {
                             "type":"boolean",
                             "required":true,
-                            "title": "Enabled",
+                            "title": "Is enabled",
                             "inputType": { "type": "Boolean", "options": [false, true]},
                             "validators": [],
-                            "help": "Turns button icons on and off. Acceptable values are true and false."
+                            "help": "Enables a graphic to be used as the button. Acceptable values are true and false."
                           },
                           "src": {
                             "type": "string",
@@ -177,14 +180,13 @@
                       },
                       "_ariaLabels": {
                         "type":"object",
-                        "title": "Button Graphic",
                         "required":false,
                         "properties":{
                           "openPopup": {
                             "type":"string",
                             "required":false,
                             "default": "",
-                            "title": "Popup Aria Label",
+                            "title": "Item Aria Label",
                             "inputType": "Text",
                             "validators": [],
                             "translatable": true
@@ -195,7 +197,7 @@
                         "type":"string",
                         "required":false,
                         "default": "",
-                        "title": "Title",
+                        "title": "Item Title",
                         "inputType": "Text",
                         "validators": [""],
                         "translatable": true
@@ -204,18 +206,18 @@
                         "type":"string",
                         "required":false,
                         "default": "",
-                        "title": "Body",
+                        "title": "Item Body",
                         "inputType": "TextArea",
                         "translatable": true
                       },
                       "_itemGraphic": {
                         "type":"object",
                         "required":false,
-                        "title": "Item Graphic",
                         "properties":{
                           "src": {
                             "type": "string",
                             "required": false,
+                            "title": "Item Graphic",
                             "default": "",
                             "inputType": "Asset:image",
                             "validators": []
@@ -234,12 +236,12 @@
                       "_audio": {
                         "type": "object",
                         "required": false,
-                        "title": "Item Audio",
                         "properties":{
                           "src": {
                             "type": "string",
                             "required": false,
                             "default": "",
+                            "title": "Audio",
                             "inputType": "Asset:audio",
                             "validators": [],
                             "help": "Optional audio which will be played with the item body text"
@@ -264,10 +266,10 @@
                 "_isEnabled": {
                   "type":"boolean",
                   "required":true,
-                  "title": "Enabled",
+                  "title": "Is enabled",
                   "inputType": { "type": "Boolean", "options": [false, true]},
                   "validators": [],
-                  "help": "Turns Block Reveal on and off. Acceptable values are true and false."
+                  "help": "Turns Icon Popup on and off. Acceptable values are true and false."
                 },
                 "_classes": {
                   "type": "string",
@@ -279,12 +281,13 @@
                 "_audio": {
                   "type":"object",
                   "required":false,
+                  "legend": "Audio",
                   "properties":{
                     "_isEnabled": {
                       "type":"boolean",
                       "required":false,
                       "default": "false",
-                      "title": "Audio Enabled",
+                      "title": "Is enabled",
                       "inputType": { "type": "Boolean", "options": [false, true]},
                       "validators": []
                     },
@@ -292,10 +295,10 @@
                       "type":"number",
                       "required":false,
                       "default": 0,
-                      "title": "Channel Number",
+                      "title": "Channel",
                       "inputType": {"type": "Select", "options": [0, 1, 2]},
                       "validators": ["number"],
-                      "help": "channels represent the number of items defined in the course.json settings, by default there are 0, 1 and 2 available (3 _audioItems in the array)"
+                      "help": "Channels represent the number of items defined in the course project settings, by default there are 0, 1 and 2 available"
                     }
                   }
                 },
@@ -316,6 +319,21 @@
                         "validators": [],
                         "help": "Sets the block to complete when the button is selected."
                       },
+                      "_notifyGraphic": {
+                        "type":"object",
+                        "required":false,
+                        "properties":{
+                          "src": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "title": "Item Header Graphic",
+                            "inputType": "Asset:image",
+                            "validators": [],
+                            "help": "Select a graphic to be displayed above the item title"
+                          }
+                        }
+                      },
                       "_buttonTitle": {
                         "type":"string",
                         "required":true,
@@ -323,7 +341,7 @@
                         "title": "Button Title",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "This text will display as the item text",
+                        "help": "This text will display on the button",
                         "translatable": true
                       },
                       "_buttonIcon": {
@@ -334,7 +352,7 @@
                           "_isEnabled": {
                             "type":"boolean",
                             "required":true,
-                            "title": "Enabled",
+                            "title": "Is enabled",
                             "inputType": { "type": "Boolean", "options": [false, true]},
                             "validators": [],
                             "help": "Turns button icons on and off. Acceptable values are true and false."
@@ -345,36 +363,23 @@
                             "title": "Icon",
                             "default": "icon-info",
                             "inputType": "Text",
-                            "validators": []
-                          }
-                        }
-                      },
-                      "_notifyGraphic": {
-                        "type":"object",
-                        "required":false,
-                        "properties":{
-                          "src": {
-                            "type": "string",
-                            "required": false,
-                            "default": "",
-                            "title": "Notify Graphic",
-                            "inputType": "Asset:image",
                             "validators": [],
-                            "help": "Select a graphic to be used in the notify alert"
+                            "help": "Add a CSS class to show the desired icon."
                           }
                         }
                       },
                       "_buttonGraphic": {
                         "type":"object",
                         "required":false,
+                        "legend": "Button Graphic",
                         "properties":{
                           "_isEnabled": {
                             "type":"boolean",
                             "required":true,
-                            "title": "Enabled",
+                            "title": "Is enabled",
                             "inputType": { "type": "Boolean", "options": [false, true]},
                             "validators": [],
-                            "help": "Turns button icons on and off. Acceptable values are true and false."
+                            "help": "Enables a graphic to be used as the button. Acceptable values are true and false."
                           },
                           "src": {
                             "type": "string",
@@ -413,14 +418,13 @@
                       },
                       "_ariaLabels": {
                         "type":"object",
-                        "title": "Button Graphic",
                         "required":false,
                         "properties":{
                           "openPopup": {
                             "type":"string",
                             "required":false,
                             "default": "",
-                            "title": "Popup Aria Label",
+                            "title": "Item Aria Label",
                             "inputType": "Text",
                             "validators": [],
                             "translatable": true
@@ -431,7 +435,7 @@
                         "type":"string",
                         "required":false,
                         "default": "",
-                        "title": "Title",
+                        "title": "Item Title",
                         "inputType": "Text",
                         "validators": [""],
                         "translatable": true
@@ -440,18 +444,18 @@
                         "type":"string",
                         "required":false,
                         "default": "",
-                        "title": "Body",
+                        "title": "Item Body",
                         "inputType": "TextArea",
                         "translatable": true
                       },
                       "_itemGraphic": {
                         "type":"object",
                         "required":false,
-                        "title": "Item Graphic",
                         "properties":{
                           "src": {
                             "type": "string",
                             "required": false,
+                            "title": "Item Graphic",
                             "default": "",
                             "inputType": "Asset:image",
                             "validators": []
@@ -470,12 +474,12 @@
                       "_audio": {
                         "type": "object",
                         "required": false,
-                        "title": "Item Audio",
                         "properties":{
                           "src": {
                             "type": "string",
                             "required": false,
                             "default": "",
+                            "title": "Audio",
                             "inputType": "Asset:audio",
                             "validators": [],
                             "help": "Optional audio which will be played with the item body text"
@@ -500,10 +504,10 @@
                 "_isEnabled": {
                   "type":"boolean",
                   "required":true,
-                  "title": "Enabled",
+                  "title": "Is enabled",
                   "inputType": { "type": "Boolean", "options": [false, true]},
                   "validators": [],
-                  "help": "Turns Block Reveal on and off. Acceptable values are true and false."
+                  "help": "Turns Icon Popup on and off. Acceptable values are true and false."
                 },
                 "_classes": {
                   "type": "string",
@@ -515,12 +519,13 @@
                 "_audio": {
                   "type":"object",
                   "required":false,
+                  "legend": "Audio",
                   "properties":{
                     "_isEnabled": {
                       "type":"boolean",
                       "required":false,
                       "default": "false",
-                      "title": "Audio Enabled",
+                      "title": "Is enabled",
                       "inputType": { "type": "Boolean", "options": [false, true]},
                       "validators": []
                     },
@@ -528,10 +533,10 @@
                       "type":"number",
                       "required":false,
                       "default": 0,
-                      "title": "Channel Number",
+                      "title": "Channel",
                       "inputType": {"type": "Select", "options": [0, 1, 2]},
                       "validators": ["number"],
-                      "help": "channels represent the number of items defined in the course.json settings, by default there are 0, 1 and 2 available (3 _audioItems in the array)"
+                      "help": "Channels represent the number of items defined in the course project settings, by default there are 0, 1 and 2 available"
                     }
                   }
                 },
@@ -552,6 +557,21 @@
                         "validators": [],
                         "help": "Sets the component to complete when the button is selected."
                       },
+                      "_notifyGraphic": {
+                        "type":"object",
+                        "required":false,
+                        "properties":{
+                          "src": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "title": "Item Header Graphic",
+                            "inputType": "Asset:image",
+                            "validators": [],
+                            "help": "Select a graphic to be displayed above the item title"
+                          }
+                        }
+                      },
                       "_buttonTitle": {
                         "type":"string",
                         "required":true,
@@ -559,7 +579,7 @@
                         "title": "Button Title",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "This text will display as the item text",
+                        "help": "This text will display on the button",
                         "translatable": true
                       },
                       "_buttonIcon": {
@@ -570,7 +590,7 @@
                           "_isEnabled": {
                             "type":"boolean",
                             "required":true,
-                            "title": "Enabled",
+                            "title": "Is enabled",
                             "inputType": { "type": "Boolean", "options": [false, true]},
                             "validators": [],
                             "help": "Turns button icons on and off. Acceptable values are true and false."
@@ -581,36 +601,23 @@
                             "title": "Icon",
                             "default": "icon-info",
                             "inputType": "Text",
-                            "validators": []
-                          }
-                        }
-                      },
-                      "_notifyGraphic": {
-                        "type":"object",
-                        "required":false,
-                        "properties":{
-                          "src": {
-                            "type": "string",
-                            "required": false,
-                            "default": "",
-                            "title": "Notify Graphic",
-                            "inputType": "Asset:image",
                             "validators": [],
-                            "help": "Select a graphic to be used in the notify alert"
+                            "help": "Add a CSS class to show the desired icon."
                           }
                         }
                       },
                       "_buttonGraphic": {
                         "type":"object",
                         "required":false,
+                        "legend": "Button Graphic",
                         "properties":{
                           "_isEnabled": {
                             "type":"boolean",
                             "required":true,
-                            "title": "Enabled",
+                            "title": "Is enabled",
                             "inputType": { "type": "Boolean", "options": [false, true]},
                             "validators": [],
-                            "help": "Turns button icons on and off. Acceptable values are true and false."
+                            "help": "Enables a graphic to be used as the button. Acceptable values are true and false."
                           },
                           "src": {
                             "type": "string",
@@ -649,14 +656,13 @@
                       },
                       "_ariaLabels": {
                         "type":"object",
-                        "title": "Button Graphic",
                         "required":false,
                         "properties":{
                           "openPopup": {
                             "type":"string",
                             "required":false,
                             "default": "",
-                            "title": "Popup Aria Label",
+                            "title": "Item Aria Label",
                             "inputType": "Text",
                             "validators": [],
                             "translatable": true
@@ -667,7 +673,7 @@
                         "type":"string",
                         "required":false,
                         "default": "",
-                        "title": "Title",
+                        "title": "Item Title",
                         "inputType": "Text",
                         "validators": [""],
                         "translatable": true
@@ -676,18 +682,18 @@
                         "type":"string",
                         "required":false,
                         "default": "",
-                        "title": "Body",
+                        "title": "Item Body",
                         "inputType": "TextArea",
                         "translatable": true
                       },
                       "_itemGraphic": {
                         "type":"object",
                         "required":false,
-                        "title": "Item Graphic",
                         "properties":{
                           "src": {
                             "type": "string",
                             "required": false,
+                            "title": "Item Graphic",
                             "default": "",
                             "inputType": "Asset:image",
                             "validators": []
@@ -706,12 +712,12 @@
                       "_audio": {
                         "type": "object",
                         "required": false,
-                        "title": "Item Audio",
                         "properties":{
                           "src": {
                             "type": "string",
                             "required": false,
                             "default": "",
+                            "title": "Audio",
                             "inputType": "Asset:audio",
                             "validators": [],
                             "help": "Optional audio which will be played with the item body text"
