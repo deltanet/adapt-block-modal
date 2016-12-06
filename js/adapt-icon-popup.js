@@ -85,7 +85,7 @@ define(function(require) {
     });
 
     Adapt.on('articleView:postRender blockView:postRender componentView:postRender', function(view) {
-        if (view.model.get("_iconPopup")) {
+        if (view.model.get("_iconPopup") && view.model.get("_iconPopup")._isEnabled) {
           new IconPopup({model:view.model});
         }
     });
