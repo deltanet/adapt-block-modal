@@ -28,6 +28,8 @@ define(function(require) {
 
             this.$('.icon-popup-inner').addClass('icon-popup-'+this.model.get("_type"));
 
+            this.audioChannel = this.model.get('_iconPopup')._audio._channel;
+
         },
 
         onItemClicked: function(event) {
@@ -66,9 +68,11 @@ define(function(require) {
             this.isPopupOpen = true;
 
             ///// Audio /////
-            if (this.model.get('_iconPopup')._audio._isEnabled && Adapt.audio && Adapt.audio.audioClip[this.model.get('_iconPopup')._audio._channel].status==1) {
-                // Trigger audio
-                Adapt.trigger('audio:playAudio', itemModel._audio.src, this.model.get('_id'), this.model.get('_iconPopup')._audio._channel);
+            if (this.model.get('_iconPopup')._audio._isEnabled && Adapt.audio && Adapt.audio.audioClip[this.audioChannel].status==1) {
+              // Reset onscreen id
+              Adapt.audio.audioClip[this.audioChannel].onscreenID = "";
+              // Trigger audio
+              Adapt.trigger('audio:playAudio', itemModel._audio.src, this.model.get('_id'), this.audioChannel);
             }
             ///// End of Audio /////
 
