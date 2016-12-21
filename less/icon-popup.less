@@ -40,14 +40,19 @@
 		}
 		&:hover {
 			background-color: @item-color-hover;
+			.icon-popup-open-button-text {
+				color: @item-text-color-hover;
+			}
 		}
 	}
 
-  	.icon-popup-open-button-text {
+  .icon-popup-open-button-text {
 		color: @item-text-color;
 		text-decoration:none;
 		font-weight: bold;
 		text-align: center;
+		font-size: @body-text-font-size;
+		padding: 2px;
 	}
 
 	.icon-popup-graphic-button {
