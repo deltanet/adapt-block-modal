@@ -11,7 +11,9 @@
         </a>
             {{else}}
             <button class="icon-popup-open-button {{#if _buttonIcon._isEnabled}}icon {{_buttonIcon._icon}}{{/if}}" role="button" aria-label="{{_ariaLabels.openPopup}}">
+              {{#if _buttonTitle}}
                 <div class="icon-popup-open-button-text">{{_buttonTitle}}</div>
+              {{/if}}
             </button>
         {{/if}}
       </div>
