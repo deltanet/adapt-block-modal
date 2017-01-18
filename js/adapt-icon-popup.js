@@ -79,6 +79,7 @@ define(function(require) {
             // Check completion
             if (itemModel._setCompletion) {
               this.model.set("_isComplete", true);
+              this.model.set("_isInteractionComplete", true);
             }
 
             Adapt.once("notify:closed", _.bind(function() {
