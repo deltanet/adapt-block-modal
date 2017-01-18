@@ -62,7 +62,12 @@ define(function(require) {
 
             // Set variable to use when adding the image to the notify popup
             if(itemModel._itemGraphic.src && !itemModel._itemGraphic.src == "") {
-              this.itemImage = "<img class='icon-popup-notify-graphic' src='" +itemModel._itemGraphic.src + "' alt='" +itemModel._itemGraphic.alt + "'/>";
+              // Check if body text is present
+              if(itemModel.body == "") {
+                this.itemImage = "<img class='icon-popup-notify-graphic fullwidth' src='" +itemModel._itemGraphic.src + "' alt='" +itemModel._itemGraphic.alt + "'/>";
+              } else {
+                this.itemImage = "<img class='icon-popup-notify-graphic' src='" +itemModel._itemGraphic.src + "' alt='" +itemModel._itemGraphic.alt + "'/>";
+              }
             } else {
               this.itemImage = "";
             }

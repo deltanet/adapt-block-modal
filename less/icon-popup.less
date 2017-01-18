@@ -117,6 +117,10 @@
 	padding-bottom: @notify-padding-bottom;
 	width: 40%;
 
+	&.fullwidth {
+		width: 100%;
+	}
+
 	.dir-rtl & {
 		float: left;
 	}
@@ -124,7 +128,12 @@
 	@media (max-width: @device-width-medium) {
 		float: none;
 		padding-bottom: 0;
-		width: 75%;
+		width: 10%;
+
+		&.fullwidth {
+			width: 100%;
+		}
+
 	}
 }
 
