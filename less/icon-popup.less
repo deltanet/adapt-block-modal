@@ -84,11 +84,20 @@
 	text-align: center;
 }
 
+.icon-popup-prompt-image {
+  height: 130px;
+  padding-bottom: @component-padding;
+}
+
 .icon-popup-notify-body {
 	float: left;
 	padding-bottom: @notify-padding-bottom;
 	text-align: left;
 	width: 58%;
+
+	&.fullwidth {
+		width: 100%;
+	}
 
 	.dir-rtl & {
 		float: right;
@@ -97,6 +106,9 @@
 	@media (max-width: @device-width-medium) {
 		padding-bottom: (@notify-padding-bottom / 3);
 		width: 100%;
+		&.fullwidth {
+			width: 100%;
+		}
 	}
 }
 
@@ -148,9 +160,4 @@
 			display:block !important;
 		}
 	}
-}
-
-.icon-popup-prompt-image {
-    height: 130px;
-    padding-bottom: @component-padding;
 }

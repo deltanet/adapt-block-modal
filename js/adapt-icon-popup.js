@@ -53,6 +53,13 @@ define(function(require) {
               this.headerImage = "";
             }
 
+            // Check if image is present and set fullwidth style on body accordingly
+            if(itemModel._itemGraphic.src && !itemModel._itemGraphic.src == "") {
+              this.bodyClass = "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body'>";
+            } else {
+              this.bodyClass = "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body fullwidth'>";
+            }
+
             // Set variable to use when adding the image to the notify popup
             if(itemModel._itemGraphic.src && !itemModel._itemGraphic.src == "") {
               this.itemImage = "<img class='icon-popup-notify-graphic' src='" +itemModel._itemGraphic.src + "' alt='" +itemModel._itemGraphic.alt + "'/>";
@@ -62,7 +69,7 @@ define(function(require) {
 
             Adapt.trigger("notify:popup", {
                 title: this.headerImage+itemModel.title,
-                body: "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body'>" + itemModel.body + "</div>" +this.itemImage+"</div>"
+                body: this.bodyClass + itemModel.body + "</div>" +this.itemImage+"</div>"
             });
 
             this.isPopupOpen = true;
