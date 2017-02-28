@@ -38,9 +38,23 @@ define(function(require) {
             var $link = $(event.currentTarget);
             var $item = $link.parent();
             var itemModel = this.model.get('_iconPopup')._items[$item.index()];
-            if (itemModel) {
+
+            // Check for type
+            if(itemModel._type) {
+              if(itemModel._type === "URL") {
+                this.showItemUrl(itemModel);
+              } else if(itemModel._type === "Popup") {
+                this.showItemContent(itemModel);
+              }
+            } else {
               this.showItemContent(itemModel);
             }
+
+        },
+
+        showItemUrl: function(itemModel) {
+          var url = itemModel._url._src;
+          window.top.open(url);
         },
 
         showItemContent: function(itemModel) {
