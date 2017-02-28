@@ -8,6 +8,7 @@
     },
     "_items": [
         {
+            "_type": "Popup", // "Popup" -- "URL"
             "_setCompletion": true,
             "_buttonTitle": "",
             "_buttonIcon": {
@@ -35,6 +36,9 @@
             },
             "_audio": {
                 "src": "course/en/audio/***.mp3"
+            },
+            "_url": {
+              "_src": ""
             }
         }
     ]

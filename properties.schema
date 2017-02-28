@@ -72,6 +72,15 @@
                     "type":"object",
                     "required":true,
                     "properties":{
+                      "_type": {
+                        "type": "string",
+                        "required": true,
+                        "default": "Popup",
+                        "title": "Item Type",
+                        "inputType": {"type": "Select", "options": ["Popup", "URL"]},
+                        "validators": [],
+                        "help": "Set the type of  of the item, either a Popup or a URL that opens in a new window."
+                      },
                       "_setCompletion": {
                         "type":"boolean",
                         "required":false,
@@ -247,6 +256,19 @@
                             "help": "Optional audio which will be played with the item body text"
                           }
                         }
+                      },
+                      "_url": {
+                        "type": "object",
+                        "required": false,
+                        "properties":{
+                          "_src": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "inputType": "Text",
+                            "validators": []
+                          }
+                        }
                       }
                     }
                   }
@@ -310,6 +332,15 @@
                     "type":"object",
                     "required":true,
                     "properties":{
+                      "_type": {
+                        "type": "string",
+                        "required": true,
+                        "default": "Popup",
+                        "title": "Item Type",
+                        "inputType": {"type": "Select", "options": ["Popup", "URL"]},
+                        "validators": [],
+                        "help": "Set the type of  of the item, either a Popup or a URL that opens in a new window."
+                      },
                       "_setCompletion": {
                         "type":"boolean",
                         "required":false,
@@ -485,6 +516,19 @@
                             "help": "Optional audio which will be played with the item body text"
                           }
                         }
+                      },
+                      "_url": {
+                        "type": "object",
+                        "required": false,
+                        "properties":{
+                          "_src": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "inputType": "Text",
+                            "validators": []
+                          }
+                        }
                       }
                     }
                   }
@@ -548,6 +592,15 @@
                     "type":"object",
                     "required":true,
                     "properties":{
+                      "_type": {
+                        "type": "string",
+                        "required": true,
+                        "default": "Popup",
+                        "title": "Item Type",
+                        "inputType": {"type": "Select", "options": ["Popup", "URL"]},
+                        "validators": [],
+                        "help": "Set the type of  of the item, either a Popup or a URL that opens in a new window."
+                      },
                       "_setCompletion": {
                         "type":"boolean",
                         "required":false,
@@ -721,6 +774,19 @@
                             "inputType": "Asset:audio",
                             "validators": [],
                             "help": "Optional audio which will be played with the item body text"
+                          }
+                        }
+                      },
+                      "_url": {
+                        "type": "object",
+                        "required": false,
+                        "properties":{
+                          "_src": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "inputType": "Text",
+                            "validators": []
                           }
                         }
                       }
