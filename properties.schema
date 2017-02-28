@@ -60,7 +60,7 @@
                       "title": "Channel",
                       "inputType": {"type": "Select", "options": [0, 1, 2]},
                       "validators": ["number"],
-                      "help": "Channels represent the number of items defined in the course project settings, by default there are 0, 1 and 2 available"
+                      "help": "Channels represent the number of items defined in the course project settings, by default there are 0, 1 and 2 available."
                     }
                   }
                 },
@@ -101,7 +101,7 @@
                             "title": "Item Header Graphic",
                             "inputType": "Asset:image",
                             "validators": [],
-                            "help": "Select a graphic to be displayed above the item title"
+                            "help": "Select a graphic to be displayed above the item title."
                           }
                         }
                       },
@@ -112,7 +112,7 @@
                         "title": "Button Title",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "This text will display on the button",
+                        "help": "This text will display on the button.",
                         "translatable": true
                       },
                       "_buttonIcon": {
@@ -182,7 +182,7 @@
                             "default": "",
                             "inputType": "Text",
                             "validators": [],
-                            "help": "Alternative text for this items button graphic",
+                            "help": "Alternative text for this items button graphic.",
                             "translatable": true
                           }
                         }
@@ -237,7 +237,7 @@
                             "default": "",
                             "inputType": "Text",
                             "validators": [],
-                            "help": "Alternative text for item graphic",
+                            "help": "Alternative text for item graphic.",
                             "translatable": true
                           }
                         }
@@ -253,7 +253,7 @@
                             "title": "Item Audio",
                             "inputType": "Asset:audio",
                             "validators": [],
-                            "help": "Optional audio which will be played with the item body text"
+                            "help": "Optional audio which will be played with the item body text."
                           }
                         }
                       },
@@ -265,8 +265,10 @@
                             "type": "string",
                             "required": false,
                             "default": "",
+                            "title": "Item URL",
                             "inputType": "Text",
-                            "validators": []
+                            "validators": [],
+                            "help": "If item type is set to URL, specify the link here."
                           }
                         }
                       }
@@ -320,7 +322,7 @@
                       "title": "Channel",
                       "inputType": {"type": "Select", "options": [0, 1, 2]},
                       "validators": ["number"],
-                      "help": "Channels represent the number of items defined in the course project settings, by default there are 0, 1 and 2 available"
+                      "help": "Channels represent the number of items defined in the course project settings, by default there are 0, 1 and 2 available."
                     }
                   }
                 },
@@ -361,7 +363,7 @@
                             "title": "Item Header Graphic",
                             "inputType": "Asset:image",
                             "validators": [],
-                            "help": "Select a graphic to be displayed above the item title"
+                            "help": "Select a graphic to be displayed above the item title."
                           }
                         }
                       },
@@ -372,7 +374,7 @@
                         "title": "Button Title",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "This text will display on the button",
+                        "help": "This text will display on the button.",
                         "translatable": true
                       },
                       "_buttonIcon": {
@@ -442,7 +444,7 @@
                             "default": "",
                             "inputType": "Text",
                             "validators": [],
-                            "help": "Alternative text for this items button graphic",
+                            "help": "Alternative text for this items button graphic.",
                             "translatable": true
                           }
                         }
@@ -497,7 +499,7 @@
                             "default": "",
                             "inputType": "Text",
                             "validators": [],
-                            "help": "Alternative text for item graphic",
+                            "help": "Alternative text for item graphic.",
                             "translatable": true
                           }
                         }
@@ -513,7 +515,7 @@
                             "title": "Item Audio",
                             "inputType": "Asset:audio",
                             "validators": [],
-                            "help": "Optional audio which will be played with the item body text"
+                            "help": "Optional audio which will be played with the item body text."
                           }
                         }
                       },
@@ -525,8 +527,10 @@
                             "type": "string",
                             "required": false,
                             "default": "",
+                            "title": "Item URL",
                             "inputType": "Text",
-                            "validators": []
+                            "validators": [],
+                            "help": "If item type is set to URL, specify the link here."
                           }
                         }
                       }
@@ -580,7 +584,7 @@
                       "title": "Channel",
                       "inputType": {"type": "Select", "options": [0, 1, 2]},
                       "validators": ["number"],
-                      "help": "Channels represent the number of items defined in the course project settings, by default there are 0, 1 and 2 available"
+                      "help": "Channels represent the number of items defined in the course project settings, by default there are 0, 1 and 2 available."
                     }
                   }
                 },
@@ -621,7 +625,7 @@
                             "title": "Item Header Graphic",
                             "inputType": "Asset:image",
                             "validators": [],
-                            "help": "Select a graphic to be displayed above the item title"
+                            "help": "Select a graphic to be displayed above the item title."
                           }
                         }
                       },
@@ -632,7 +636,7 @@
                         "title": "Button Title",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "This text will display on the button",
+                        "help": "This text will display on the button.",
                         "translatable": true
                       },
                       "_buttonIcon": {
@@ -702,7 +706,7 @@
                             "default": "",
                             "inputType": "Text",
                             "validators": [],
-                            "help": "Alternative text for this items button graphic",
+                            "help": "Alternative text for this items button graphic.",
                             "translatable": true
                           }
                         }
@@ -757,7 +761,7 @@
                             "default": "",
                             "inputType": "Text",
                             "validators": [],
-                            "help": "Alternative text for item graphic",
+                            "help": "Alternative text for item graphic.",
                             "translatable": true
                           }
                         }
@@ -773,7 +777,7 @@
                             "title": "Item Audio",
                             "inputType": "Asset:audio",
                             "validators": [],
-                            "help": "Optional audio which will be played with the item body text"
+                            "help": "Optional audio which will be played with the item body text."
                           }
                         }
                       },
@@ -785,8 +789,10 @@
                             "type": "string",
                             "required": false,
                             "default": "",
+                            "title": "Item URL",
                             "inputType": "Text",
-                            "validators": []
+                            "validators": [],
+                            "help": "If item type is set to URL, specify the link here."
                           }
                         }
                       }
