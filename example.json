@@ -1,6 +1,7 @@
 // Add to Article, Block or component JSON
 
 "_iconPopup": {
+    "_isEnabled": true,
     "_classes": "",
     "_audio": {
         "_isEnabled": true,
