@@ -9,7 +9,7 @@ This extension allows an Icon or button to be inserted into an Article, Block or
 
 This extension must be manually installed.
 
-If **Icon popup** has been uninstalled from the Adapt authoring tool, it may be reinstalled using the [Plug-in Manager](https://github.com/adaptlearning/adapt_authoring/wiki/Plugin-Manager). 
+If **Icon popup** has been uninstalled from the Adapt authoring tool, it may be reinstalled using the [Plug-in Manager](https://github.com/adaptlearning/adapt_authoring/wiki/Plugin-Manager).
 
 ## Settings Overview
 
@@ -23,13 +23,13 @@ The Icon popup attribute group contains values for **_isEnabled**, **_classes**,
 
 >**_isEnabled** (boolean):  Turns on and off the **Icon popup** extension. Can be set to disable **Icon popup** when not required.  
 
->**_classes** (string):  Defines a CSS class for a theme to reference. 
+>**_classes** (string):  Defines a CSS class for a theme to reference.
 
 >**_audio** (object):  This `_audio` attributes group stores the properties for audio functionality. It contains values for **_isEnabled**, and **_channel**.  
 
 >>**_isEnabled** (boolean): If set to `true`, [audio](https://github.com/deltanet/adapt-audio) functionality can be used in the items.
 
->>**_channel** (number):  Defines the channel number for the [audio](https://github.com/deltanet/adapt-audio). 
+>>**_channel** (number):  Defines the channel number for the [audio](https://github.com/deltanet/adapt-audio).
 
 >**_items** (array):  This `_items` attributes group stores the properties for each button. It contains values for **_type**, **_setCompletion**, **_buttonTitle**, **_buttonIcon**, **_notifyGraphic**, **_buttonGraphic**, **_ariaLabels**,  **title**, **body**, **_itemGraphic**, **_audio**, and **_url**.  
 
@@ -71,7 +71,7 @@ The Icon popup attribute group contains values for **_isEnabled**, **_classes**,
 
 >>>**src** (string): File name (including path) of the image in the item popup. Path should be relative to the *src* folder.
 
->>>**alt** (string): This text becomes the popup image’s `alt` attribute. 
+>>>**alt** (string): This text becomes the popup image’s `alt` attribute.
 
 >>**_audio** (object): This `_audio` attributes group stores the audio properties for the item. It contains values for **src**.  
 
@@ -79,14 +79,14 @@ The Icon popup attribute group contains values for **_isEnabled**, **_classes**,
 
 >>**_url** (object): This `_url` attributes group stores the properties for the item url. It contains values for **_src**.  
 
->>>**_src** (string): This text becomes a url which will open in a new browser window. 
+>>>**_src** (string): This text becomes a url which will open in a new browser window.
 
 ## Limitations
- 
-No known limitations. 
+
+No known limitations.
 
 ----------------------------
-**Version number:**  2.0.24     
+**Version number:**  2.0.25     
 **Framework versions supported:**  2.0.4    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-icon-popup/graphs/contributors)     
 **Accessibility support:** Yes  
