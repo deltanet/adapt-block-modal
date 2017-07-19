@@ -22,16 +22,16 @@
           "properties":{
             "_iconPopup": {
               "type":"object",
-              "required":false,
+              "required": false,
               "legend": "Icon Popup",
               "properties":{
                 "_isEnabled": {
                   "type":"boolean",
-                  "required":true,
-                  "title": "Is enabled",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "required": true,
+                  "title": "Is Enabled",
+                  "inputType": "Checkbox",
                   "validators": [],
-                  "help": "Turns Icon Popup on and off. Acceptable values are true and false."
+                  "help": "Controls whether the Icon Popup extension is enabled or disabled."
                 },
                 "_classes": {
                   "type": "string",
@@ -42,20 +42,20 @@
                 },
                 "_audio": {
                   "type":"object",
-                  "required":false,
+                  "required": false,
                   "title": "Audio",
                   "properties":{
                     "_isEnabled": {
                       "type":"boolean",
-                      "required":false,
+                      "required": false,
                       "default": "false",
-                      "title": "Is enabled",
-                      "inputType": { "type": "Boolean", "options": [false, true]},
+                      "title": "Is Enabled",
+                      "inputType": "Checkbox",
                       "validators": []
                     },
                     "_channel": {
                       "type":"number",
-                      "required":false,
+                      "required": false,
                       "default": 0,
                       "title": "Channel",
                       "inputType": {"type": "Select", "options": [0, 1, 2]},
@@ -66,11 +66,11 @@
                 },
                 "_items": {
                   "type":"array",
-                  "required":true,
+                  "required": true,
                   "title": "Items",
                   "items": {
                     "type":"object",
-                    "required":true,
+                    "required": true,
                     "properties":{
                       "_type": {
                         "type": "string",
@@ -83,16 +83,16 @@
                       },
                       "_setCompletion": {
                         "type":"boolean",
-                        "required":false,
+                        "required": false,
                         "default": "false",
                         "title": "Set Completion",
-                        "inputType": { "type": "Boolean", "options": [false, true]},
+                        "inputType": "Checkbox",
                         "validators": [],
                         "help": "Sets the article to complete when the button is selected."
                       },
                       "_notifyGraphic": {
                         "type":"object",
-                        "required":false,
+                        "required": false,
                         "properties":{
                           "src": {
                             "type": "string",
@@ -107,7 +107,7 @@
                       },
                       "_buttonTitle": {
                         "type":"string",
-                        "required":true,
+                        "required": true,
                         "default": "",
                         "title": "Button Title",
                         "inputType": "Text",
@@ -118,15 +118,15 @@
                       "_buttonIcon": {
                         "type":"object",
                         "title": "Button Icon",
-                        "required":false,
+                        "required": false,
                         "properties":{
                           "_isEnabled": {
                             "type":"boolean",
-                            "required":true,
-                            "title": "Is enabled",
-                            "inputType": { "type": "Boolean", "options": [false, true]},
+                            "required": true,
+                            "title": "Is Enabled",
+                            "inputType": "Checkbox",
                             "validators": [],
-                            "help": "Turns button icons on and off. Acceptable values are true and false."
+                            "help": "Turns button icons on and off."
                           },
                           "_icon": {
                             "type": "string",
@@ -141,16 +141,16 @@
                       },
                       "_buttonGraphic": {
                         "type":"object",
-                        "required":false,
+                        "required": false,
                         "title": "Button Graphic",
                         "properties":{
                           "_isEnabled": {
                             "type":"boolean",
-                            "required":true,
-                            "title": "Is enabled",
-                            "inputType": { "type": "Boolean", "options": [false, true]},
+                            "required": true,
+                            "title": "Is Enabled",
+                            "inputType": "Checkbox",
                             "validators": [],
-                            "help": "Enables a graphic to be used as the button. Acceptable values are true and false."
+                            "help": "Enables a graphic to be used as the button."
                           },
                           "src": {
                             "type": "string",
@@ -189,11 +189,11 @@
                       },
                       "_ariaLabels": {
                         "type":"object",
-                        "required":false,
+                        "required": false,
                         "properties":{
                           "openPopup": {
                             "type":"string",
-                            "required":false,
+                            "required": false,
                             "default": "",
                             "title": "Item Aria Label",
                             "inputType": "Text",
@@ -204,7 +204,7 @@
                       },
                       "title": {
                         "type":"string",
-                        "required":false,
+                        "required": false,
                         "default": "",
                         "title": "Item Title",
                         "inputType": "Text",
@@ -213,7 +213,7 @@
                       },
                       "body": {
                         "type":"string",
-                        "required":false,
+                        "required": false,
                         "default": "",
                         "title": "Item Body",
                         "inputType": "TextArea",
@@ -221,7 +221,7 @@
                       },
                       "_itemGraphic": {
                         "type":"object",
-                        "required":false,
+                        "required": false,
                         "properties":{
                           "src": {
                             "type": "string",
@@ -284,16 +284,16 @@
           "properties":{
             "_iconPopup": {
               "type":"object",
-              "required":false,
+              "required": false,
               "legend": "Icon Popup",
               "properties":{
                 "_isEnabled": {
                   "type":"boolean",
-                  "required":true,
-                  "title": "Is enabled",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "required": true,
+                  "title": "Is Enabled",
+                  "inputType": "Checkbox",
                   "validators": [],
-                  "help": "Turns Icon Popup on and off. Acceptable values are true and false."
+                  "help": "Controls whether the Icon Popup extension is enabled or disabled."
                 },
                 "_classes": {
                   "type": "string",
@@ -304,20 +304,20 @@
                 },
                 "_audio": {
                   "type":"object",
-                  "required":false,
+                  "required": false,
                   "title": "Audio",
                   "properties":{
                     "_isEnabled": {
                       "type":"boolean",
-                      "required":false,
+                      "required": false,
                       "default": "false",
-                      "title": "Is enabled",
-                      "inputType": { "type": "Boolean", "options": [false, true]},
+                      "title": "Is Enabled",
+                      "inputType": "Checkbox",
                       "validators": []
                     },
                     "_channel": {
                       "type":"number",
-                      "required":false,
+                      "required": false,
                       "default": 0,
                       "title": "Channel",
                       "inputType": {"type": "Select", "options": [0, 1, 2]},
@@ -328,11 +328,11 @@
                 },
                 "_items": {
                   "type":"array",
-                  "required":true,
+                  "required": true,
                   "title": "Items",
                   "items": {
                     "type":"object",
-                    "required":true,
+                    "required": true,
                     "properties":{
                       "_type": {
                         "type": "string",
@@ -345,16 +345,16 @@
                       },
                       "_setCompletion": {
                         "type":"boolean",
-                        "required":false,
+                        "required": false,
                         "default": "false",
                         "title": "Set Completion",
-                        "inputType": { "type": "Boolean", "options": [false, true]},
+                        "inputType": "Checkbox",
                         "validators": [],
                         "help": "Sets the block to complete when the button is selected."
                       },
                       "_notifyGraphic": {
                         "type":"object",
-                        "required":false,
+                        "required": false,
                         "properties":{
                           "src": {
                             "type": "string",
@@ -369,7 +369,7 @@
                       },
                       "_buttonTitle": {
                         "type":"string",
-                        "required":true,
+                        "required": true,
                         "default": "",
                         "title": "Button Title",
                         "inputType": "Text",
@@ -380,15 +380,15 @@
                       "_buttonIcon": {
                         "type":"object",
                         "title": "Button Icon",
-                        "required":false,
+                        "required": false,
                         "properties":{
                           "_isEnabled": {
                             "type":"boolean",
-                            "required":true,
-                            "title": "Is enabled",
-                            "inputType": { "type": "Boolean", "options": [false, true]},
+                            "required": true,
+                            "title": "Is Enabled",
+                            "inputType": "Checkbox",
                             "validators": [],
-                            "help": "Turns button icons on and off. Acceptable values are true and false."
+                            "help": "Turns button icons on and off."
                           },
                           "_icon": {
                             "type": "string",
@@ -403,14 +403,14 @@
                       },
                       "_buttonGraphic": {
                         "type":"object",
-                        "required":false,
+                        "required": false,
                         "title": "Button Graphic",
                         "properties":{
                           "_isEnabled": {
                             "type":"boolean",
-                            "required":true,
-                            "title": "Is enabled",
-                            "inputType": { "type": "Boolean", "options": [false, true]},
+                            "required": true,
+                            "title": "Is Enabled",
+                            "inputType": "Checkbox",
                             "validators": [],
                             "help": "Enables a graphic to be used as the button. Acceptable values are true and false."
                           },
@@ -451,11 +451,11 @@
                       },
                       "_ariaLabels": {
                         "type":"object",
-                        "required":false,
+                        "required": false,
                         "properties":{
                           "openPopup": {
                             "type":"string",
-                            "required":false,
+                            "required": false,
                             "default": "",
                             "title": "Item Aria Label",
                             "inputType": "Text",
@@ -466,7 +466,7 @@
                       },
                       "title": {
                         "type":"string",
-                        "required":false,
+                        "required": false,
                         "default": "",
                         "title": "Item Title",
                         "inputType": "Text",
@@ -475,7 +475,7 @@
                       },
                       "body": {
                         "type":"string",
-                        "required":false,
+                        "required": false,
                         "default": "",
                         "title": "Item Body",
                         "inputType": "TextArea",
@@ -483,7 +483,7 @@
                       },
                       "_itemGraphic": {
                         "type":"object",
-                        "required":false,
+                        "required": false,
                         "properties":{
                           "src": {
                             "type": "string",
@@ -546,16 +546,16 @@
           "properties":{
             "_iconPopup": {
               "type":"object",
-              "required":false,
+              "required": false,
               "legend": "Icon Popup",
               "properties":{
                 "_isEnabled": {
                   "type":"boolean",
-                  "required":true,
-                  "title": "Is enabled",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "required": true,
+                  "title": "Is Enabled",
+                  "inputType": "Checkbox",
                   "validators": [],
-                  "help": "Turns Icon Popup on and off. Acceptable values are true and false."
+                  "help": "Controls whether the Icon Popup extension is enabled or disabled."
                 },
                 "_classes": {
                   "type": "string",
@@ -566,20 +566,20 @@
                 },
                 "_audio": {
                   "type":"object",
-                  "required":false,
+                  "required": false,
                   "title": "Audio",
                   "properties":{
                     "_isEnabled": {
                       "type":"boolean",
-                      "required":false,
+                      "required": false,
                       "default": "false",
-                      "title": "Is enabled",
-                      "inputType": { "type": "Boolean", "options": [false, true]},
+                      "title": "Is Enabled",
+                      "inputType": "Checkbox",
                       "validators": []
                     },
                     "_channel": {
                       "type":"number",
-                      "required":false,
+                      "required": false,
                       "default": 0,
                       "title": "Channel",
                       "inputType": {"type": "Select", "options": [0, 1, 2]},
@@ -590,11 +590,11 @@
                 },
                 "_items": {
                   "type":"array",
-                  "required":true,
+                  "required": true,
                   "title": "Items",
                   "items": {
                     "type":"object",
-                    "required":true,
+                    "required": true,
                     "properties":{
                       "_type": {
                         "type": "string",
@@ -607,16 +607,16 @@
                       },
                       "_setCompletion": {
                         "type":"boolean",
-                        "required":false,
+                        "required": false,
                         "default": "false",
                         "title": "Set Completion",
-                        "inputType": { "type": "Boolean", "options": [false, true]},
+                        "inputType": "Checkbox",
                         "validators": [],
                         "help": "Sets the component to complete when the button is selected."
                       },
                       "_notifyGraphic": {
                         "type":"object",
-                        "required":false,
+                        "required": false,
                         "properties":{
                           "src": {
                             "type": "string",
@@ -631,7 +631,7 @@
                       },
                       "_buttonTitle": {
                         "type":"string",
-                        "required":true,
+                        "required": true,
                         "default": "",
                         "title": "Button Title",
                         "inputType": "Text",
@@ -642,15 +642,15 @@
                       "_buttonIcon": {
                         "type":"object",
                         "title": "Button Icon",
-                        "required":false,
+                        "required": false,
                         "properties":{
                           "_isEnabled": {
                             "type":"boolean",
                             "required":true,
-                            "title": "Is enabled",
-                            "inputType": { "type": "Boolean", "options": [false, true]},
+                            "title": "Is Enabled",
+                            "inputType": "Checkbox",
                             "validators": [],
-                            "help": "Turns button icons on and off. Acceptable values are true and false."
+                            "help": "Turns button icons on and off."
                           },
                           "_icon": {
                             "type": "string",
@@ -665,16 +665,16 @@
                       },
                       "_buttonGraphic": {
                         "type":"object",
-                        "required":false,
+                        "required": false,
                         "title": "Button Graphic",
                         "properties":{
                           "_isEnabled": {
                             "type":"boolean",
-                            "required":true,
-                            "title": "Is enabled",
-                            "inputType": { "type": "Boolean", "options": [false, true]},
+                            "required": true,
+                            "title": "Is Enabled",
+                            "inputType": "Checkbox",
                             "validators": [],
-                            "help": "Enables a graphic to be used as the button. Acceptable values are true and false."
+                            "help": "Enables a graphic to be used as the button."
                           },
                           "src": {
                             "type": "string",
@@ -713,11 +713,11 @@
                       },
                       "_ariaLabels": {
                         "type":"object",
-                        "required":false,
+                        "required": false,
                         "properties":{
                           "openPopup": {
                             "type":"string",
-                            "required":false,
+                            "required": false,
                             "default": "",
                             "title": "Item Aria Label",
                             "inputType": "Text",
@@ -728,7 +728,7 @@
                       },
                       "title": {
                         "type":"string",
-                        "required":false,
+                        "required": false,
                         "default": "",
                         "title": "Item Title",
                         "inputType": "Text",
@@ -737,7 +737,7 @@
                       },
                       "body": {
                         "type":"string",
-                        "required":false,
+                        "required": false,
                         "default": "",
                         "title": "Item Body",
                         "inputType": "TextArea",
@@ -745,7 +745,7 @@
                       },
                       "_itemGraphic": {
                         "type":"object",
-                        "required":false,
+                        "required": false,
                         "properties":{
                           "src": {
                             "type": "string",
