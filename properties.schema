@@ -102,6 +102,15 @@
                             "inputType": "Asset:image",
                             "validators": [],
                             "help": "Select a graphic to be displayed above the item title."
+                          },
+                          "alt": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "inputType": "Text",
+                            "validators": [],
+                            "help": "Alternative text for the notify graphic.",
+                            "translatable": true
                           }
                         }
                       },
@@ -364,6 +373,15 @@
                             "inputType": "Asset:image",
                             "validators": [],
                             "help": "Select a graphic to be displayed above the item title."
+                          },
+                          "alt": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "inputType": "Text",
+                            "validators": [],
+                            "help": "Alternative text for the notify graphic.",
+                            "translatable": true
                           }
                         }
                       },
@@ -626,6 +644,15 @@
                             "inputType": "Asset:image",
                             "validators": [],
                             "help": "Select a graphic to be displayed above the item title."
+                          },
+                          "alt": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "inputType": "Text",
+                            "validators": [],
+                            "help": "Alternative text for the notify graphic.",
+                            "translatable": true
                           }
                         }
                       },

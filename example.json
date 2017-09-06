@@ -17,7 +17,8 @@
                 "_icon": "icon-book" // "icon-light-bulb" -- "icon-warning"
             },
             "_notifyGraphic": {
-                "src": "adapt/css/assets/resource-icon.png" // "resource-icon" -- "warning-icon" -- "dyk-icon" -- "warning-icon"
+                "src": "adapt/css/assets/resource-icon.png" // "resource-icon" -- "warning-icon" -- "dyk-icon" -- "warning-icon",
+                "alt": ""
             },
             "_buttonGraphic": {
                 "_isEnabled": false,
