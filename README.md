@@ -4,7 +4,6 @@
 
 This extension allows an Icon or button to be inserted into an Article, Block or Component which opens content in a popup or a URL in a new window.
 
-
 ## Installation
 
 This extension must be manually installed.
@@ -47,6 +46,8 @@ The Icon popup attribute group contains values for **_isEnabled**, **_classes**,
 
 >>**_notifyGraphic** (object):  This `_notifyGraphic` attributes group stores the properties for a notify graphic. It contains values for **src**.  
 
+>>**alt** (string): This text becomes the image’s `alt` attribute.  
+
 >>>**src** (string): File name (including path) of the image for the notify style popup. Path should be relative to the *src* folder.  
 
 >>**_buttonGraphic** (object):  This `_buttonGraphic` attributes group stores the properties for an image used as the button. It contains values for **_isEnabled**, **src**, **srcHover**, **srcVisited**, and **alt**.  
@@ -86,7 +87,7 @@ The Icon popup attribute group contains values for **_isEnabled**, **_classes**,
 No known limitations.
 
 ----------------------------
-**Version number:**  2.0.25     
+**Version number:**  2.1.0     
 **Framework versions supported:**  2.0.4    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-icon-popup/graphs/contributors)     
 **Accessibility support:** Yes  

@@ -62,25 +62,40 @@ define(function(require) {
 
             // Set variable to use when adding the header image to the notify popup
             if(itemModel._notifyGraphic.src && !itemModel._notifyGraphic.src == "") {
-              this.headerImage = "<div class='icon-popup-prompt-image'><img src='"+itemModel._notifyGraphic.src+"'/></div>";
+              // Check for image alt tag
+              if(itemModel._notifyGraphic.alt && !itemModel._notifyGraphic.alt == "") {
+                this.headerImage = "<div class='icon-popup-prompt-image'><img aria-label='"+itemModel._notifyGraphic.alt+"' tabindex='0' src='"+itemModel._notifyGraphic.src+"'/></div>";
+              } else {
+                this.headerImage = "<div class='icon-popup-prompt-image'><img class='a11y-ignore' aria-hidden='true' tabindex='-1' src='"+itemModel._notifyGraphic.src+"'/></div>";
+              }
             } else {
               this.headerImage = "";
             }
 
             // Check if image is present and set fullwidth style on body accordingly
             if(itemModel._itemGraphic.src && !itemModel._itemGraphic.src == "") {
-              this.bodyClass = "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body'>";
+              this.bodyClass = "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body' tabindex='0'>";
             } else {
-              this.bodyClass = "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body fullwidth'>";
+              this.bodyClass = "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body fullwidth' tabindex='0'>";
             }
 
             // Set variable to use when adding the image to the notify popup
             if(itemModel._itemGraphic.src && !itemModel._itemGraphic.src == "") {
               // Check if body text is present
               if(itemModel.body == "") {
-                this.itemImage = "<img class='icon-popup-notify-graphic fullwidth' src='" +itemModel._itemGraphic.src + "' alt='" +itemModel._itemGraphic.alt + "'/>";
+                // Check for image alt tag
+                if(itemModel._itemGraphic.alt && !itemModel._itemGraphic.alt == "") {
+                  this.itemImage = "<img class='icon-popup-notify-graphic fullwidth' aria-label='"+itemModel._itemGraphic.alt+"' tabindex='0' src='"+itemModel._itemGraphic.src+ "'/>";
+                } else {
+                  this.itemImage = "<img class='icon-popup-notify-graphic fullwidth a11y-ignore' aria-hidden='true' tabindex='-1' src='"+itemModel._itemGraphic.src+ "'/>";
+                }
               } else {
-                this.itemImage = "<img class='icon-popup-notify-graphic' src='" +itemModel._itemGraphic.src + "' alt='" +itemModel._itemGraphic.alt + "'/>";
+                // Check for image alt tag
+                if(itemModel._itemGraphic.alt && !itemModel._itemGraphic.alt == "") {
+                  this.itemImage = "<img class='icon-popup-notify-graphic' aria-label='"+itemModel._itemGraphic.alt+"' tabindex='0' src='"+itemModel._itemGraphic.src+ "'/>";
+                } else {
+                  this.itemImage = "<img class='icon-popup-notify-graphic a11y-ignore' aria-hidden='true' tabindex='-1' src='"+itemModel._itemGraphic.src+ "/>";
+                }
               }
             } else {
               this.itemImage = "";
