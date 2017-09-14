@@ -74,9 +74,9 @@ define(function(require) {
 
             // Check if image is present and set fullwidth style on body accordingly
             if(itemModel._itemGraphic.src && !itemModel._itemGraphic.src == "") {
-              this.bodyClass = "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body' tabindex='0'>";
+              this.bodyClass = "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body'>";
             } else {
-              this.bodyClass = "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body fullwidth' tabindex='0'>";
+              this.bodyClass = "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body fullwidth'>";
             }
 
             // Set variable to use when adding the image to the notify popup
@@ -103,7 +103,7 @@ define(function(require) {
 
             Adapt.trigger("notify:popup", {
                 title: this.headerImage+itemModel.title,
-                body: this.bodyClass + itemModel.body + "</div>" +this.itemImage+"</div>"
+                body: this.bodyClass+itemModel.body+"</div>"+this.itemImage+"</div>"
             });
 
             this.isPopupOpen = true;
