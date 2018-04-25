@@ -1,20 +1,20 @@
 {{! Maintainers - Robert Peek}}
-<div class="icon-popup-inner {{_iconPopup._classes}}" aria-label="{{_globals._extensions._iconPopup.iconPopup}}" tabindex="0">
+<div class="icon-popup-inner {{_iconPopup._classes}}">
   <div class="icon-popup-items">
     {{#each _iconPopup._items}}
     <div class="icon-popup-item">
         {{#if _buttonGraphic._isEnabled}}
-        <a href="#" class="icon-popup-graphic-button icon-popup-button-states-image" role="button" aria-label="{{_ariaLabels.openPopup}}">
-            <img src="{{_buttonGraphic.src}}" alt="{{_buttonGraphic.alt}}" title="{{_buttonGraphic.title}}"/>
-            <img src="{{_buttonGraphic.srcHover}}" class="icon-popup-button-image-hover" alt="{{_buttonGraphic.alt}}" title="{{_buttonGraphic.title}}"/>
-            <img src="{{_buttonGraphic.srcVisited}}" class="icon-popup-button-image-visited" alt="{{_buttonGraphic.alt}}" title="{{_buttonGraphic.title}}"/>
-        </a>
-            {{else}}
-            <button class="icon-popup-open-button {{#if _buttonIcon._isEnabled}}icon {{_buttonIcon._icon}}{{/if}}" role="button" aria-label="{{_ariaLabels.openPopup}}">
-              {{#if _buttonTitle}}
-                <div class="icon-popup-open-button-text">{{_buttonTitle}}</div>
-              {{/if}}
-            </button>
+        <button class="icon-popup-graphic-button icon-popup-button-states-image" role="button" aria-label="{{_ariaLabels.openPopup}}">
+            <img src="{{_buttonGraphic.src}}"/>
+            <img src="{{_buttonGraphic.srcHover}}" class="icon-popup-button-image-hover"/>
+            <img src="{{_buttonGraphic.srcVisited}}" class="icon-popup-button-image-visited"/>
+        </button>
+        {{else}}
+        <button class="icon-popup-open-button {{#if _buttonIcon._isEnabled}}icon {{_buttonIcon._icon}}{{/if}}" role="button" aria-label="{{_ariaLabels.openPopup}}">
+          {{#if _buttonTitle}}
+            <div class="icon-popup-open-button-text">{{_buttonTitle}}</div>
+          {{/if}}
+        </button>
         {{/if}}
       </div>
     {{/each}}

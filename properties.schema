@@ -184,15 +184,6 @@
                             "title": "Button Visited Graphic",
                             "inputType": "Asset:image",
                             "validators": []
-                          },
-                          "alt": {
-                            "type": "string",
-                            "required": false,
-                            "default": "",
-                            "inputType": "Text",
-                            "validators": [],
-                            "help": "Alternative text for this items button graphic.",
-                            "translatable": true
                           }
                         }
                       },
@@ -455,15 +446,6 @@
                             "title": "Button Visited Graphic",
                             "inputType": "Asset:image",
                             "validators": []
-                          },
-                          "alt": {
-                            "type": "string",
-                            "required": false,
-                            "default": "",
-                            "inputType": "Text",
-                            "validators": [],
-                            "help": "Alternative text for this items button graphic.",
-                            "translatable": true
                           }
                         }
                       },
@@ -726,15 +708,6 @@
                             "title": "Button Visited Graphic",
                             "inputType": "Asset:image",
                             "validators": []
-                          },
-                          "alt": {
-                            "type": "string",
-                            "required": false,
-                            "default": "",
-                            "inputType": "Text",
-                            "validators": [],
-                            "help": "Alternative text for this items button graphic.",
-                            "translatable": true
                           }
                         }
                       },

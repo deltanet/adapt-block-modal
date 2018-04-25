@@ -1,24 +1,46 @@
 .extension-icon-popup {
-	position: relative;
-	z-index: 1;
 
 	.icon-popup-inner {
-		width: 100%;
-		max-width: @device-width-large;
-		margin: auto;
-		top: 0px;
+		position: absolute;
 		z-index: 1;
+		top: 0;
+		padding: @component-padding;
 
 		&.icon-popup-article {
+			right: 0;
 			.dir-rtl & {
+				right: inherit;
+				left: 0;
+			}
+			@media all and (max-width: @device-width-small) {
+				padding: @component-padding / 2;
 			}
 		}
+
 		&.icon-popup-block {
-			.dir-rtl & {
+
+			padding-top: 0;
+
+			@media all and (min-width: @device-width-large) {
+				margin: auto;
+				width: 100%;
+				max-width: @device-width-large - (@component-padding * 2);
+			}
+
+			@media all and (max-width: @device-width-large) {
+				right: 0;
+				.dir-rtl & {
+					right: inherit;
+					left: 0;
+				}
 			}
 		}
+
 		&.icon-popup-component {
+			right: 0;
 			.dir-rtl & {
+				right: inherit;
+				left: 0;
 			}
 		}
 	}
