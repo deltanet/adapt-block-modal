@@ -24,9 +24,15 @@ define(function(require) {
             var data = this.model.toJSON();
             var template = Handlebars.templates["icon-popup"];
 
-            $(this.el).html(template(data)).appendTo('.' + this.model.get("_id") + '>.' +this.model.get("_type")+'-inner');
+            // Check if 'header-extensions' div is already in the DOM
+            if (!$('.' + this.model.get('_id')).find('.header-extensions-'+this.model.get("_type")).length) {
+              // Create containing div if not already there
+              var newDiv = document.createElement("div");
+              newDiv.setAttribute('class', 'header-extensions-'+this.model.get("_type"));
+              $(newDiv).appendTo('.' + this.model.get('_id') + '>.' +this.model.get("_type")+'-inner');
+            }
 
-            this.$('.icon-popup-inner').addClass('icon-popup-'+this.model.get("_type"));
+            $(this.el).html(template(data)).appendTo('.' + this.model.get('_id') + '>.' +this.model.get("_type")+'-inner' + ' > .header-extensions-'+this.model.get("_type"));
 
             this.audioChannel = this.model.get('_iconPopup')._audio._channel;
         },
