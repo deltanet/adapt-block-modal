@@ -8,7 +8,8 @@ define(function(require) {
 
         initialize: function () {
             this.listenTo(Adapt, 'remove', this.remove);
-            this.preRender();
+            this.listenTo(Adapt, 'audio:updateAudioStatus', this.alignItems);
+            this.listenTo(Adapt, "pageView:ready", this.alignItems);
             this.render();
         },
 
@@ -17,24 +18,41 @@ define(function(require) {
             "click .icon-popup-open-button":"onItemClicked"
         },
 
-        preRender: function() {},
-
         render: function () {
-
             var data = this.model.toJSON();
             var template = Handlebars.templates["icon-popup"];
 
-            // Check if 'header-extensions' div is already in the DOM
-            if (!$('.' + this.model.get('_id')).find('.header-extensions-'+this.model.get("_type")).length) {
-              // Create containing div if not already there
-              var newDiv = document.createElement("div");
-              newDiv.setAttribute('class', 'header-extensions-'+this.model.get("_type"));
-              $(newDiv).appendTo('.' + this.model.get('_id') + '>.' +this.model.get("_type")+'-inner');
-            }
+            $(this.el).html(template(data)).appendTo('.' + this.model.get("_id") + '>.' +this.model.get("_type")+'-inner');
 
-            $(this.el).html(template(data)).prependTo('.' + this.model.get('_id') + '>.' +this.model.get("_type")+'-inner' + ' > .header-extensions-'+this.model.get("_type"));
+            this.$('.icon-popup-inner').addClass('icon-popup-'+this.model.get("_type"));
 
+            this.elementId = this.model.get("_id");
             this.audioChannel = this.model.get('_iconPopup')._audio._channel;
+
+            this.alignItems();
+        },
+
+        alignItems: function() {
+          // Check for audio toggle button
+          if ($('.'+this.elementId).find('.audio-toggle').css('display') != 'none') {
+            this.$('.icon-popup-inner').addClass("audio-enabled");
+          } else {
+            this.$('.icon-popup-inner').removeClass("audio-enabled");
+          }
+
+          var direction = "right";
+          if (Adapt.config.get('_defaultDirection') == 'rtl') {
+            direction = "left";
+          }
+          // Set width for padding on the title or body
+          var width = this.$('.icon-popup-items').width();
+
+          // Set padding on title or body
+          if (this.model.get('displayTitle') == "") {
+            $('.'+this.elementId).find('.'+this.model.get("_type")+'-body').css("padding-"+direction, width);
+          } else {
+            $('.'+this.elementId).find('.'+this.model.get("_type")+'-title').css("padding-"+direction, width);
+          }
         },
 
         onItemClicked: function(event) {
@@ -54,7 +72,6 @@ define(function(require) {
             } else {
               this.showItemContent(itemModel);
             }
-
         },
 
         showItemUrl: function(itemModel) {
