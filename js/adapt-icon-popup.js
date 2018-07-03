@@ -34,6 +34,8 @@ define(function(require) {
 
         alignItems: function() {
           // Check for audio toggle button
+          if (!$('.'+this.elementId).find('.audio-toggle').length) return;
+
           if ($('.'+this.elementId).find('.audio-toggle').css('display') != 'none') {
             this.$('.icon-popup-inner').addClass("audio-enabled");
           } else {
