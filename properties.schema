@@ -265,8 +265,8 @@
                             "type": "string",
                             "required": false,
                             "default": "",
-                            "title": "Item URL",
-                            "inputType": "Text",
+                            "title": "URL Link",
+                            "inputType": "Asset:other",
                             "validators": [],
                             "help": "If item type is set to URL, specify the link here."
                           }
@@ -527,8 +527,8 @@
                             "type": "string",
                             "required": false,
                             "default": "",
-                            "title": "Item URL",
-                            "inputType": "Text",
+                            "title": "URL Link",
+                            "inputType": "Asset:other",
                             "validators": [],
                             "help": "If item type is set to URL, specify the link here."
                           }
@@ -789,8 +789,8 @@
                             "type": "string",
                             "required": false,
                             "default": "",
-                            "title": "Item URL",
-                            "inputType": "Text",
+                            "title": "URL Link",
+                            "inputType": "Asset:other",
                             "validators": [],
                             "help": "If item type is set to URL, specify the link here."
                           }
