@@ -34,9 +34,7 @@ define(function(require) {
 
         alignItems: function() {
           // Check for audio toggle button
-          if (!$('.'+this.elementId).find('.audio-toggle').length) return;
-
-          if ($('.'+this.elementId).find('.audio-toggle').css('display') != 'none') {
+          if ($('.'+this.elementId).find('.audio-toggle').length && $('.'+this.elementId).find('.audio-toggle').css('display') != 'none') {
             this.$('.icon-popup-inner').addClass("audio-enabled");
           } else {
             this.$('.icon-popup-inner').removeClass("audio-enabled");
@@ -47,7 +45,7 @@ define(function(require) {
             direction = "left";
           }
           // Set width for padding on the title or body
-          var width = this.$('.icon-popup-items').width();
+          var width = this.$('.icon-popup-items').width() + 5;
 
           // Set padding on title or body
           if (this.model.get('displayTitle') == "") {
