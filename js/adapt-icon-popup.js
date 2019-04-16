@@ -8,7 +8,7 @@ define(function(require) {
 
         initialize: function () {
             this.listenTo(Adapt, 'remove', this.remove);
-            this.listenTo(Adapt, 'audio:updateAudioStatus', this.alignItems);
+            this.listenTo(Adapt, 'audio:updateAudioStatus', this.audioUpdated);
             this.listenTo(Adapt, "pageView:ready", this.alignItems);
             this.render();
         },
@@ -30,6 +30,13 @@ define(function(require) {
             this.audioChannel = this.model.get('_iconPopup')._audio._channel;
 
             this.alignItems();
+        },
+
+        audioUpdated: function() {
+          var that = this;
+          _.delay(function() {
+            that.alignItems();
+          }, 300);
         },
 
         alignItems: function() {
