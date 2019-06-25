@@ -1,21 +1,26 @@
-define(function(require) {
+define([
+    'core/js/adapt',
+    './popupView'
+], function(Adapt, PopupView) {
 
-    var Adapt = require('coreJS/adapt');
-    var Backbone = require('backbone');
     var IconPopup = Backbone.View.extend({
 
         className: "extension-icon-popup",
+
+        events: {
+            "click .icon-popup-graphic-button":"onItemClicked",
+            "click .icon-popup-open-button":"onItemClicked"
+        },
 
         initialize: function () {
             this.listenTo(Adapt, 'remove', this.remove);
             this.listenTo(Adapt, 'audio:updateAudioStatus', this.audioUpdated);
             this.listenTo(Adapt, "pageView:ready", this.alignItems);
-            this.render();
-        },
 
-        events: {
-            "click .icon-popup-graphic-button":"onItemClicked",
-            "click .icon-popup-open-button":"onItemClicked"
+            this.popupView = null;
+            this.isPopupOpen = false;
+
+            this.render();
         },
 
         render: function () {
@@ -70,14 +75,14 @@ define(function(require) {
             var itemModel = this.model.get('_iconPopup')._items[$item.index()];
 
             // Check for type
-            if(itemModel._type) {
-              if(itemModel._type === "URL") {
+            if (itemModel._type) {
+              if (itemModel._type === "URL") {
                 this.showItemUrl(itemModel);
-              } else if(itemModel._type === "Popup") {
-                this.showItemContent(itemModel);
+              } else if (itemModel._type === "Popup") {
+                this.showPopup(itemModel);
               }
             } else {
-              this.showItemContent(itemModel);
+              this.showPopup(itemModel);
             }
         },
 
@@ -86,75 +91,40 @@ define(function(require) {
           window.top.open(url);
         },
 
-        showItemContent: function(itemModel) {
-            if(this.isPopupOpen) return;// ensure multiple clicks don't open multiple notify popups
+        showPopup: function(itemModel) {
+          if (this.isPopupOpen) return;
 
-            // Set variable to use when adding the header image to the notify popup
-            if(itemModel._notifyGraphic.src && !itemModel._notifyGraphic.src == "") {
-              // Check for image alt tag
-              if(itemModel._notifyGraphic.alt && !itemModel._notifyGraphic.alt == "") {
-                this.headerImage = "<div class='icon-popup-prompt-image'><img aria-label='"+itemModel._notifyGraphic.alt+"' tabindex='0' src='"+itemModel._notifyGraphic.src+"'/></div>";
-              } else {
-                this.headerImage = "<div class='icon-popup-prompt-image'><img class='a11y-ignore' aria-hidden='true' tabindex='-1' src='"+itemModel._notifyGraphic.src+"'/></div>";
-              }
-            } else {
-              this.headerImage = "";
-            }
+          Adapt.trigger('audio:stopAllChannels');
 
-            // Check if image is present and set fullwidth style on body accordingly
-            if(itemModel._itemGraphic.src && !itemModel._itemGraphic.src == "") {
-              this.bodyClass = "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body'>";
-            } else {
-              this.bodyClass = "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body fullwidth'>";
-            }
+          this.isPopupOpen = true;
 
-            // Set variable to use when adding the image to the notify popup
-            if(itemModel._itemGraphic.src && !itemModel._itemGraphic.src == "") {
-              // Check if body text is present
-              if(itemModel.body == "") {
-                // Check for image alt tag
-                if(itemModel._itemGraphic.alt && !itemModel._itemGraphic.alt == "") {
-                  this.itemImage = "<img class='icon-popup-notify-graphic fullwidth' aria-label='"+itemModel._itemGraphic.alt+"' tabindex='0' src='"+itemModel._itemGraphic.src+ "'/>";
-                } else {
-                  this.itemImage = "<img class='icon-popup-notify-graphic fullwidth a11y-ignore' aria-hidden='true' tabindex='-1' src='"+itemModel._itemGraphic.src+ "'/>";
-                }
-              } else {
-                // Check for image alt tag
-                if(itemModel._itemGraphic.alt && !itemModel._itemGraphic.alt == "") {
-                  this.itemImage = "<img class='icon-popup-notify-graphic' aria-label='"+itemModel._itemGraphic.alt+"' tabindex='0' src='"+itemModel._itemGraphic.src+ "'/>";
-                } else {
-                  this.itemImage = "<img class='icon-popup-notify-graphic a11y-ignore' aria-hidden='true' tabindex='-1' src='"+itemModel._itemGraphic.src+ "/>";
-                }
-              }
-            } else {
-              this.itemImage = "";
-            }
+          var popupModel = new Backbone.Model(itemModel);
 
-            Adapt.trigger("notify:popup", {
-                title: this.headerImage+itemModel.title,
-                body: this.bodyClass+itemModel.body+"</div>"+this.itemImage+"</div>"
-            });
+          this.popupView = new PopupView({
+              model: popupModel
+          });
 
-            this.isPopupOpen = true;
+          Adapt.trigger("notify:popup", {
+              _view: this.popupView,
+              _isCancellable: true,
+              _showCloseButton: false,
+              _closeOnBackdrop: true,
+              _classes: ''
+          });
 
-            ///// Audio /////
-            if (this.model.get('_iconPopup')._audio._isEnabled && Adapt.audio && Adapt.audio.audioClip[this.audioChannel].status==1) {
-              // Reset onscreen id
-              Adapt.audio.audioClip[this.audioChannel].onscreenID = "";
-              // Trigger audio
-              Adapt.trigger('audio:playAudio', itemModel._audio.src, this.model.get('_id'), this.audioChannel);
-            }
-            ///// End of Audio /////
+          this.listenToOnce(Adapt, {
+              'popup:closed': this.onPopupClosed
+          });
 
-            // Check completion
-            if (itemModel._setCompletion) {
-              this.model.set("_isComplete", true);
-              this.model.set("_isInteractionComplete", true);
-            }
+          // Check completion
+          if (itemModel._setCompletion) {
+            this.model.set("_isComplete", true);
+            this.model.set("_isInteractionComplete", true);
+          }
+        },
 
-            Adapt.once("notify:closed", _.bind(function() {
-                this.isPopupOpen = false;
-            }, this));
+        onPopupClosed: function() {
+          this.isPopupOpen = false;
         }
 
     });
