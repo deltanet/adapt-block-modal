@@ -15,24 +15,29 @@ define([
         initialize: function () {
             this.listenTo(Adapt, 'remove', this.remove);
             this.listenTo(Adapt, 'audio:updateAudioStatus', this.audioUpdated);
-            this.listenTo(Adapt, "pageView:ready", this.alignItems);
+            this.listenTo(Adapt, "pageView:ready", this.render);
+
+            this.elementId = this.model.get("_id");
+            this.elementType = this.model.get("_type");
+            this.audioChannel = this.model.get('_iconPopup')._audio._channel;
 
             this.popupView = null;
             this.isPopupOpen = false;
-
-            this.render();
         },
 
         render: function () {
             var data = this.model.toJSON();
             var template = Handlebars.templates["icon-popup"];
 
-            $(this.el).html(template(data)).appendTo('.' + this.model.get("_id") + '>.' +this.model.get("_type")+'-inner');
+            var audioElement = $('.'+this.elementId).find('.'+this.elementType+'-audio');
 
-            this.$('.icon-popup-inner').addClass('icon-popup-'+this.model.get("_type"));
+            if (audioElement.length) {
+              $(this.el).html(template(data)).insertAfter(audioElement);
+            } else {
+              $(this.el).html(template(data)).prependTo('.'+this.elementId+'>.'+this.elementType+'-inner');
+            }
 
-            this.elementId = this.model.get("_id");
-            this.audioChannel = this.model.get('_iconPopup')._audio._channel;
+            this.$('.icon-popup-inner').addClass('icon-popup-'+this.elementType);
 
             this.alignItems();
         },
@@ -45,25 +50,29 @@ define([
         },
 
         alignItems: function() {
-          // Check for audio toggle button
+          // Set var for audio toggle button being visible
           if ($('.'+this.elementId).find('.audio-toggle').length && $('.'+this.elementId).find('.audio-toggle').css('display') != 'none') {
-            this.$('.icon-popup-inner').addClass("audio-enabled");
+            var audioEnabled = true;
+            var audioButtonwidth = $('.'+this.elementId).find('.audio-toggle').outerWidth();
           } else {
-            this.$('.icon-popup-inner').removeClass("audio-enabled");
+            var audioEnabled = false;
           }
 
-          var direction = "right";
-          if (Adapt.config.get('_defaultDirection') == 'rtl') {
-            direction = "left";
+          // Check for audio toggle button
+          if (audioEnabled) {
+            var width = (this.$('.icon-popup-items').width() + 10) + audioButtonwidth;
+          } else {
+            var width = this.$('.icon-popup-items').width() + 10;
           }
-          // Set width for padding on the title or body
-          var width = this.$('.icon-popup-items').width() + 5;
 
-          // Set padding on title or body
+          var elementWidth = $('.'+this.elementId).find('.'+this.elementType+'-header').width();
+          var maxWidth = elementWidth - width;
+
+          // Set width on title or body
           if (this.model.get('displayTitle') == "") {
-            $('.'+this.elementId).find('.'+this.model.get("_type")+'-body').css("padding-"+direction, width);
+            $('.'+this.elementId).find('.'+this.elementType+'-body').css("max-width", maxWidth);
           } else {
-            $('.'+this.elementId).find('.'+this.model.get("_type")+'-title').css("padding-"+direction, width);
+            $('.'+this.elementId).find('.'+this.elementType+'-title').css("max-width", maxWidth);
           }
         },
 

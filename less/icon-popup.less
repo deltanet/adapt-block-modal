@@ -1,86 +1,14 @@
 .extension-icon-popup {
 
 	.icon-popup-inner {
-		position: absolute;
-		z-index: 1;
-		top: 0;
-		margin: @component-padding;
+		float: right;
+    .dir-rtl & {
+      float: left;
+    }
+	}
 
-		&.icon-popup-article {
-			right: 0;
-			.dir-rtl & {
-				right: inherit;
-				left: 0;
-			}
-
-			@media all and (max-width: (@device-width-small + 20px)) {
-				margin: @component-padding / 2;
-			}
-			&.audio-enabled {
-				right: 44px;
-				.dir-rtl & {
-					right: inherit;
-					left: 44px;
-				}
-			}
-		}
-
-		&.icon-popup-block {
-			margin-top: 0;
-
-			.icon-popup-items {
-				float: right;
-				.dir-rtl & {
-					float: left;
-				}
-			}
-
-			@media all and (min-width: @device-width-large) {
-				width: 100%;
-				max-width: @device-width-large - (@component-padding * 2);
-			}
-
-			@media all and (max-width: @device-width-large) {
-				width: auto;
-				right: 0;
-				.dir-rtl & {
-					right: inherit;
-					left: 0;
-				}
-			}
-
-			&.audio-enabled {
-				@media all and (min-width: @device-width-large) {
-					max-width: @device-width-large - ((@component-padding * 2) + 44);
-				}
-
-				@media all and (max-width: @device-width-large) {
-					right: 44px;
-					.dir-rtl & {
-						right: inherit;
-						left: 44px;
-					}
-				}
-			}
-
-		}
-
-		&.icon-popup-component {
-			right: 0;
-			.dir-rtl & {
-				right: inherit;
-				left: 0;
-			}
-
-			&.audio-enabled {
-				right: 44px;
-				.dir-rtl & {
-					right: inherit;
-					left: 44px;
-				}
-			}
-		}
-
+	.icon-popup-items {
+		font-size: 0;
 	}
 
 	.icon-popup-item {
@@ -169,40 +97,6 @@
 					}
 				}
 		  }
-		}
-	}
-}
-
-.component-left {
-	@media all and (min-width: (@device-width-medium + 1px)) {
-		.icon-popup-inner {
-			&.icon-popup-component {
-				right: 5% !important;
-				.dir-rtl & {
-					right: inherit !important;
-				}
-
-				&.audio-enabled {
-					margin-right: 44 + @component-padding;
-				}
-			}
-		}
-	}
-}
-
-.component-right {
-	@media all and (min-width: (@device-width-medium + 1px)) {
-		.icon-popup-inner {
-			&.icon-popup-component {
-				.dir-rtl & {
-					left: 5% !important;
-
-					&.audio-enabled {
-						margin-left: 44 + @component-padding;
-					}
-
-				}
-			}
 		}
 	}
 }
