@@ -7,7 +7,7 @@ define([
         className: "icon-popup-popup",
 
         events: {
-          'click .icon-popup-close': 'closePopup'
+          'click .icon-popup-close-button': 'closePopup'
         },
 
         initialize: function() {

@@ -113,35 +113,16 @@
     }
   }
 
-  .icon-popup-content-inner {
-    position: relative;
-    padding-left: 0px;
-
-    .dir-rtl & {
-      padding-left: inherit;
-      padding-right: 0px;
-    }
+  .icon-popup-content {
+    overflow: auto;
   }
 
-  .icon-popup-title {
-    margin-bottom: @notify-title-padding-bottom;
-    .item-title;
+	.notify-popup-title {
     text-align: center;
-    font-size: @component-title-font-size;
+    padding-right: 0 !important;
   }
 
-  .icon-popup-body {
-    padding-bottom: @notify-title-padding-bottom;
-
-    a {
-      text-decoration: underline;
-      color: @notify-text-color;
-    }
-
-    p {
-      margin-bottom: 0px;
-    }
-
+  .notify-popup-body {
     float: left;
     text-align: left;
 
@@ -162,7 +143,6 @@
       width: 100%;
 			padding-bottom: 0;
     }
-
   }
 
   .icon-popup-graphic {
@@ -195,26 +175,7 @@
     }
   }
 
-  .icon-popup-buttons {
-    text-align: center;
+  .notify-popup-buttons {
     clear: both;
-  }
-
-  .icon-popup-close {
-    background-color: @notify-button-color;
-    color: @notify-button-text-color;
-    padding: @button-padding-top @button-padding-right+10 @button-padding-bottom @button-padding-left+10;
-		margin-top: @notify-padding;
-    text-decoration: none;
-    display: inline-block;
-    border: none;
-    min-width: 100px;
-    .transition-all-colors;
-    .button-text;
-
-    .no-touch &:hover {
-      background-color: @notify-button-color-hover;
-      color: @notify-button-text-color-hover;
-    }
   }
 }
