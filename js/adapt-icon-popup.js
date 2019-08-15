@@ -70,9 +70,9 @@ define([
 
           // Set width on title or body
           if (this.model.get('displayTitle') == "") {
-            $('.'+this.elementId).find('.'+this.elementType+'-body').css("max-width", maxWidth);
+            $('.'+this.elementId).find('.'+this.elementType+'-body-inner').css("max-width", maxWidth);
           } else {
-            $('.'+this.elementId).find('.'+this.elementType+'-title').css("max-width", maxWidth);
+            $('.'+this.elementId).find('.'+this.elementType+'-title-inner').css("max-width", maxWidth);
           }
         },
 
