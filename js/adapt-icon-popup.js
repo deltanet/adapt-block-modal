@@ -1,33 +1,43 @@
-define(function(require) {
+define([
+    'core/js/adapt',
+    './popupView'
+], function(Adapt, PopupView) {
 
-    var Adapt = require('coreJS/adapt');
-    var Backbone = require('backbone');
     var IconPopup = Backbone.View.extend({
 
         className: "extension-icon-popup",
-
-        initialize: function () {
-            this.listenTo(Adapt, 'remove', this.remove);
-            this.listenTo(Adapt, 'audio:updateAudioStatus', this.audioUpdated);
-            this.listenTo(Adapt, "pageView:ready", this.alignItems);
-            this.render();
-        },
 
         events: {
             "click .icon-popup-graphic-button":"onItemClicked",
             "click .icon-popup-open-button":"onItemClicked"
         },
 
+        initialize: function () {
+            this.listenTo(Adapt, 'remove', this.remove);
+            this.listenTo(Adapt, 'audio:updateAudioStatus', this.audioUpdated);
+            this.listenTo(Adapt, "pageView:ready", this.render);
+
+            this.elementId = this.model.get("_id");
+            this.elementType = this.model.get("_type");
+            this.audioChannel = this.model.get('_iconPopup')._audio._channel;
+
+            this.popupView = null;
+            this.isPopupOpen = false;
+        },
+
         render: function () {
             var data = this.model.toJSON();
             var template = Handlebars.templates["icon-popup"];
 
-            $(this.el).html(template(data)).appendTo('.' + this.model.get("_id") + '>.' +this.model.get("_type")+'-inner');
+            var audioElement = $('.'+this.elementId).find('.'+this.elementType+'-audio');
 
-            this.$('.icon-popup-inner').addClass('icon-popup-'+this.model.get("_type"));
+            if (audioElement.length) {
+              $(this.el).html(template(data)).insertAfter(audioElement);
+            } else {
+              $(this.el).html(template(data)).prependTo('.'+this.elementId+'>.'+this.elementType+'-inner');
+            }
 
-            this.elementId = this.model.get("_id");
-            this.audioChannel = this.model.get('_iconPopup')._audio._channel;
+            this.$('.icon-popup-inner').addClass('icon-popup-'+this.elementType);
 
             this.alignItems();
         },
@@ -40,25 +50,29 @@ define(function(require) {
         },
 
         alignItems: function() {
-          // Check for audio toggle button
+          // Set var for audio toggle button being visible
           if ($('.'+this.elementId).find('.audio-toggle').length && $('.'+this.elementId).find('.audio-toggle').css('display') != 'none') {
-            this.$('.icon-popup-inner').addClass("audio-enabled");
+            var audioEnabled = true;
+            var audioButtonwidth = $('.'+this.elementId).find('.audio-toggle').outerWidth();
           } else {
-            this.$('.icon-popup-inner').removeClass("audio-enabled");
+            var audioEnabled = false;
           }
 
-          var direction = "right";
-          if (Adapt.config.get('_defaultDirection') == 'rtl') {
-            direction = "left";
+          // Check for audio toggle button
+          if (audioEnabled) {
+            var width = (this.$('.icon-popup-items').width() + 10) + audioButtonwidth;
+          } else {
+            var width = this.$('.icon-popup-items').width() + 10;
           }
-          // Set width for padding on the title or body
-          var width = this.$('.icon-popup-items').width() + 5;
 
-          // Set padding on title or body
+          var elementWidth = $('.'+this.elementId).find('.'+this.elementType+'-header').width();
+          var maxWidth = elementWidth - width;
+
+          // Set width on title or body
           if (this.model.get('displayTitle') == "") {
-            $('.'+this.elementId).find('.'+this.model.get("_type")+'-body').css("padding-"+direction, width);
+            $('.'+this.elementId).find('.'+this.elementType+'-body-inner').css("max-width", maxWidth);
           } else {
-            $('.'+this.elementId).find('.'+this.model.get("_type")+'-title').css("padding-"+direction, width);
+            $('.'+this.elementId).find('.'+this.elementType+'-title-inner').css("max-width", maxWidth);
           }
         },
 
@@ -70,14 +84,14 @@ define(function(require) {
             var itemModel = this.model.get('_iconPopup')._items[$item.index()];
 
             // Check for type
-            if(itemModel._type) {
-              if(itemModel._type === "URL") {
+            if (itemModel._type) {
+              if (itemModel._type === "URL") {
                 this.showItemUrl(itemModel);
-              } else if(itemModel._type === "Popup") {
-                this.showItemContent(itemModel);
+              } else if (itemModel._type === "Popup") {
+                this.showPopup(itemModel);
               }
             } else {
-              this.showItemContent(itemModel);
+              this.showPopup(itemModel);
             }
         },
 
@@ -86,75 +100,40 @@ define(function(require) {
           window.top.open(url);
         },
 
-        showItemContent: function(itemModel) {
-            if(this.isPopupOpen) return;// ensure multiple clicks don't open multiple notify popups
+        showPopup: function(itemModel) {
+          if (this.isPopupOpen) return;
 
-            // Set variable to use when adding the header image to the notify popup
-            if(itemModel._notifyGraphic.src && !itemModel._notifyGraphic.src == "") {
-              // Check for image alt tag
-              if(itemModel._notifyGraphic.alt && !itemModel._notifyGraphic.alt == "") {
-                this.headerImage = "<div class='icon-popup-prompt-image'><img aria-label='"+itemModel._notifyGraphic.alt+"' tabindex='0' src='"+itemModel._notifyGraphic.src+"'/></div>";
-              } else {
-                this.headerImage = "<div class='icon-popup-prompt-image'><img class='a11y-ignore' aria-hidden='true' tabindex='-1' src='"+itemModel._notifyGraphic.src+"'/></div>";
-              }
-            } else {
-              this.headerImage = "";
-            }
+          Adapt.trigger('audio:stopAllChannels');
 
-            // Check if image is present and set fullwidth style on body accordingly
-            if(itemModel._itemGraphic.src && !itemModel._itemGraphic.src == "") {
-              this.bodyClass = "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body'>";
-            } else {
-              this.bodyClass = "<div class='icon-popup-notify-container'><div class='icon-popup-notify-body fullwidth'>";
-            }
+          this.isPopupOpen = true;
 
-            // Set variable to use when adding the image to the notify popup
-            if(itemModel._itemGraphic.src && !itemModel._itemGraphic.src == "") {
-              // Check if body text is present
-              if(itemModel.body == "") {
-                // Check for image alt tag
-                if(itemModel._itemGraphic.alt && !itemModel._itemGraphic.alt == "") {
-                  this.itemImage = "<img class='icon-popup-notify-graphic fullwidth' aria-label='"+itemModel._itemGraphic.alt+"' tabindex='0' src='"+itemModel._itemGraphic.src+ "'/>";
-                } else {
-                  this.itemImage = "<img class='icon-popup-notify-graphic fullwidth a11y-ignore' aria-hidden='true' tabindex='-1' src='"+itemModel._itemGraphic.src+ "'/>";
-                }
-              } else {
-                // Check for image alt tag
-                if(itemModel._itemGraphic.alt && !itemModel._itemGraphic.alt == "") {
-                  this.itemImage = "<img class='icon-popup-notify-graphic' aria-label='"+itemModel._itemGraphic.alt+"' tabindex='0' src='"+itemModel._itemGraphic.src+ "'/>";
-                } else {
-                  this.itemImage = "<img class='icon-popup-notify-graphic a11y-ignore' aria-hidden='true' tabindex='-1' src='"+itemModel._itemGraphic.src+ "/>";
-                }
-              }
-            } else {
-              this.itemImage = "";
-            }
+          var popupModel = new Backbone.Model(itemModel);
 
-            Adapt.trigger("notify:popup", {
-                title: this.headerImage+itemModel.title,
-                body: this.bodyClass+itemModel.body+"</div>"+this.itemImage+"</div>"
-            });
+          this.popupView = new PopupView({
+              model: popupModel
+          });
 
-            this.isPopupOpen = true;
+          Adapt.trigger("notify:popup", {
+              _view: this.popupView,
+              _isCancellable: true,
+              _showCloseButton: false,
+              _closeOnBackdrop: true,
+              _classes: ''
+          });
 
-            ///// Audio /////
-            if (this.model.get('_iconPopup')._audio._isEnabled && Adapt.audio && Adapt.audio.audioClip[this.audioChannel].status==1) {
-              // Reset onscreen id
-              Adapt.audio.audioClip[this.audioChannel].onscreenID = "";
-              // Trigger audio
-              Adapt.trigger('audio:playAudio', itemModel._audio.src, this.model.get('_id'), this.audioChannel);
-            }
-            ///// End of Audio /////
+          this.listenToOnce(Adapt, {
+              'popup:closed': this.onPopupClosed
+          });
 
-            // Check completion
-            if (itemModel._setCompletion) {
-              this.model.set("_isComplete", true);
-              this.model.set("_isInteractionComplete", true);
-            }
+          // Check completion
+          if (itemModel._setCompletion) {
+            this.model.set("_isComplete", true);
+            this.model.set("_isInteractionComplete", true);
+          }
+        },
 
-            Adapt.once("notify:closed", _.bind(function() {
-                this.isPopupOpen = false;
-            }, this));
+        onPopupClosed: function() {
+          this.isPopupOpen = false;
         }
 
     });

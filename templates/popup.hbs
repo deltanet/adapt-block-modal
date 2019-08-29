@@ -1,0 +1,32 @@
+{{! make the _globals object in course.json available to this template}}
+{{import_globals}}
+{{#if _notifyGraphic.src}}
+	<div class="icon-popup-header">
+		<img src="{{_notifyGraphic.src}}" {{#if  _notifyGraphic.alt}}aria-label="{{ _notifyGraphic.alt}}"{{else}}aria-hidden="true"{{/if}}/>
+	</div>
+{{/if}}
+{{#if title}}
+<div id="notify-heading" class="notify-popup-title">
+	<div class="notify-popup-title-inner h5" role="heading" aria-level="1">{{{compile title}}}</div>
+</div>
+{{/if}}
+<div class="icon-popup-content">
+	{{#if body}}
+	<div class="notify-popup-body{{#if _itemGraphic.src}}{{else}} fullwidth{{/if}}">
+		<div class="notify-popup-body-inner">{{{compile body}}}</div>
+	</div>
+	{{/if}}
+	{{#if _itemGraphic.src}}
+	<div class="icon-popup-graphic{{#if body}}{{else}} fullwidth{{/if}}">
+		<div class="icon-popup-graphic-inner">
+			<img src="{{_itemGraphic.src}}" {{#if  _itemGraphic.alt}} aria-label="{{_itemGraphic.alt}}"{{else}}aria-hidden="true"{{/if}}/>
+		</div>
+	</div>
+	{{/if}}
+</div>
+<div class="notify-popup-buttons">
+	<button class="notify-popup-button icon-popup-close-button" aria-label="{{_globals._accessibility._ariaLabels.closePopup}}">
+		{{{_globals._accessibility._ariaLabels.closePopup}}}
+  </button>
+</div>
+{{a11y_wrap_focus}}

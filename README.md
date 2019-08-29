@@ -2,7 +2,7 @@
 
 **Icon popup** is an *extension* for the [Adapt framework](https://github.com/adaptlearning/adapt_framework).   
 
-This extension allows an Icon or button to be inserted into an Article, Block or Component which opens content in a popup or a URL in a new window.
+This extension allows an icon or text button to be inserted into an Article, Block or Component which opens content in a popup or a URL in a new window.
 
 ## Installation
 
@@ -87,8 +87,8 @@ The Icon popup attribute group contains values for **_isEnabled**, **_classes**,
 No known limitations.
 
 ----------------------------
-**Version number:**  2.2.2     
-**Framework versions supported:**  2.0.4    
+**Version number:**  3.0.0     
+**Framework versions supported:**  4+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-icon-popup/graphs/contributors)     
 **Accessibility support:** Yes  
 **RTL support:** Yes  

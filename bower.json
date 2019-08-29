@@ -1,17 +1,17 @@
 {
   "name": "adapt-icon-popup",
-  "version": "2.2.2",
-  "framework": "^2.0.4",
+  "version": "3.0.0",
+  "framework": ">=4",
   "homepage": "https://github.com/deltanet/adapt-icon-popup",
   "issues": "https://github.com/deltanet/adapt-icon-popup/issues",
   "displayName" : "Icon Popup",
   "extension" : "icon popup",
-  "description": "An extension that allows a button to be added to an article, block or component which opens more content in a popup",
+  "description": "An extension that inserts an icon or text button to an article, block or component which opens content in a popup or a URL in a new window.",
   "main": "/js/adapt-icon-popup.js",
   "keywords": [
     "adapt-plugin",
     "adapt-extension"
   ],
-  "license": "GPL-3.0",
+  "license": "GPLv3",
   "targetAttribute": "_iconPopup"
 }
