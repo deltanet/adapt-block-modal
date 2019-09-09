@@ -9,9 +9,9 @@
             <img src="{{_buttonGraphic.srcVisited}}" class="icon-popup-button-image-visited"/>
         </button>
         {{else}}
-        <button class="icon-popup-open-button {{#if _buttonIcon._isEnabled}}icon {{_buttonIcon._icon}}{{/if}}" aria-label="{{_ariaLabels.openPopup}}">
+        <button class="icon-popup-open-button{{#if _buttonIcon._isEnabled}} icon {{_buttonIcon._icon}}{{/if}}" aria-label="{{_ariaLabels.openPopup}}">
           {{#if _buttonTitle}}
-            <div class="icon-popup-open-button-text">{{_buttonTitle}}</div>
+            {{_buttonTitle}}
           {{/if}}
         </button>
         {{/if}}

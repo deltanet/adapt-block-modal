@@ -5,6 +5,16 @@
     .dir-rtl & {
       float: left;
     }
+
+		&.overlayed {
+			position: absolute;
+
+			right: @component-padding;
+			.dir-rtl & {
+	      right: inherit;
+				left: @component-padding;
+	    }
+		}
 	}
 
 	.icon-popup-items {
@@ -13,6 +23,7 @@
 
 	.icon-popup-item {
 		display: inline-block;
+		vertical-align: top;
 	}
 
 	.icon-popup-open-button {
@@ -21,6 +32,8 @@
 		text-decoration:none;
 		cursor: pointer;
 		padding: @item-padding;
+		min-height: @icon-size + (@item-padding*2);
+
 		&.visited {
 		  background-color: @item-visited-color;
 		  &.show:hover {
@@ -28,21 +41,13 @@
 			cursor:default;
 		  }
 		}
+
 		&:hover {
 			background-color: @item-color-hover;
 			.icon-popup-open-button-text {
 				color: @item-text-color-hover;
 			}
 		}
-	}
-
-  .icon-popup-open-button-text {
-		color: @item-text-color;
-		text-decoration:none;
-		font-weight: bold;
-		text-align: center;
-		font-size: @body-text-font-size;
-		padding: 2px;
 	}
 
 	.icon-popup-graphic-button {
