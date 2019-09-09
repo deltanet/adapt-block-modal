@@ -54,8 +54,10 @@ define([
           if ($('.'+this.elementId).find('.audio-toggle').length && $('.'+this.elementId).find('.audio-toggle').css('display') != 'none') {
             var audioEnabled = true;
             var audioButtonwidth = $('.'+this.elementId).find('.audio-toggle').outerWidth();
+            this.$('.icon-popup-inner').addClass('audio-enabled');
           } else {
             var audioEnabled = false;
+            this.$('.icon-popup-inner').removeClass('audio-enabled');
           }
 
           // Check for audio toggle button
