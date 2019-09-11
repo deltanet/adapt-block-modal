@@ -39,7 +39,7 @@ define([
 
             this.$('.icon-popup-inner').addClass('icon-popup-'+this.elementType);
 
-            if (!this.model.get('_displayTitle') && !this.model.get('_body')) {
+            if (!this.model.get('displayTitle') && !this.model.get('body')) {
               this.$('.icon-popup-inner').addClass('overlayed');
             }
 
