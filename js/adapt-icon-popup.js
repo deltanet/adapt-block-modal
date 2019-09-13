@@ -1,153 +1,41 @@
 define([
     'core/js/adapt',
-    './popupView'
-], function(Adapt, PopupView) {
+    './iconPopupView'
+], function(Adapt, IconPopupView) {
 
-    var IconPopup = Backbone.View.extend({
+  var IconPopup = _.extend({
 
-        className: "extension-icon-popup",
+    initialize: function() {
+        this.listenToOnce(Adapt, "app:dataReady", this.onDataReady);
+    },
 
-        events: {
-            "click .icon-popup-graphic-button":"onItemClicked",
-            "click .icon-popup-open-button":"onItemClicked"
-        },
+    onDataReady: function() {
+        this.setupEventListeners();
+    },
 
-        initialize: function () {
-            this.listenTo(Adapt, 'remove', this.remove);
-            this.listenTo(Adapt, 'audio:updateAudioStatus', this.audioUpdated);
-            this.listenTo(Adapt, "pageView:ready", this.render);
+    setupEventListeners: function() {
+      this.listenTo(Adapt, "articleView:postRender blockView:postRender componentView:postRender", this.onABCReady);
+    },
 
-            this.elementId = this.model.get("_id");
-            this.elementType = this.model.get("_type");
-            this.audioChannel = this.model.get('_iconPopup')._audio._channel;
+    onABCReady: function(view) {
+      var config = view.model.get("_iconPopup");
 
-            this.popupView = null;
-            this.isPopupOpen = false;
-        },
+      if (!config) return;
 
-        render: function () {
-            var data = this.model.toJSON();
-            var template = Handlebars.templates["icon-popup"];
+      if (config._isEnabled) {
 
-            var audioElement = $('.'+this.elementId).find('.'+this.elementType+'-audio');
+        if (view.model.get('_iconPopupLoaded')) return;
 
-            if (audioElement.length) {
-              $(this.el).html(template(data)).insertAfter(audioElement);
-            } else {
-              $(this.el).html(template(data)).prependTo('.'+this.elementId+'>.'+this.elementType+'-inner');
-            }
+        new IconPopupView({model:view.model});
 
-            this.$('.icon-popup-inner').addClass('icon-popup-'+this.elementType);
+        view.model.set('_iconPopupLoaded', true);
+      }
+    }
 
-            if (!this.model.get('displayTitle') && !this.model.get('body')) {
-              this.$('.icon-popup-inner').addClass('overlayed');
-            }
+  }, Backbone.Events);
 
-            this.alignItems();
-        },
+    IconPopup.initialize();
 
-        audioUpdated: function() {
-          var that = this;
-          _.delay(function() {
-            that.alignItems();
-          }, 300);
-        },
-
-        alignItems: function() {
-          // Set var for audio toggle button being visible
-          if ($('.'+this.elementId).find('.audio-toggle').length && $('.'+this.elementId).find('.audio-toggle').css('display') != 'none') {
-            var audioEnabled = true;
-            var audioButtonwidth = $('.'+this.elementId).find('.audio-toggle').outerWidth();
-            this.$('.icon-popup-inner').addClass('audio-enabled');
-          } else {
-            var audioEnabled = false;
-            this.$('.icon-popup-inner').removeClass('audio-enabled');
-          }
-
-          // Check for audio toggle button
-          if (audioEnabled) {
-            var width = (this.$('.icon-popup-items').width() + 10) + audioButtonwidth;
-          } else {
-            var width = this.$('.icon-popup-items').width() + 10;
-          }
-
-          var elementWidth = $('.'+this.elementId).find('.'+this.elementType+'-header').width();
-          var maxWidth = elementWidth - width;
-
-          // Set width on title or body
-          if (this.model.get('displayTitle') == "") {
-            $('.'+this.elementId).find('.'+this.elementType+'-body-inner').css("max-width", maxWidth);
-          } else {
-            $('.'+this.elementId).find('.'+this.elementType+'-title-inner').css("max-width", maxWidth);
-          }
-        },
-
-        onItemClicked: function(event) {
-            if (event) event.preventDefault();
-
-            var $link = $(event.currentTarget);
-            var $item = $link.parent();
-            var itemModel = this.model.get('_iconPopup')._items[$item.index()];
-
-            // Check for type
-            if (itemModel._type) {
-              if (itemModel._type === "URL") {
-                this.showItemUrl(itemModel);
-              } else if (itemModel._type === "Popup") {
-                this.showPopup(itemModel);
-              }
-            } else {
-              this.showPopup(itemModel);
-            }
-        },
-
-        showItemUrl: function(itemModel) {
-          var url = itemModel._url._src;
-          window.top.open(url);
-        },
-
-        showPopup: function(itemModel) {
-          if (this.isPopupOpen) return;
-
-          Adapt.trigger('audio:stopAllChannels');
-
-          this.isPopupOpen = true;
-
-          var popupModel = new Backbone.Model(itemModel);
-
-          this.popupView = new PopupView({
-              model: popupModel
-          });
-
-          Adapt.trigger("notify:popup", {
-              _view: this.popupView,
-              _isCancellable: true,
-              _showCloseButton: false,
-              _closeOnBackdrop: true,
-              _classes: ''
-          });
-
-          this.listenToOnce(Adapt, {
-              'popup:closed': this.onPopupClosed
-          });
-
-          // Check completion
-          if (itemModel._setCompletion) {
-            this.model.set("_isComplete", true);
-            this.model.set("_isInteractionComplete", true);
-          }
-        },
-
-        onPopupClosed: function() {
-          this.isPopupOpen = false;
-        }
-
-    });
-
-    Adapt.on('articleView:postRender blockView:postRender componentView:postRender', function(view) {
-        if (view.model.get("_iconPopup") && view.model.get("_iconPopup")._isEnabled) {
-          new IconPopup({model:view.model});
-        }
-    });
+    return IconPopup;
 
 });
