@@ -14,11 +14,11 @@ define([
           this.listenToOnce(Adapt, "notify:opened", this.onOpened);
 
           // Audio
-          this.audioIsEnabled = this.model.get('_audio')._isEnabled;
-          if (this.audioIsEnabled && Adapt.audio) {
-            this.audioChannel = this.model.get('_audio')._channel;
+          this.audioIsEnabled = this.model.get('audioIsEnabled');
+          if (this.audioIsEnabled) {
+            this.audioChannel = this.model.get('audioChannel');
             this.audioSrc = this.model.get('_audio').src;
-            this.audioId = this.model.get("_id");
+            this.audioId = this.model.get('audioId');
           }
 
           this.render();

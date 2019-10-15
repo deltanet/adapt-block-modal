@@ -117,6 +117,14 @@ define([
 
           var popupModel = new Backbone.Model(itemModel);
 
+          if (Adapt.audio && this.model.get('_audio')._isEnabled) {
+            popupModel.set('audioIsEnabled', true);
+            popupModel.set('audioChannel', this.audioChannel);
+            popupModel.set('audioId', this.elementId);
+          } else {
+            popupModel.set('audioIsEnabled', false);
+          }
+
           this.popupView = new PopupView({
               model: popupModel
           });
