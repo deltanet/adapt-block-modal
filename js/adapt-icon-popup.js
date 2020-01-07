@@ -123,7 +123,7 @@ define(function(require) {
                 if(itemModel._itemGraphic.alt && !itemModel._itemGraphic.alt == "") {
                   this.itemImage = "<img class='icon-popup-notify-graphic' aria-label='"+itemModel._itemGraphic.alt+"' tabindex='0' src='"+itemModel._itemGraphic.src+ "'/>";
                 } else {
-                  this.itemImage = "<img class='icon-popup-notify-graphic a11y-ignore' aria-hidden='true' tabindex='-1' src='"+itemModel._itemGraphic.src+ "/>";
+                  this.itemImage = "<img class='icon-popup-notify-graphic a11y-ignore' aria-hidden='true' tabindex='-1' src='"+itemModel._itemGraphic.src+ "'/>";
                 }
               }
             } else {
