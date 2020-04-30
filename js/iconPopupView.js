@@ -21,6 +21,8 @@ define([
 
             this.elementId = this.model.get("_id");
             this.elementType = this.model.get("_type");
+
+            this.audioIsEnabled = this.model.get('_iconPopup')._audio._isEnabled;
             this.audioChannel = this.model.get('_iconPopup')._audio._channel;
 
             this.popupView = null;
@@ -117,8 +119,8 @@ define([
 
           var popupModel = new Backbone.Model(itemModel);
 
-          if (Adapt.audio && this.model.get('_audio')._isEnabled) {
-            popupModel.set('audioIsEnabled', true);
+          if (Adapt.audio && this.audioIsEnabled) {
+            popupModel.set('audioIsEnabled', this.audioIsEnabled);
             popupModel.set('audioChannel', this.audioChannel);
             popupModel.set('audioId', this.elementId);
           } else {
