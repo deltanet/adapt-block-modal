@@ -30,11 +30,13 @@ The Icon popup attribute group contains values for **_isEnabled**, **_classes**,
 
 >>**_channel** (number):  Defines the channel number for the [audio](https://github.com/deltanet/adapt-audio).
 
->**_items** (array):  This `_items` attributes group stores the properties for each button. It contains values for **_type**, **_setCompletion**, **_buttonTitle**, **_buttonIcon**, **_notifyGraphic**, **_buttonGraphic**, **_ariaLabels**,  **title**, **body**, **_itemGraphic**, **_audio**, and **_url**.  
+>**_items** (array):  This `_items` attributes group stores the properties for each button. It contains values for **_type**, **_setCompletion**, **_onlyShowOnFinalAttempt**, **_buttonTitle**, **_buttonIcon**, **_notifyGraphic**, **_buttonGraphic**, **_ariaLabels**,  **title**, **body**, **_itemGraphic**, **_audio**, and **_url**.  
 
 >>**_type** (string): Defines what type of popup is used. Option are `Popup` and `URL`.
 
 >>**_setCompletion** (boolean):  Defines whether the Article, Block or Component element should be set to complete when the item is viewed.
+
+>>**_onlyShowOnFinalAttempt** (boolean):  Determines whether the item will only show when the final attempt is being used. This only applies to question components.
 
 >>**_buttonTitle** (string): Sets the text on the button.
 
@@ -87,7 +89,7 @@ The Icon popup attribute group contains values for **_isEnabled**, **_classes**,
 No known limitations.
 
 ----------------------------
-**Version number:**  3.0.6     
+**Version number:**  3.1.0     
 **Framework versions supported:**  4+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-icon-popup/graphs/contributors)     
 **Accessibility support:** Yes  

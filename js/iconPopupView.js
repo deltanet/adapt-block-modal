@@ -19,6 +19,8 @@ define([
               "pageView:ready": this.render
             });
 
+            this.listenTo(this.model, 'change:_isSubmitted', this.checkAttempts);
+
             this.elementId = this.model.get("_id");
             this.elementType = this.model.get("_type");
 
@@ -47,7 +49,14 @@ define([
               this.$('.icon-popup-inner').addClass('overlayed');
             }
 
-            this.alignItems();
+            _.defer(_.bind(function() {
+              this.postRender();
+            }, this));
+        },
+
+        postRender: function() {
+          this.alignItems();
+          this.checkAttempts();
         },
 
         audioUpdated: function() {
@@ -83,6 +92,23 @@ define([
             $('.'+this.elementId).find('.'+this.elementType+'-body-inner').css("max-width", maxWidth);
           } else {
             $('.'+this.elementId).find('.'+this.elementType+'-title-inner').css("max-width", maxWidth);
+          }
+        },
+
+        checkAttempts: function() {
+          var items = this.$('.icon-popup-items').children();
+
+          for (var i = 0, l = items.length; i < l; i++) {
+            var item = this.model.get('_iconPopup')._items[i];
+            var $item = this.$(items[i]);
+
+            if (item._onlyShowOnFinalAttempt && this.model.get('_attemptsLeft') > 1) {
+              $item.hide();
+            } else if (item._onlyShowOnFinalAttempt && this.model.get('_isSubmitted') && this.model.get('_attemptsLeft') == 1) {
+              $item.hide();
+            } else {
+              $item.show();
+            }
           }
         },
 

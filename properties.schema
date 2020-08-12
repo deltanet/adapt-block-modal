@@ -1,33 +1,34 @@
 {
-  "type":"object",
+  "type": "object",
   "$schema": "http://json-schema.org/draft-04/schema",
   "id": "http://jsonschema.net",
-  "required":false,
-  "properties":{
+  "required": false,
+  "properties": {
     "pluginLocations": {
-      "type":"object",
+      "type": "object",
       "required":true,
-      "properties":{
+      "properties": {
         "config": {
-          "type":"object"
+          "type": "object"
         },
         "course": {
-          "type":"object"
+          "type": "object"
         },
         "contentobject": {
-          "type":"object"
+          "type": "object"
         },
         "article": {
-          "type":"object",
-          "properties":{
+          "type": "object",
+          "properties": {
             "_iconPopup": {
-              "type":"object",
+              "type": "object",
               "required": false,
               "legend": "Icon Popup",
-              "properties":{
+              "properties": {
                 "_isEnabled": {
-                  "type":"boolean",
+                  "type": "boolean",
                   "required": true,
+                  "default": false,
                   "title": "Is Enabled",
                   "inputType": "Checkbox",
                   "validators": [],
@@ -41,20 +42,20 @@
                   "validators": []
                 },
                 "_audio": {
-                  "type":"object",
+                  "type": "object",
                   "required": false,
                   "title": "Audio",
-                  "properties":{
+                  "properties": {
                     "_isEnabled": {
-                      "type":"boolean",
+                      "type": "boolean",
                       "required": false,
-                      "default": "false",
+                      "default": false,
                       "title": "Is Enabled",
                       "inputType": "Checkbox",
                       "validators": []
                     },
                     "_channel": {
-                      "type":"number",
+                      "type": "number",
                       "required": false,
                       "default": 0,
                       "title": "Channel",
@@ -65,13 +66,13 @@
                   }
                 },
                 "_items": {
-                  "type":"array",
+                  "type": "array",
                   "required": true,
                   "title": "Items",
                   "items": {
-                    "type":"object",
+                    "type": "object",
                     "required": true,
-                    "properties":{
+                    "properties": {
                       "_type": {
                         "type": "string",
                         "required": true,
@@ -82,18 +83,18 @@
                         "help": "Set the type of  of the item, either a Popup or a URL that opens in a new window."
                       },
                       "_setCompletion": {
-                        "type":"boolean",
+                        "type": "boolean",
                         "required": false,
-                        "default": "false",
+                        "default": false,
                         "title": "Set Completion",
                         "inputType": "Checkbox",
                         "validators": [],
                         "help": "Sets the article to complete when the button is selected."
                       },
                       "_notifyGraphic": {
-                        "type":"object",
+                        "type": "object",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "src": {
                             "type": "string",
                             "required": false,
@@ -115,8 +116,8 @@
                         }
                       },
                       "_buttonTitle": {
-                        "type":"string",
-                        "required": true,
+                        "type": "string",
+                        "required": false,
                         "default": "",
                         "title": "Button Title",
                         "inputType": "Text",
@@ -125,13 +126,14 @@
                         "translatable": true
                       },
                       "_buttonIcon": {
-                        "type":"object",
+                        "type": "object",
                         "title": "Button Icon",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "_isEnabled": {
-                            "type":"boolean",
-                            "required": true,
+                            "type": "boolean",
+                            "required": false,
+                            "default": false,
                             "title": "Is Enabled",
                             "inputType": "Checkbox",
                             "validators": [],
@@ -139,7 +141,7 @@
                           },
                           "_icon": {
                             "type": "string",
-                            "required": true,
+                            "required": false,
                             "title": "Icon",
                             "default": "icon-info",
                             "inputType": "Text",
@@ -149,13 +151,14 @@
                         }
                       },
                       "_buttonGraphic": {
-                        "type":"object",
+                        "type": "object",
                         "required": false,
                         "title": "Button Graphic",
-                        "properties":{
+                        "properties": {
                           "_isEnabled": {
-                            "type":"boolean",
-                            "required": true,
+                            "type": "boolean",
+                            "required": false,
+                            "default": false,
                             "title": "Is Enabled",
                             "inputType": "Checkbox",
                             "validators": [],
@@ -188,11 +191,11 @@
                         }
                       },
                       "_ariaLabels": {
-                        "type":"object",
+                        "type": "object",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "openPopup": {
-                            "type":"string",
+                            "type": "string",
                             "required": false,
                             "default": "",
                             "title": "Item Aria Label",
@@ -203,7 +206,7 @@
                         }
                       },
                       "title": {
-                        "type":"string",
+                        "type": "string",
                         "required": false,
                         "default": "",
                         "title": "Item Title",
@@ -212,7 +215,7 @@
                         "translatable": true
                       },
                       "body": {
-                        "type":"string",
+                        "type": "string",
                         "required": false,
                         "default": "",
                         "title": "Item Body",
@@ -220,9 +223,9 @@
                         "translatable": true
                       },
                       "_itemGraphic": {
-                        "type":"object",
+                        "type": "object",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "src": {
                             "type": "string",
                             "required": false,
@@ -245,7 +248,7 @@
                       "_audio": {
                         "type": "object",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "src": {
                             "type": "string",
                             "required": false,
@@ -260,7 +263,7 @@
                       "_url": {
                         "type": "object",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "_src": {
                             "type": "string",
                             "required": false,
@@ -280,16 +283,17 @@
           }
         },
         "block": {
-          "type":"object",
-          "properties":{
+          "type": "object",
+          "properties": {
             "_iconPopup": {
-              "type":"object",
+              "type": "object",
               "required": false,
               "legend": "Icon Popup",
-              "properties":{
+              "properties": {
                 "_isEnabled": {
-                  "type":"boolean",
+                  "type": "boolean",
                   "required": true,
+                  "default": false,
                   "title": "Is Enabled",
                   "inputType": "Checkbox",
                   "validators": [],
@@ -303,20 +307,20 @@
                   "validators": []
                 },
                 "_audio": {
-                  "type":"object",
+                  "type": "object",
                   "required": false,
                   "title": "Audio",
-                  "properties":{
+                  "properties": {
                     "_isEnabled": {
-                      "type":"boolean",
+                      "type": "boolean",
                       "required": false,
-                      "default": "false",
+                      "default": false,
                       "title": "Is Enabled",
                       "inputType": "Checkbox",
                       "validators": []
                     },
                     "_channel": {
-                      "type":"number",
+                      "type": "number",
                       "required": false,
                       "default": 0,
                       "title": "Channel",
@@ -327,13 +331,13 @@
                   }
                 },
                 "_items": {
-                  "type":"array",
+                  "type": "array",
                   "required": true,
                   "title": "Items",
                   "items": {
-                    "type":"object",
+                    "type": "object",
                     "required": true,
-                    "properties":{
+                    "properties": {
                       "_type": {
                         "type": "string",
                         "required": true,
@@ -344,18 +348,18 @@
                         "help": "Set the type of  of the item, either a Popup or a URL that opens in a new window."
                       },
                       "_setCompletion": {
-                        "type":"boolean",
+                        "type": "boolean",
                         "required": false,
-                        "default": "false",
+                        "default": false,
                         "title": "Set Completion",
                         "inputType": "Checkbox",
                         "validators": [],
                         "help": "Sets the block to complete when the button is selected."
                       },
                       "_notifyGraphic": {
-                        "type":"object",
+                        "type": "object",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "src": {
                             "type": "string",
                             "required": false,
@@ -377,7 +381,7 @@
                         }
                       },
                       "_buttonTitle": {
-                        "type":"string",
+                        "type": "string",
                         "required": true,
                         "default": "",
                         "title": "Button Title",
@@ -387,13 +391,14 @@
                         "translatable": true
                       },
                       "_buttonIcon": {
-                        "type":"object",
+                        "type": "object",
                         "title": "Button Icon",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "_isEnabled": {
-                            "type":"boolean",
+                            "type": "boolean",
                             "required": true,
+                            "default": false,
                             "title": "Is Enabled",
                             "inputType": "Checkbox",
                             "validators": [],
@@ -411,13 +416,14 @@
                         }
                       },
                       "_buttonGraphic": {
-                        "type":"object",
+                        "type": "object",
                         "required": false,
                         "title": "Button Graphic",
-                        "properties":{
+                        "properties": {
                           "_isEnabled": {
-                            "type":"boolean",
+                            "type": "boolean",
                             "required": true,
+                            "default": false,
                             "title": "Is Enabled",
                             "inputType": "Checkbox",
                             "validators": [],
@@ -450,11 +456,11 @@
                         }
                       },
                       "_ariaLabels": {
-                        "type":"object",
+                        "type": "object",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "openPopup": {
-                            "type":"string",
+                            "type": "string",
                             "required": false,
                             "default": "",
                             "title": "Item Aria Label",
@@ -465,7 +471,7 @@
                         }
                       },
                       "title": {
-                        "type":"string",
+                        "type": "string",
                         "required": false,
                         "default": "",
                         "title": "Item Title",
@@ -474,7 +480,7 @@
                         "translatable": true
                       },
                       "body": {
-                        "type":"string",
+                        "type": "string",
                         "required": false,
                         "default": "",
                         "title": "Item Body",
@@ -482,9 +488,9 @@
                         "translatable": true
                       },
                       "_itemGraphic": {
-                        "type":"object",
+                        "type": "object",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "src": {
                             "type": "string",
                             "required": false,
@@ -507,7 +513,7 @@
                       "_audio": {
                         "type": "object",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "src": {
                             "type": "string",
                             "required": false,
@@ -522,7 +528,7 @@
                       "_url": {
                         "type": "object",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "_src": {
                             "type": "string",
                             "required": false,
@@ -542,16 +548,17 @@
           }
         },
         "component": {
-          "type":"object",
-          "properties":{
+          "type": "object",
+          "properties": {
             "_iconPopup": {
-              "type":"object",
+              "type": "object",
               "required": false,
               "legend": "Icon Popup",
-              "properties":{
+              "properties": {
                 "_isEnabled": {
-                  "type":"boolean",
+                  "type": "boolean",
                   "required": true,
+                  "default": false,
                   "title": "Is Enabled",
                   "inputType": "Checkbox",
                   "validators": [],
@@ -565,20 +572,20 @@
                   "validators": []
                 },
                 "_audio": {
-                  "type":"object",
+                  "type": "object",
                   "required": false,
                   "title": "Audio",
-                  "properties":{
+                  "properties": {
                     "_isEnabled": {
-                      "type":"boolean",
+                      "type": "boolean",
                       "required": false,
-                      "default": "false",
+                      "default": false,
                       "title": "Is Enabled",
                       "inputType": "Checkbox",
                       "validators": []
                     },
                     "_channel": {
-                      "type":"number",
+                      "type": "number",
                       "required": false,
                       "default": 0,
                       "title": "Channel",
@@ -589,13 +596,13 @@
                   }
                 },
                 "_items": {
-                  "type":"array",
+                  "type": "array",
                   "required": true,
                   "title": "Items",
                   "items": {
-                    "type":"object",
+                    "type": "object",
                     "required": true,
-                    "properties":{
+                    "properties": {
                       "_type": {
                         "type": "string",
                         "required": true,
@@ -606,18 +613,27 @@
                         "help": "Set the type of  of the item, either a Popup or a URL that opens in a new window."
                       },
                       "_setCompletion": {
-                        "type":"boolean",
+                        "type": "boolean",
                         "required": false,
-                        "default": "false",
+                        "default": false,
                         "title": "Set Completion",
                         "inputType": "Checkbox",
                         "validators": [],
                         "help": "Sets the component to complete when the button is selected."
                       },
-                      "_notifyGraphic": {
-                        "type":"object",
+                      "_onlyShowOnFinalAttempt": {
+                        "type": "boolean",
                         "required": false,
-                        "properties":{
+                        "default": false,
+                        "title": "Only Show On Final Attempt",
+                        "inputType": "Checkbox",
+                        "validators": [],
+                        "help": "If enabled on a question component the item will only show when the user is attempting the question for the last time."
+                      },
+                      "_notifyGraphic": {
+                        "type": "object",
+                        "required": false,
+                        "properties": {
                           "src": {
                             "type": "string",
                             "required": false,
@@ -639,7 +655,7 @@
                         }
                       },
                       "_buttonTitle": {
-                        "type":"string",
+                        "type": "string",
                         "required": true,
                         "default": "",
                         "title": "Button Title",
@@ -649,13 +665,14 @@
                         "translatable": true
                       },
                       "_buttonIcon": {
-                        "type":"object",
+                        "type": "object",
                         "title": "Button Icon",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "_isEnabled": {
-                            "type":"boolean",
-                            "required":true,
+                            "type": "boolean",
+                            "required": true,
+                            "default": false,
                             "title": "Is Enabled",
                             "inputType": "Checkbox",
                             "validators": [],
@@ -673,13 +690,14 @@
                         }
                       },
                       "_buttonGraphic": {
-                        "type":"object",
+                        "type": "object",
                         "required": false,
                         "title": "Button Graphic",
-                        "properties":{
+                        "properties": {
                           "_isEnabled": {
-                            "type":"boolean",
+                            "type": "boolean",
                             "required": true,
+                            "default": false,
                             "title": "Is Enabled",
                             "inputType": "Checkbox",
                             "validators": [],
@@ -712,11 +730,11 @@
                         }
                       },
                       "_ariaLabels": {
-                        "type":"object",
+                        "type": "object",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "openPopup": {
-                            "type":"string",
+                            "type": "string",
                             "required": false,
                             "default": "",
                             "title": "Item Aria Label",
@@ -727,7 +745,7 @@
                         }
                       },
                       "title": {
-                        "type":"string",
+                        "type": "string",
                         "required": false,
                         "default": "",
                         "title": "Item Title",
@@ -736,7 +754,7 @@
                         "translatable": true
                       },
                       "body": {
-                        "type":"string",
+                        "type": "string",
                         "required": false,
                         "default": "",
                         "title": "Item Body",
@@ -744,9 +762,9 @@
                         "translatable": true
                       },
                       "_itemGraphic": {
-                        "type":"object",
+                        "type": "object",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "src": {
                             "type": "string",
                             "required": false,
@@ -769,7 +787,7 @@
                       "_audio": {
                         "type": "object",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "src": {
                             "type": "string",
                             "required": false,
@@ -784,7 +802,7 @@
                       "_url": {
                         "type": "object",
                         "required": false,
-                        "properties":{
+                        "properties": {
                           "_src": {
                             "type": "string",
                             "required": false,
