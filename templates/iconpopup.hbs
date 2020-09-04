@@ -1,0 +1,21 @@
+<div class="iconpopup__inner {{_iconPopup._classes}}">
+  <div class="iconpopup__items">
+    {{#each _iconPopup._items}}
+    <div class="iconpopup__item">
+        {{#if _buttonGraphic._isEnabled}}
+        <button class="iconpopup__graphic-btn iconpopup-button-states-image js-iconpopup-btn-click" aria-label="{{_ariaLabels.openPopup}}">
+            <img src="{{_buttonGraphic.src}}"/>
+            <img src="{{_buttonGraphic.srcHover}}" class="iconpopup-button-image-hover"/>
+            <img src="{{_buttonGraphic.srcVisited}}" class="iconpopup-button-image-visited"/>
+        </button>
+        {{else}}
+        <button class="btn-text iconpopup__icon-btn{{#if _buttonIcon._isEnabled}} icon {{_buttonIcon._icon}}{{/if}} js-iconpopup-btn-click" aria-label="{{_ariaLabels.openPopup}}">
+          {{#if _buttonTitle}}
+            {{_buttonTitle}}
+          {{/if}}
+        </button>
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+</div>
