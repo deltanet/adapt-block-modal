@@ -26,11 +26,18 @@
 		vertical-align: top;
 	}
 
-	&__icon-btn {
-		min-height: @icon-size + (@item-padding*2);
-	}
+	.btn-icon {
+    background-color: @btn-color;
+    color: @btn-color-inverted;
 
-	&__graphic-btn {
+    .no-touch &:hover {
+      background-color: @btn-color-hover;
+      color: @btn-color-inverted-hover;
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+    }
+  }
+
+	&__btn {
 		img {
 			display: block;
 		}
@@ -118,7 +125,7 @@
 	      padding-bottom: (@notify-body-margin / 2);
 	    }
 
-	    &.fullwidth {
+	    &.is-fullwidth {
 	      width: 100%;
 				padding-bottom: 0;
 	    }
@@ -147,7 +154,7 @@
 	      width: 100%;
 	    }
 
-	    &.fullwidth {
+	    &.is-fullwidth {
 	      width: 100%;
 	      margin-left: 0px;
 	      margin-right: 0px;

@@ -18,7 +18,7 @@
 <div class="iconpopup__content">
 
 	{{#if body}}
-	<div class="notify__body{{#if _itemGraphic.src}}{{else}} fullwidth{{/if}}">
+	<div class="notify__body{{#if _itemGraphic.src}}{{else}} is-fullwidth{{/if}}">
 		<div class="notify__body-inner">
 			{{{compile body}}}
 		</div>
@@ -26,7 +26,7 @@
 	{{/if}}
 
 	{{#if _itemGraphic.src}}
-	<div class="iconpopup__graphic{{#if body}}{{else}} fullwidth{{/if}}">
+	<div class="iconpopup__graphic{{#if body}}{{else}} is-fullwidth{{/if}}">
 		<div class="iconpopup__graphic-inner">
 			<img src="{{_itemGraphic.src}}" {{#if  _itemGraphic.alt}} aria-label="{{_itemGraphic.alt}}"{{else}}aria-hidden="true"{{/if}}/>
 		</div>

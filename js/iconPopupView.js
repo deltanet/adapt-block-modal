@@ -14,7 +14,7 @@ define([
     initialize: function () {
       this.listenTo(Adapt, {
         'remove': this.onRemove,
-        'audio:updateAudioStatus': this.audioUpdated,
+        'audio:updateAudioStatus device:resize': this.audioUpdated,
         'pageView:ready': this.render
       });
 
@@ -87,11 +87,30 @@ define([
       var elementWidth = $('.'+this.elementId).find('.'+this.elementType+'__header').width();
       var maxWidth = elementWidth - width;
 
-      // Set width on title or body
       if (this.model.get('displayTitle') == '') {
+        // Set width on title or body
         $('.'+this.elementId).find('.'+this.elementType+'-body__inner').css('max-width', maxWidth);
       } else {
         $('.'+this.elementId).find('.'+this.elementType+'-title__inner').css('max-width', maxWidth);
+
+        var titleHeight = $('.'+this.elementId).find('.'+this.elementType+'__title').outerHeight();
+
+        var items = this.$('.iconpopup__items').children();
+
+        for (var i = 0, l = items.length; i < l; i++) {
+          var $item = this.$('.item-'+i).find('.iconpopup__btn');
+
+          if ($item.hasClass('btn-text')) {
+            $item.css('padding-top', 0);
+            $item.css('padding-bottom', 0);
+            $item.css('height', titleHeight);
+            $item.css('min-width', titleHeight);
+          } else {
+            $item.css('padding', 0);
+            $item.css('height', titleHeight);
+            $item.css('width', titleHeight);
+          }
+        }
       }
     },
 
