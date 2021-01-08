@@ -29,7 +29,7 @@
 	.icon-popup-open-button {
 		background-color: @item-color;
 		color: @item-text-color;
-		text-decoration:none;
+		text-decoration: none;
 		cursor: pointer;
 		padding: @item-padding;
 		min-height: @icon-size + (@item-padding*2);
@@ -51,10 +51,30 @@
 	}
 
 	.icon-popup-graphic-button {
+		padding: @item-padding;
+		min-height: @icon-size + (@item-padding*2);
+
 		img {
 			display: block;
+			max-height: @icon-size;
 		}
+
 		&.icon-popup-button-states-image {
+			padding: 0;
+			background-color: transparent;
+
+			img {
+				max-height: 100%;
+			}
+
+			&:hover {
+				background-color: transparent;
+			}
+
+			&.visited {
+				background-color: transparent;
+			}
+
 			img.icon-popup-button-image-hover {
 				display: none;
 			}
@@ -77,6 +97,7 @@
 				}
 			}
 		}
+
 		&.visited {
 			.visited {
 				> img {
