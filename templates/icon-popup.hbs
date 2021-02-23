@@ -4,7 +4,7 @@
     <div class="icon-popup-item">
         {{#if _buttonGraphic._isEnabled}}
         <button class="icon-popup-graphic-button{{#if _buttonGraphic.srcHover}} icon-popup-button-states-image{{/if}}" aria-label="{{_ariaLabels.openPopup}}">
-            <img src="{{_buttonGraphic.src}}"/>
+            <img src="{{_buttonGraphic.src}}" class="icon-popup-button-image-default"/>
             <img src="{{_buttonGraphic.srcHover}}" class="icon-popup-button-image-hover"/>
             <img src="{{_buttonGraphic.srcVisited}}" class="icon-popup-button-image-visited"/>
         </button>
