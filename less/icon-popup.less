@@ -41,54 +41,38 @@
 		img {
 			display: block;
 		}
+
 		&.iconpopup-button-states-image {
-			img.iconpopup-button-image-hover {
+
+			img.iconpopup-button-image-hover,
+			img.iconpopup-button-image-visited {
 				display: none;
 			}
-			img.iconpopup-button-image-visited {
-				display:none;
+
+			.no-touch &:hover {
+				background-color: transparent;
+        img.iconpopup-button-image-default {
+					display: none;
+    		}
+    		img.iconpopup-button-image-hover {
+    			display: block;
+    		}
+    		img.iconpopup-button-image-visited {
+    			display: none;
+    		}
 			}
-			.no-touch & {
-				&:hover {
-					.hover {
-						> img {
-							display:none;
-						}
-						img.iconpopup-button-image-hover {
-							display: block;
-						}
-						img.iconpopup-button-image-visited {
-							display:none;
-						}
-					}
-				}
-			}
-		}
-		&.visited {
-			.visited {
-				> img {
-					display:none;
-				}
-				img.iconpopup-button-image-hover {
-					display: none !important;
-				}
-				img.iconpopup-button-image-visited {
-					display:block !important;
+
+			&.is-visited {
+				img.iconpopup-button-image-default {
+	    		display: none !important;
+	    	}
+	    	img.iconpopup-button-image-hover {
+	    		display: none !important;
+	    	}
+	    	img.iconpopup-button-image-visited {
+	    		display: block !important;
 				}
 			}
-		  &.show:hover {
-				.hover {
-					> img {
-						display:none;
-					}
-					img.iconpopup-button-image-hover {
-						display: block;
-					}
-					img.iconpopup-button-image-visited {
-						display:none;
-					}
-				}
-		  }
 		}
 	}
 

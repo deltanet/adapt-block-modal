@@ -135,6 +135,9 @@ define([
       if (event) event.preventDefault();
 
       var $link = $(event.currentTarget);
+
+      $link.addClass('is-visited');
+
       var $item = $link.parent();
       var itemModel = this.model.get('_iconPopup')._items[$item.index()];
 

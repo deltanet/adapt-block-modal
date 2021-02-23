@@ -4,8 +4,8 @@
     <div class="iconpopup__item item-{{@index}}">
 
         {{#if _buttonGraphic._isEnabled}}
-        <button class="iconpopup__btn iconpopup-button-states-image js-iconpopup-btn-click" aria-label="{{_ariaLabels.openPopup}}">
-          <img src="{{_buttonGraphic.src}}"/>
+        <button class="iconpopup__btn{{#if _buttonGraphic.srcHover}} iconpopup-button-states-image{{/if}} js-iconpopup-btn-click" aria-label="{{_ariaLabels.openPopup}}">
+          <img src="{{_buttonGraphic.src}}" class="iconpopup-button-image-default"/>
           <img src="{{_buttonGraphic.srcHover}}" class="iconpopup-button-image-hover"/>
           <img src="{{_buttonGraphic.srcVisited}}" class="iconpopup-button-image-visited"/>
         </button>
