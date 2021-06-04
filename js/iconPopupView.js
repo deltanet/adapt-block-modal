@@ -14,7 +14,7 @@ define([
     initialize: function () {
       this.listenTo(Adapt, {
         'remove': this.onRemove,
-        'audio:updateAudioStatus device:resize': this.audioUpdated,
+        'audio:updateAudioStatus device:resize device:changed': this.audioUpdated,
         'pageView:ready': this.render
       });
 
@@ -63,10 +63,15 @@ define([
 
       _.delay(function () {
         that.alignItems();
-      }.bind(this), 300);
+      }.bind(this), 1000);
     },
 
     alignItems: function () {
+      // reset
+      this.$('.iconpopup__btn').css('height', "");
+      this.$('.iconpopup__btn').css('width', "");
+      this.$('.iconpopup__btn').css('min-width', "");
+
       // Set var for audio toggle button being visible
       if ($('.'+this.elementId).find('.audio__controls').length && $('.'+this.elementId).find('.audio__controls').css('display') != 'none') {
         var audioEnabled = true;
@@ -80,8 +85,10 @@ define([
       // Check for audio toggle button
       if (audioEnabled) {
         var width = (this.$('.iconpopup__items').width() + 10) + audioButtonwidth;
+        var titleHeight = Math.round($('.'+this.elementId).find('.audio__controls').outerHeight());
       } else {
         var width = this.$('.iconpopup__items').width() + 10;
+        var titleHeight = Math.round($('.'+this.elementId).find('.'+this.elementType+'__title').outerHeight());
       }
 
       var elementWidth = $('.'+this.elementId).find('.'+this.elementType+'__header').width();
@@ -92,8 +99,6 @@ define([
         $('.'+this.elementId).find('.'+this.elementType+'-body__inner').css('max-width', maxWidth);
       } else {
         $('.'+this.elementId).find('.'+this.elementType+'-title__inner').css('max-width', maxWidth);
-
-        var titleHeight = $('.'+this.elementId).find('.'+this.elementType+'__title').outerHeight();
 
         var items = this.$('.iconpopup__items').children();
 
