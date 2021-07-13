@@ -24,11 +24,10 @@ define([
 
       if (!config._isEnabled) return;
 
-      if (view.model.get('_iconPopupLoaded')) return;
-
-      new IconPopupView({model:view.model});
-
-      view.model.set('_iconPopupLoaded', true);
+      // Only render view if it DOESN'T already exist - Work around for hotgraphic component
+      if (!$('.' + view.model.get('_id')).find('.iconpopup').length) {
+        new IconPopupView({model:view.model});
+      }
     }
 
   }, Backbone.Events);

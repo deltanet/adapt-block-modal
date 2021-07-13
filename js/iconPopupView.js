@@ -13,11 +13,11 @@ define([
 
     initialize: function () {
       this.listenTo(Adapt, {
-        'remove': this.onRemove,
-        'audio:updateAudioStatus device:resize device:changed': this.audioUpdated,
-        'pageView:ready': this.render
+        'remove': this.remove,
+        'audio:updateAudioStatus device:resize device:changed': this.audioUpdated
       });
 
+      this.listenTo(this.model, 'change:_component', this.remove);
       this.listenTo(this.model, 'change:_isSubmitted', this.checkAttempts);
 
       this.elementId = this.model.get('_id');
@@ -28,6 +28,8 @@ define([
 
       this.popupView = null;
       this.isPopupOpen = false;
+
+      this.render();
     },
 
     render: function () {
@@ -205,11 +207,6 @@ define([
 
     onPopupClosed: function () {
       this.isPopupOpen = false;
-    },
-
-    onRemove: function () {
-      this.model.set('_iconPopupLoaded', false);
-      this.remove();
     }
 
   });
