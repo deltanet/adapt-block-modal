@@ -18,6 +18,7 @@
                 "_icon": "icon-book" // "icon-light-bulb" -- "icon-warning"
             },
             "_notifyGraphic": {
+                "_icon": "icon-book", // "icon-light-bulb" -- "icon-warning"
                 "src": "",
                 "alt": ""
             },

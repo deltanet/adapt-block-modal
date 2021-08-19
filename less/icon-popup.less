@@ -1,6 +1,6 @@
-.extension-icon-popup {
+.iconpopup {
 
-	.icon-popup-inner {
+	&__inner {
 		float: right;
     .dir-rtl & {
       float: left;
@@ -9,182 +9,151 @@
 		&.overlayed {
 			position: absolute;
 
-			right: @component-padding;
+			right: 0;
 			.dir-rtl & {
 	      right: inherit;
-				left: @component-padding;
+				left: 0;
 	    }
 		}
 	}
 
-	.icon-popup-items {
+	&__items {
 		font-size: 0;
 	}
 
-	.icon-popup-item {
+	&__item {
 		display: inline-block;
 		vertical-align: top;
 	}
 
-	.icon-popup-open-button {
-		background-color: @item-color;
-		color: @item-text-color;
-		text-decoration: none;
-		cursor: pointer;
-		padding: @item-padding;
-		min-height: @icon-size + (@item-padding*2);
+	.btn-icon {
+    background-color: @btn-color;
+    color: @btn-color-inverted;
 
-		&.visited {
-		  background-color: @item-visited-color;
-		  &.show:hover {
-			background-color: @item-color-hover;
-			cursor:default;
-		  }
-		}
+    .no-touch &:hover {
+      background-color: @btn-color-hover;
+      color: @btn-color-inverted-hover;
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+    }
+  }
 
-		&:hover {
-			background-color: @item-color-hover;
-			.icon-popup-open-button-text {
-				color: @item-text-color-hover;
-			}
-		}
-	}
-
-	.icon-popup-graphic-button {
-		display: block !important;
-		padding: @item-padding;
-		min-height: @icon-size + (@item-padding*2);
-
+	&__btn {
 		img {
 			display: block;
 			max-height: @icon-size;
 		}
 
-		&.icon-popup-button-states-image {
-			display: block;
-			padding: 0;
-			background-color: transparent;
+		&.iconpopup-button-states-image {
 
-			img {
-				max-height: 100%;
-			}
-
-			img.icon-popup-button-image-hover,
-			img.icon-popup-button-image-visited {
+			img.iconpopup-button-image-hover,
+			img.iconpopup-button-image-visited {
 				display: none;
 			}
 
 			.no-touch &:hover {
 				background-color: transparent;
-        img.icon-popup-button-image-default {
+        img.iconpopup-button-image-default {
 					display: none;
     		}
-    		img.icon-popup-button-image-hover {
+    		img.iconpopup-button-image-hover {
     			display: block;
     		}
-    		img.icon-popup-button-image-visited {
+    		img.iconpopup-button-image-visited {
     			display: none;
     		}
 			}
 
-			&.visited {
-				img.icon-popup-button-image-default {
+			&.is-visited {
+				img.iconpopup-button-image-default {
 	    		display: none !important;
 	    	}
-	    	img.icon-popup-button-image-hover {
+	    	img.iconpopup-button-image-hover {
 	    		display: none !important;
 	    	}
-	    	img.icon-popup-button-image-visited {
+	    	img.iconpopup-button-image-visited {
 	    		display: block !important;
 				}
 			}
 		}
 	}
-}
 
-.icon-popup-popup {
-  .icon-popup-header {
-    position: relative;
-    padding-bottom: @notify-padding;
+	&__btn-text {
+		min-height: @icon-size;
+	}
 
-		@media all and (max-width: (@device-width-large + 20px)) {
-      padding-bottom: @notify-padding / 2;
-    }
+	&__popup {
+	  .iconpopup__header {
+	    margin-bottom: @notify-title-margin;
 
-    @media all and (max-width: (@device-width-small + 20px)) {
-      padding-bottom: @notify-padding / 3;
-    }
+	    img {
+	      display: block;
+	      margin-left: auto;
+	      margin-right: auto;
+				min-width: 0;
+	    }
+	  }
 
-    img {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
+		.iconpopup__header-icon-container {
+			.icon:before {
+				font-size: @icon-size * 3;
+			}
+		}
 
-  .icon-popup-content {
-    overflow: auto;
-  }
+	  .iconpopup__content {
+	    overflow: auto;
+	  }
 
-	.notify-popup-title {
-    text-align: center;
-    padding-right: 0 !important;
-  }
+	  .notify__body {
+	    float: left;
+	    text-align: left;
 
-  .notify-popup-body {
-    float: left;
-    text-align: left;
+	    .dir-rtl & {
+	      float: right;
+	      text-align: right;
+	    }
 
-    .dir-rtl & {
-      float: right;
-      text-align: right;
-    }
+	    width: 60%;
+	    overflow: hidden;
 
-    width: 60%;
-    overflow: hidden;
+	    @media (max-width: @device-width-medium) {
+	      width: 100%;
+	      padding-bottom: (@notify-body-margin / 2);
+	    }
 
-    @media (max-width: @device-width-medium) {
-      width: 100%;
-      padding-bottom: (@notify-title-padding-bottom / 2);
-    }
+	    &.is-fullwidth {
+	      width: 100%;
+				padding-bottom: 0;
+	    }
+	  }
 
-    &.fullwidth {
-      width: 100%;
-			padding-bottom: 0;
-    }
-  }
+	  .iconpopup__graphic {
+	    float: right;
+	    width: 38%;
+	    margin-left: 2%;
 
-  .icon-popup-graphic {
-    float: right;
-    width: 38%;
-    margin-left: 2%;
+	    .dir-rtl & {
+	      float: left;
+	      margin-left: 0px;
+	      margin-right: 2%;
+	    }
 
-    .dir-rtl & {
-      float: left;
-      margin-left: 0px;
-      margin-right: 2%;
-    }
+	    img {
+	      display: block;
+	      margin-left: auto;
+	      margin-right: auto;
+	    }
 
-    img {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
+	    @media (max-width: @device-width-medium) {
+	      float: none;
+	      margin-left: 0;
+	      width: 100%;
+	    }
 
-    @media (max-width: @device-width-medium) {
-      float: none;
-      margin-left: 0;
-      width: 100%;
-    }
-
-    &.fullwidth {
-      width: 100%;
-      margin-left: 0px;
-      margin-right: 0px;
-    }
-  }
-
-  .notify-popup-buttons {
-    clear: both;
-  }
+	    &.is-fullwidth {
+	      width: 100%;
+	      margin-left: 0px;
+	      margin-right: 0px;
+	    }
+	  }
+	}
 }

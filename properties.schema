@@ -94,23 +94,34 @@
                       "_notifyGraphic": {
                         "type": "object",
                         "required": false,
+                        "title": "Header",
                         "properties": {
+                          "_icon": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "title": "Header Icon",
+                            "inputType": "Text",
+                            "validators": [],
+                            "help": "Specify a CSS icon to be displayed above the title."
+                          },
                           "src": {
                             "type": "string",
                             "required": false,
                             "default": "",
-                            "title": "Item Header Graphic",
+                            "title": "Header Graphic",
                             "inputType": "Asset:image",
                             "validators": [],
-                            "help": "Select a graphic to be displayed above the item title."
+                            "help": "Select a graphic to be displayed above the title."
                           },
                           "alt": {
                             "type": "string",
                             "required": false,
                             "default": "",
+                            "title": "Alternative Text",
                             "inputType": "Text",
                             "validators": [],
-                            "help": "Alternative text for the notify graphic.",
+                            "help": "Alternative text for the header graphic.",
                             "translatable": true
                           }
                         }
@@ -359,23 +370,34 @@
                       "_notifyGraphic": {
                         "type": "object",
                         "required": false,
+                        "title": "Header",
                         "properties": {
+                          "_icon": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "title": "Header Icon",
+                            "inputType": "Text",
+                            "validators": [],
+                            "help": "Specify a CSS icon to be displayed above the title."
+                          },
                           "src": {
                             "type": "string",
                             "required": false,
                             "default": "",
-                            "title": "Item Header Graphic",
+                            "title": "Header Graphic",
                             "inputType": "Asset:image",
                             "validators": [],
-                            "help": "Select a graphic to be displayed above the item title."
+                            "help": "Select a graphic to be displayed above the title."
                           },
                           "alt": {
                             "type": "string",
                             "required": false,
                             "default": "",
+                            "title": "Alternative Text",
                             "inputType": "Text",
                             "validators": [],
-                            "help": "Alternative text for the notify graphic.",
+                            "help": "Alternative text for the header graphic.",
                             "translatable": true
                           }
                         }
@@ -633,23 +655,34 @@
                       "_notifyGraphic": {
                         "type": "object",
                         "required": false,
+                        "title": "Header",
                         "properties": {
+                          "_icon": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "title": "Header Icon",
+                            "inputType": "Text",
+                            "validators": [],
+                            "help": "Specify a CSS icon to be displayed above the title."
+                          },
                           "src": {
                             "type": "string",
                             "required": false,
                             "default": "",
-                            "title": "Item Header Graphic",
+                            "title": "Header Graphic",
                             "inputType": "Asset:image",
                             "validators": [],
-                            "help": "Select a graphic to be displayed above the item title."
+                            "help": "Select a graphic to be displayed above the title."
                           },
                           "alt": {
                             "type": "string",
                             "required": false,
                             "default": "",
+                            "title": "Alternative Text",
                             "inputType": "Text",
                             "validators": [],
-                            "help": "Alternative text for the notify graphic.",
+                            "help": "Alternative text for the header graphic.",
                             "translatable": true
                           }
                         }
