@@ -15,9 +15,11 @@
             "_buttonTitle": "",
             "_buttonIcon": {
                 "_isEnabled": true,
+                "_iconSelection": "",
                 "_icon": "icon-book" // "icon-light-bulb" -- "icon-warning"
             },
             "_notifyGraphic": {
+                "_iconSelection": "",
                 "_icon": "icon-book", // "icon-light-bulb" -- "icon-warning"
                 "src": "",
                 "alt": ""
@@ -46,3 +48,32 @@
         }
     ]
 }
+
+// Icons
+
+icon-book
+icon-bookmark
+icon-checklist
+icon-comment
+icon-comments
+icon-documents
+icon-emotion-happy
+icon-emotion-sad
+icon-flag
+icon-folder
+icon-info
+icon-light-bulb
+icon-list
+icon-map
+icon-message
+icon-person
+icon-persons
+icon-plus
+icon-point
+icon-question
+icon-search
+icon-shield
+icon-star
+icon-stopwatch
+icon-trophy
+icon-warning

@@ -40,11 +40,13 @@ The Icon popup attribute group contains values for **_isEnabled**, **_classes**,
 
 >>**_buttonTitle** (string): Sets the text on the button.
 
->>**_buttonIcon** (object):  This `_buttonIcon` attributes group stores the properties for an icon on the button. It contains values for **_isEnabled**, and **_icon**.  
+>>**_buttonIcon** (object):  This `_buttonIcon` attributes group stores the properties for an icon on the button. It contains values for **_isEnabled**, **_iconSelection**, and **_icon**.  
 
 >>>**_isEnabled** (boolean): If set to `true`, an icon will be used on the button.  
 
->>>**_icon** (string): Defines the CSS class for the button icon.  
+>>>**_iconSelection** (string):  Pre-defined class name for the icon used on the button.  
+
+>>>**_icon** (string): Defines a custom CSS class for the button icon.  
 
 >>**_notifyGraphic** (object):  This `_notifyGraphic` attributes group stores the properties for a notify graphic. It contains values for **src**.  
 
@@ -70,9 +72,11 @@ The Icon popup attribute group contains values for **_isEnabled**, **_classes**,
 
 >>**body** (string): This text becomes the item’s body text.  
 
->>**_itemGraphic** (object):  This `_itemGraphic` attributes group stores the properties for an image used in the item popup. It contains values for **_icon**, **src**, and **alt**.  
+>>**_itemGraphic** (object):  This `_itemGraphic` attributes group stores the properties for an image used in the item popup. It contains values for **_iconSelection**, **_icon**, **src**, and **alt**.  
 
->>>**_icon** (string):  Class name for the icon used as the header image.  
+>>>**_iconSelection** (string):  Pre-defined class name for the icon used as the header image.  
+
+>>>**_icon** (string):  Defines a custom class name for the icon used as the header image.  
 
 >>>**src** (string): File name (including path) of the image in the item popup. Path should be relative to the *src* folder.
 

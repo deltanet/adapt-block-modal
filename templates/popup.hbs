@@ -1,14 +1,14 @@
 {{! make the _globals object in course.json available to this template}}
 {{import_globals}}
 
-{{#any _notifyGraphic.src _notifyGraphic._icon}}
+{{#any _notifyGraphic.src _notifyGraphic._iconSelection _notifyGraphic._icon}}
 	<div class="iconpopup__header">
 
-		{{#if _notifyGraphic._icon}}
+		{{#any _notifyGraphic._iconSelection _notifyGraphic._icon}}
 		<div class="iconpopup__header-icon-container">
-			<div class="iconpopup__header-icon icon {{_notifyGraphic._icon}}"></div>
+			<div class="iconpopup__header-icon icon {{#if _notifyGraphic._iconSelection}}{{_notifyGraphic._iconSelection}}{{else if _notifyGraphic._icon}}{{_notifyGraphic._icon}}{{else}}icon-info{{/if}}"></div>
 		</div>
-		{{/if}}
+		{{/any}}
 
 		{{#if _notifyGraphic.src}}
 		<img src="{{_notifyGraphic.src}}" {{#if  _notifyGraphic.alt}}aria-label="{{ _notifyGraphic.alt}}"{{else}}aria-hidden="true"{{/if}}/>

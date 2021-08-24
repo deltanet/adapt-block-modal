@@ -96,11 +96,23 @@
                         "required": false,
                         "title": "Header",
                         "properties": {
+                          "_iconSelection": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "title": "Icon",
+                            "inputType": {
+                              "type": "Select",
+                              "options": ["", "icon-book", "icon-bookmark", "icon-checklist", "icon-comment", "icon-comments", "icon-documents", "icon-emotion-happy", "icon-emotion-sad", "icon-flag", "icon-folder", "icon-info", "icon-light-bulb", "icon-list", "icon-map", "icon-message", "icon-person", "icon-persons", "icon-plus", "icon-point", "icon-question", "icon-search", "icon-shield", "icon-star", "icon-stopwatch", "icon-trophy", "icon-warning"]
+                            },
+                            "validators": [],
+                            "help": "Select a pre-defined icon."
+                          },
                           "_icon": {
                             "type": "string",
                             "required": false,
                             "default": "",
-                            "title": "Header Icon",
+                            "title": "Custom Icon",
                             "inputType": "Text",
                             "validators": [],
                             "help": "Specify a CSS icon to be displayed above the title."
@@ -150,11 +162,23 @@
                             "validators": [],
                             "help": "Turns button icons on and off."
                           },
+                          "_iconSelection": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "title": "Icon",
+                            "inputType": {
+                              "type": "Select",
+                              "options": ["", "icon-book", "icon-bookmark", "icon-checklist", "icon-comment", "icon-comments", "icon-documents", "icon-emotion-happy", "icon-emotion-sad", "icon-flag", "icon-folder", "icon-info", "icon-light-bulb", "icon-list", "icon-map", "icon-message", "icon-person", "icon-persons", "icon-plus", "icon-point", "icon-question", "icon-search", "icon-shield", "icon-star", "icon-stopwatch", "icon-trophy", "icon-warning"]
+                            },
+                            "validators": [],
+                            "help": "Select a pre-defined icon."
+                          },
                           "_icon": {
                             "type": "string",
                             "required": false,
-                            "title": "Icon",
-                            "default": "icon-info",
+                            "title": "Custom Icon",
+                            "default": "",
                             "inputType": "Text",
                             "validators": [],
                             "help": "Add a CSS class to show the desired icon."
@@ -372,11 +396,23 @@
                         "required": false,
                         "title": "Header",
                         "properties": {
+                          "_iconSelection": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "title": "Icon",
+                            "inputType": {
+                              "type": "Select",
+                              "options": ["", "icon-book", "icon-bookmark", "icon-checklist", "icon-comment", "icon-comments", "icon-documents", "icon-emotion-happy", "icon-emotion-sad", "icon-flag", "icon-folder", "icon-info", "icon-light-bulb", "icon-list", "icon-map", "icon-message", "icon-person", "icon-persons", "icon-plus", "icon-point", "icon-question", "icon-search", "icon-shield", "icon-star", "icon-stopwatch", "icon-trophy", "icon-warning"]
+                            },
+                            "validators": [],
+                            "help": "Select a pre-defined icon."
+                          },
                           "_icon": {
                             "type": "string",
                             "required": false,
                             "default": "",
-                            "title": "Header Icon",
+                            "title": "Custom Icon",
                             "inputType": "Text",
                             "validators": [],
                             "help": "Specify a CSS icon to be displayed above the title."
@@ -426,11 +462,23 @@
                             "validators": [],
                             "help": "Turns button icons on and off."
                           },
+                          "_iconSelection": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "title": "Icon",
+                            "inputType": {
+                              "type": "Select",
+                              "options": ["", "icon-book", "icon-bookmark", "icon-checklist", "icon-comment", "icon-comments", "icon-documents", "icon-emotion-happy", "icon-emotion-sad", "icon-flag", "icon-folder", "icon-info", "icon-light-bulb", "icon-list", "icon-map", "icon-message", "icon-person", "icon-persons", "icon-plus", "icon-point", "icon-question", "icon-search", "icon-shield", "icon-star", "icon-stopwatch", "icon-trophy", "icon-warning"]
+                            },
+                            "validators": [],
+                            "help": "Select a pre-defined icon."
+                          },
                           "_icon": {
                             "type": "string",
-                            "required": true,
-                            "title": "Icon",
-                            "default": "icon-info",
+                            "required": false,
+                            "title": "Custom Icon",
+                            "default": "",
                             "inputType": "Text",
                             "validators": [],
                             "help": "Add a CSS class to show the desired icon."
@@ -657,11 +705,23 @@
                         "required": false,
                         "title": "Header",
                         "properties": {
+                          "_iconSelection": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "title": "Icon",
+                            "inputType": {
+                              "type": "Select",
+                              "options": ["", "icon-book", "icon-bookmark", "icon-checklist", "icon-comment", "icon-comments", "icon-documents", "icon-emotion-happy", "icon-emotion-sad", "icon-flag", "icon-folder", "icon-info", "icon-light-bulb", "icon-list", "icon-map", "icon-message", "icon-person", "icon-persons", "icon-plus", "icon-point", "icon-question", "icon-search", "icon-shield", "icon-star", "icon-stopwatch", "icon-trophy", "icon-warning"]
+                            },
+                            "validators": [],
+                            "help": "Select a pre-defined icon."
+                          },
                           "_icon": {
                             "type": "string",
                             "required": false,
                             "default": "",
-                            "title": "Header Icon",
+                            "title": "Custom Icon",
                             "inputType": "Text",
                             "validators": [],
                             "help": "Specify a CSS icon to be displayed above the title."
@@ -711,11 +771,23 @@
                             "validators": [],
                             "help": "Turns button icons on and off."
                           },
+                          "_iconSelection": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "title": "Icon",
+                            "inputType": {
+                              "type": "Select",
+                              "options": ["", "icon-book", "icon-bookmark", "icon-checklist", "icon-comment", "icon-comments", "icon-documents", "icon-emotion-happy", "icon-emotion-sad", "icon-flag", "icon-folder", "icon-info", "icon-light-bulb", "icon-list", "icon-map", "icon-message", "icon-person", "icon-persons", "icon-plus", "icon-point", "icon-question", "icon-search", "icon-shield", "icon-star", "icon-stopwatch", "icon-trophy", "icon-warning"]
+                            },
+                            "validators": [],
+                            "help": "Select a pre-defined icon."
+                          },
                           "_icon": {
                             "type": "string",
-                            "required": true,
-                            "title": "Icon",
-                            "default": "icon-info",
+                            "required": false,
+                            "title": "Custom Icon",
+                            "default": "",
                             "inputType": "Text",
                             "validators": [],
                             "help": "Add a CSS class to show the desired icon."

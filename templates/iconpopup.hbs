@@ -13,8 +13,7 @@
 
         {{#if _buttonIcon._isEnabled}}
         <button class="btn-icon iconpopup__btn js-iconpopup-btn-click" aria-label="{{_ariaLabels.openPopup}}">
-          <div class="icon {{_buttonIcon._icon}}">
-          </div>
+          <div class="icon {{#if _buttonIcon._iconSelection}}{{_buttonIcon._iconSelection}}{{else if _buttonIcon._icon}}{{_buttonIcon._icon}}{{else}}icon-info{{/if}}"></div>
         </button>
         {{/if}}
 
