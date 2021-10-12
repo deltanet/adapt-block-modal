@@ -256,6 +256,8 @@
                             "title": "Item Audio",
                             "inputType": "Asset:audio",
                             "validators": [],
+                            "audioSources": ["_iconPopup/_items/#/body"],
+                            "audioConditions": [],
                             "help": "Optional audio which will be played with the item body text."
                           }
                         }
@@ -521,6 +523,8 @@
                             "title": "Item Audio",
                             "inputType": "Asset:audio",
                             "validators": [],
+                            "audioSources": ["_iconPopup/_items/#/body"],
+                            "audioConditions": [],
                             "help": "Optional audio which will be played with the item body text."
                           }
                         }
@@ -795,6 +799,8 @@
                             "title": "Item Audio",
                             "inputType": "Asset:audio",
                             "validators": [],
+                            "audioSources": ["_iconPopup/_items/#/body"],
+                            "audioConditions": [],
                             "help": "Optional audio which will be played with the item body text."
                           }
                         }
