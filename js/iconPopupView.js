@@ -112,10 +112,14 @@ define([
             $item.css('padding-bottom', 0);
             $item.css('height', titleHeight);
             $item.css('min-width', titleHeight);
-          } else {
+          } else if ($item.hasClass('btn-icon')) {
             $item.css('padding', 0);
             $item.css('height', titleHeight);
             $item.css('width', titleHeight);
+          } else {
+            $item.css('padding', 0);
+            $item.css('height', titleHeight);
+            $item.find('img').css('max-height', titleHeight);
           }
         }
       }
