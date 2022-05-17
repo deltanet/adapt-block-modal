@@ -119,6 +119,7 @@ define([
           } else {
             $item.css('padding', 0);
             $item.css('height', titleHeight);
+            $item.find('img').css('min-height', titleHeight);
             $item.find('img').css('max-height', titleHeight);
           }
         }
