@@ -1,50 +1,47 @@
-define([
-  'core/js/adapt'
-], function (Adapt) {
+import Adapt from 'core/js/adapt';
 
-  var PopupView = Backbone.View.extend({
+export default class PopupView extends Backbone.View {
 
-    className: 'iconpopup__popup',
+  className() {
+    return 'iconpopup__popup';
+  }
 
-    events: {
+  events() {
+    return {
       'click .js-iconpopup-close-btn-click': 'closePopup'
-    },
+    };
+  }
 
-    initialize: function () {
-      this.listenToOnce(Adapt, 'notify:opened', this.onOpened);
+  initialize() {
+    this.listenToOnce(Adapt, 'notify:opened', this.onOpened);
 
-      // Audio
-      this.audioIsEnabled = this.model.get('audioIsEnabled');
-      if (this.audioIsEnabled) {
-        this.audioChannel = this.model.get('audioChannel');
-        this.audioSrc = this.model.get('_audio').src;
-        this.audioId = this.model.get('audioId');
-      }
-
-      this.render();
-    },
-
-    onOpened: function () {
-      if (!this.audioIsEnabled) return;
-
-      if (Adapt.audio.audioClip[this.audioChannel].status==1) {
-        Adapt.audio.audioClip[this.audioChannel].onscreenID = "";
-        Adapt.trigger('audio:playAudio', this.audioSrc, this.audioId, this.audioChannel);
-      }
-    },
-
-    render: function () {
-      var data = this.model.toJSON();
-      var template = Handlebars.templates['popup'];
-      this.$el.html(template(data));
-    },
-
-    closePopup: function (event) {
-      Adapt.trigger('notify:close');
+    // Audio
+    this.audioIsEnabled = this.model.get('audioIsEnabled');
+    if (this.audioIsEnabled) {
+      this.audioChannel = this.model.get('audioChannel');
+      this.audioSrc = this.model.get('_audio').src;
+      this.audioId = this.model.get('audioId');
     }
 
-  });
+    this.render();
+  }
 
-  return PopupView;
+  onOpened() {
+    if (!this.audioIsEnabled) return;
 
-});
+    if (Adapt.audio.audioClip[this.audioChannel].status==1) {
+      Adapt.audio.audioClip[this.audioChannel].onscreenID = "";
+      Adapt.trigger('audio:playAudio', this.audioSrc, this.audioId, this.audioChannel);
+    }
+  }
+
+  render() {
+    const data = this.model.toJSON();
+    const template = Handlebars.templates['popup'];
+    this.$el.html(template(data));
+  }
+
+  closePopup(event) {
+    Adapt.trigger('notify:close');
+  }
+}

@@ -1,39 +1,31 @@
-define([
-  'core/js/adapt',
-  './iconPopupView'
-], function (Adapt, IconPopupView) {
+import Adapt from 'core/js/adapt';
+import IconPopupView from './iconPopupView';
 
-  var IconPopup = _.extend({
+class IconPopup extends Backbone.Controller {
 
-    initialize: function () {
-      this.listenToOnce(Adapt, 'app:dataReady', this.onDataReady);
-    },
+  initialize() {
+    this.listenToOnce(Adapt, 'app:dataReady', this.onDataReady);
+  }
 
-    onDataReady: function () {
-      this.setupEventListeners();
-    },
+  onDataReady() {
+    this.setupEventListeners();
+  }
 
-    setupEventListeners: function () {
-      this.listenTo(Adapt, 'articleView:postRender blockView:postRender componentView:postRender', this.onABCReady);
-    },
+  setupEventListeners() {
+    this.listenTo(Adapt, 'articleView:postRender blockView:postRender componentView:postRender', this.onABCReady);
+  }
 
-    onABCReady: function (view) {
-      var config = view.model.get('_iconPopup');
+  onABCReady(view) {
+    const config = view.model.get('_iconPopup');
 
-      if (!config) return;
+    if (!config) return;
 
-      if (!config._isEnabled) return;
+    if (!config._isEnabled) return;
 
-      // Only render view if it DOESN'T already exist - Work around for hotgraphic component
-      if (!$('.' + view.model.get('_id')).find('.iconpopup').length) {
-        new IconPopupView({model:view.model});
-      }
+    if (!$('.' + view.model.get('_id')).find('.iconpopup').length) {
+      new IconPopupView({model:view.model});
     }
+  }
+}
 
-  }, Backbone.Events);
-
-  IconPopup.initialize();
-
-  return IconPopup;
-
-});
+export default new IconPopup();
