@@ -48,6 +48,8 @@ export default class IconPopupView extends Backbone.View {
       $(this.el).html(template(data)).prependTo('.'+this.elementId+'>.'+this.elementType+'__inner');
     }
 
+    $('.'+this.elementId).addClass('is-iconpopup');
+
     this.$('.iconpopup__inner').addClass('iconpopup-'+this.elementType);
 
     if (!this.model.get('displayTitle') && !this.model.get('body')) {
