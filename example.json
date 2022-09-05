@@ -39,6 +39,20 @@
                 "src": "",
                 "alt": ""
             },
+            "_video": {
+                "_autoPlay": true,
+                "_startVolume": "80%",
+                "_media": {
+                  "mp4": "",
+                  "poster": "",
+                  "cc": [
+                    {
+                      "src": "",
+                      "srclang": "en"
+                    }
+                  ]
+                }
+            },
             "_audio": {
                 "src": ""
             },

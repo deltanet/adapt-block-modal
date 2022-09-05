@@ -82,6 +82,24 @@ The Icon popup attribute group contains values for **_isEnabled**, **_classes**,
 
 >>>**alt** (string): This text becomes the popup image’s `alt` attribute.
 
+>>**_video** (object):  This `_video` attributes group stores the properties for a video used in the item popup. It contains values for **_autoPlay**, **_startVolume**, and **_media**.  
+
+>>>**_autoPlay** (boolean): If set to `true`, the video will autoplay. Will behave differently on mobile devices where user interaction may be reqired to start play.
+
+>>>**_startVolume** (string): Defines the default volume as a percentage (Not supported on mobile devices).  This can be set with or without the percentage sign in the string.  
+
+>>>**_media** (object): The media attributes group contains values for **mp4**, **poster**, and **cc**. 
+
+>>>>**mp4** (string): File name (including path) of the video file. Path should be relative to the *src* folder (e.g., *course/en/video/video-1.mp4*).
+
+>>>>**poster** (string): File name (including path) of the optional image to be shown while the video is downloading, or until the user hits the play button. If this is not included, the first frame of the video will be used instead. Path should be relative to the *src* folder (e.g., *course/en/images/video-1.jpg*).
+
+>>>>**cc** (array):  Closed captions in multiple languages may be provided. Each object in this list contains values for **srclang** and **src**.
+
+>>>>>**srclang** (string): The language of the closed captions (e.g., `en` for English). Acceptable values can be found at http://www.w3schools.com/tags/ref_language_codes.asp.
+
+>>>>>**src** (string): File name (including path) of the closed captions resource accepted by `<track>` (i.e., [the VTT file](https://developer.mozilla.org/en-US/docs/Web/API/Web_Video_Text_Tracks_Format)). Path should be relative to the *src* folder (e.g., *course/en/video/big_buck_bunny_sub.vtt*).
+
 >>**_audio** (object): This `_audio` attributes group stores the audio properties for the item. It contains values for **src**.  
 
 >>>**src** (string): File name (including path) of the audio for the item. Path should be relative to the *src* folder.  
@@ -95,7 +113,7 @@ The Icon popup attribute group contains values for **_isEnabled**, **_classes**,
 No known limitations.
 
 ----------------------------
-**Version number:**  4.2.1     
+**Version number:**  4.3.0     
 **Framework versions supported:**  5.8+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-icon-popup/graphs/contributors)     
 **Accessibility support:** Yes  

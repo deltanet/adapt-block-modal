@@ -280,6 +280,84 @@
                           }
                         }
                       },
+                      "_video": {
+                        "type": "object",
+                        "required": false,
+                        "title": "Item Video",
+                        "properties": {
+                          "_autoPlay": {
+                            "type": "boolean",
+                            "required": false,
+                            "default": true,
+                            "title": "Autoplay Is Enabled",
+                            "inputType": "Checkbox",
+                            "validators": []
+                          },
+                          "_startVolume": {
+                            "type": "string",
+                            "required": false,
+                            "enum": ["0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"],
+                            "default": "80%",
+                            "title": "Default volume (Not supported on mobile devices)",
+                            "inputType": {"type": "Select", "options":["0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"]},
+                            "validators": [],
+                            "help": "Defines the default volume. On mobile devices the audio level is under the user's physical control."
+                          },
+                          "_media": {
+                            "type": "object",
+                            "required": true,
+                            "title": "Media",
+                            "properties": {
+                              "mp4": {
+                                "type": "string",
+                                "required": false,
+                                "default": "",
+                                "title": "MP4 Link",
+                                "inputType": "Asset:video",
+                                "validators": [],
+                                "help": "Link to an MP4 video"
+                              },
+                              "poster": {
+                                "type": "string",
+                                "required": false,
+                                "default": "",
+                                "title": "Poster Link",
+                                "inputType": "Asset:image",
+                                "validators": [],
+                                "help": "Image displayed before the video is played"
+                              },
+                              "cc": {
+                                "type": "array",
+                                "required": false,
+                                "title": "Closed Captions",
+                                "items": {
+                                  "type": "object",
+                                  "required": false,
+                                  "properties": {
+                                    "srclang": {
+                                      "type": "string",
+                                      "required": false,
+                                      "default": "",
+                                      "title": "Language Code",
+                                      "inputType": "Text",
+                                      "validators": ["required"]
+                                    },
+                                    "src": {
+                                      "type": "string",
+                                      "required": false,
+                                      "default": "",
+                                      "title": "Caption File",
+                                      "inputType": "Asset:other",
+                                      "validators": ["required"],
+                                      "help": "This file should be in the .vtt file format"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
                       "_audio": {
                         "type": "object",
                         "required": false,
@@ -579,6 +657,84 @@
                             "validators": [],
                             "help": "Alternative text for item graphic.",
                             "translatable": true
+                          }
+                        }
+                      },
+                      "_video": {
+                        "type": "object",
+                        "required": false,
+                        "title": "Item Video",
+                        "properties": {
+                          "_autoPlay": {
+                            "type": "boolean",
+                            "required": false,
+                            "default": true,
+                            "title": "Autoplay Is Enabled",
+                            "inputType": "Checkbox",
+                            "validators": []
+                          },
+                          "_startVolume": {
+                            "type": "string",
+                            "required": false,
+                            "enum": ["0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"],
+                            "default": "80%",
+                            "title": "Default volume (Not supported on mobile devices)",
+                            "inputType": {"type": "Select", "options":["0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"]},
+                            "validators": [],
+                            "help": "Defines the default volume. On mobile devices the audio level is under the user's physical control."
+                          },
+                          "_media": {
+                            "type": "object",
+                            "required": true,
+                            "title": "Media",
+                            "properties": {
+                              "mp4": {
+                                "type": "string",
+                                "required": false,
+                                "default": "",
+                                "title": "MP4 Link",
+                                "inputType": "Asset:video",
+                                "validators": [],
+                                "help": "Link to an MP4 video"
+                              },
+                              "poster": {
+                                "type": "string",
+                                "required": false,
+                                "default": "",
+                                "title": "Poster Link",
+                                "inputType": "Asset:image",
+                                "validators": [],
+                                "help": "Image displayed before the video is played"
+                              },
+                              "cc": {
+                                "type": "array",
+                                "required": false,
+                                "title": "Closed Captions",
+                                "items": {
+                                  "type": "object",
+                                  "required": false,
+                                  "properties": {
+                                    "srclang": {
+                                      "type": "string",
+                                      "required": false,
+                                      "default": "",
+                                      "title": "Language Code",
+                                      "inputType": "Text",
+                                      "validators": ["required"]
+                                    },
+                                    "src": {
+                                      "type": "string",
+                                      "required": false,
+                                      "default": "",
+                                      "title": "Caption File",
+                                      "inputType": "Asset:other",
+                                      "validators": ["required"],
+                                      "help": "This file should be in the .vtt file format"
+                                    }
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       },
@@ -890,6 +1046,84 @@
                             "validators": [],
                             "help": "Alternative text for item graphic.",
                             "translatable": true
+                          }
+                        }
+                      },
+                      "_video": {
+                        "type": "object",
+                        "required": false,
+                        "title": "Item Video",
+                        "properties": {
+                          "_autoPlay": {
+                            "type": "boolean",
+                            "required": false,
+                            "default": true,
+                            "title": "Autoplay Is Enabled",
+                            "inputType": "Checkbox",
+                            "validators": []
+                          },
+                          "_startVolume": {
+                            "type": "string",
+                            "required": false,
+                            "enum": ["0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"],
+                            "default": "80%",
+                            "title": "Default volume (Not supported on mobile devices)",
+                            "inputType": {"type": "Select", "options":["0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"]},
+                            "validators": [],
+                            "help": "Defines the default volume. On mobile devices the audio level is under the user's physical control."
+                          },
+                          "_media": {
+                            "type": "object",
+                            "required": true,
+                            "title": "Media",
+                            "properties": {
+                              "mp4": {
+                                "type": "string",
+                                "required": false,
+                                "default": "",
+                                "title": "MP4 Link",
+                                "inputType": "Asset:video",
+                                "validators": [],
+                                "help": "Link to an MP4 video"
+                              },
+                              "poster": {
+                                "type": "string",
+                                "required": false,
+                                "default": "",
+                                "title": "Poster Link",
+                                "inputType": "Asset:image",
+                                "validators": [],
+                                "help": "Image displayed before the video is played"
+                              },
+                              "cc": {
+                                "type": "array",
+                                "required": false,
+                                "title": "Closed Captions",
+                                "items": {
+                                  "type": "object",
+                                  "required": false,
+                                  "properties": {
+                                    "srclang": {
+                                      "type": "string",
+                                      "required": false,
+                                      "default": "",
+                                      "title": "Language Code",
+                                      "inputType": "Text",
+                                      "validators": ["required"]
+                                    },
+                                    "src": {
+                                      "type": "string",
+                                      "required": false,
+                                      "default": "",
+                                      "title": "Caption File",
+                                      "inputType": "Asset:other",
+                                      "validators": ["required"],
+                                      "help": "This file should be in the .vtt file format"
+                                    }
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       },
