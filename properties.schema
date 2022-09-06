@@ -153,15 +153,6 @@
                         "title": "Button Icon",
                         "required": false,
                         "properties": {
-                          "_isEnabled": {
-                            "type": "boolean",
-                            "required": false,
-                            "default": false,
-                            "title": "Is Enabled",
-                            "inputType": "Checkbox",
-                            "validators": [],
-                            "help": "Turns button icons on and off."
-                          },
                           "_iconSelection": {
                             "type": "string",
                             "required": false,
@@ -533,15 +524,6 @@
                         "title": "Button Icon",
                         "required": false,
                         "properties": {
-                          "_isEnabled": {
-                            "type": "boolean",
-                            "required": true,
-                            "default": false,
-                            "title": "Is Enabled",
-                            "inputType": "Checkbox",
-                            "validators": [],
-                            "help": "Turns button icons on and off."
-                          },
                           "_iconSelection": {
                             "type": "string",
                             "required": false,
@@ -922,15 +904,6 @@
                         "title": "Button Icon",
                         "required": false,
                         "properties": {
-                          "_isEnabled": {
-                            "type": "boolean",
-                            "required": true,
-                            "default": false,
-                            "title": "Is Enabled",
-                            "inputType": "Checkbox",
-                            "validators": [],
-                            "help": "Turns button icons on and off."
-                          },
                           "_iconSelection": {
                             "type": "string",
                             "required": false,

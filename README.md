@@ -40,9 +40,7 @@ The Icon popup attribute group contains values for **_isEnabled**, **_classes**,
 
 >>**_buttonTitle** (string): Sets the text on the button.
 
->>**_buttonIcon** (object):  This `_buttonIcon` attributes group stores the properties for an icon on the button. It contains values for **_isEnabled**, **_iconSelection**, and **_icon**.  
-
->>>**_isEnabled** (boolean): If set to `true`, an icon will be used on the button.  
+>>**_buttonIcon** (object):  This `_buttonIcon` attributes group stores the properties for an icon on the button. It contains values for **_iconSelection**, and **_icon**.  
 
 >>>**_iconSelection** (string):  Pre-defined class name for the icon used on the button.  
 
@@ -113,7 +111,7 @@ The Icon popup attribute group contains values for **_isEnabled**, **_classes**,
 No known limitations.
 
 ----------------------------
-**Version number:**  4.3.0     
+**Version number:**  4.4.0     
 **Framework versions supported:**  5.8+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-icon-popup/graphs/contributors)     
 **Accessibility support:** Yes  

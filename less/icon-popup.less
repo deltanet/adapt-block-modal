@@ -31,7 +31,12 @@
 		vertical-align: top;
 	}
 
-	.btn-icon {
+	&__btn {
+		.button-text;
+		.btn-icon;
+
+		display: flex;
+		align-items: center;
 		background-color: @btn-color;
 		color: @btn-color-inverted;
 
@@ -40,9 +45,7 @@
 			color: @btn-color-inverted-hover;
 			.transition(background-color @duration ease-in, color @duration ease-in;);
 		}
-	}
 
-	&__btn {
 		img {
 			display: block;
 		}
@@ -56,7 +59,7 @@
 
 			.no-touch &:hover {
 				background-color: transparent;
-        img.iconpopup-button-image-default {
+        	img.iconpopup-button-image-default {
 					display: none;
     		}
     		img.iconpopup-button-image-hover {
@@ -82,7 +85,13 @@
 	}
 
 	&__btn-text {
-		min-height: @icon-size;
+		&.is-icon {
+			padding-left: @item-padding / 2;
+			.dir-rtl & {
+				padding-left: inherit;
+				padding-right: @item-padding / 2;
+			}
+		}
 	}
 
 	&__popup {

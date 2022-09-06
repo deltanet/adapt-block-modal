@@ -14,7 +14,6 @@
             "_onlyShowOnFinalAttempt": true,
             "_buttonTitle": "",
             "_buttonIcon": {
-                "_isEnabled": true,
                 "_iconSelection": "",
                 "_icon": "icon-book" // "icon-light-bulb" -- "icon-warning"
             },

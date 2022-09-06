@@ -4,26 +4,24 @@
     <div class="iconpopup__item item-{{@index}}">
 
         {{#if _buttonGraphic._isEnabled}}
-        <button class="iconpopup__btn{{#if _buttonGraphic.srcHover}} iconpopup-button-states-image{{/if}} js-iconpopup-btn-click" aria-label="{{_ariaLabels.openPopup}}">
+        <button class="iconpopup__btn is-image{{#if _buttonGraphic.srcHover}} iconpopup-button-states-image{{/if}} js-iconpopup-btn-click" aria-label="{{_ariaLabels.openPopup}}">
           <img src="{{_buttonGraphic.src}}" class="iconpopup-button-image-default"/>
           <img src="{{_buttonGraphic.srcHover}}" class="iconpopup-button-image-hover"/>
           <img src="{{_buttonGraphic.srcVisited}}" class="iconpopup-button-image-visited"/>
         </button>
         {{/if}}
 
-        {{#if _buttonIcon._isEnabled}}
-        <button class="btn-icon iconpopup__btn js-iconpopup-btn-click" aria-label="{{_ariaLabels.openPopup}}">
-          <div class="icon {{#if _buttonIcon._iconSelection}}{{_buttonIcon._iconSelection}}{{else if _buttonIcon._icon}}{{_buttonIcon._icon}}{{else}}icon-info{{/if}}"></div>
-        </button>
-        {{/if}}
+        <button class="iconpopup__btn js-iconpopup-btn-click" aria-label="{{_ariaLabels.openPopup}}">
+          {{#any _buttonIcon._iconSelection _buttonIcon._icon}}
+          <div class="icon {{#if _buttonIcon._iconSelection}}{{_buttonIcon._iconSelection}}{{else if _buttonIcon._icon}}{{_buttonIcon._icon}}{{/if}}"></div>
+          {{/any}}
 
-        {{#if _buttonTitle}}
-        <button class="btn-text iconpopup__btn js-iconpopup-btn-click" aria-label="{{_ariaLabels.openPopup}}">
-          <div class="iconpopup__btn-text">
+          {{#if _buttonTitle}}
+          <div class="iconpopup__btn-text{{#any _buttonIcon._iconSelection _buttonIcon._icon}} is-icon{{/any}}">
             {{_buttonTitle}}
           </div>
+          {{/if}}
         </button>
-        {{/if}}
 
       </div>
     {{/each}}

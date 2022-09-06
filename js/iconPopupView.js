@@ -112,20 +112,16 @@ export default class IconPopupView extends Backbone.View {
       for (let i = 0, l = items.length; i < l; i++) {
         const $item = this.$('.item-'+i).find('.iconpopup__btn');
 
-        if ($item.hasClass('btn-text')) {
-          $item.css('padding-top', 0);
-          $item.css('padding-bottom', 0);
-          $item.css('height', titleHeight);
-          $item.css('min-width', titleHeight);
-        } else if ($item.hasClass('btn-icon')) {
-          $item.css('padding', 0);
-          $item.css('height', titleHeight);
-          $item.css('width', titleHeight);
-        } else {
+        if ($item.hasClass('is-image')) {
           $item.css('padding', 0);
           $item.css('height', titleHeight);
           $item.find('img').css('min-height', titleHeight);
           $item.find('img').css('max-height', titleHeight);
+        } else {
+          $item.css('padding-top', 0);
+          $item.css('padding-bottom', 0);
+          $item.css('height', titleHeight);
+          $item.css('min-width', titleHeight);
         }
       }
     }
