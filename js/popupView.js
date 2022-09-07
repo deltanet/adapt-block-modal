@@ -67,25 +67,31 @@ export default class PopupView extends Backbone.View {
       this.audioId = this.model.get('audioId');
     }
 
-    this.listenTo(Adapt, {
-      'media:stop': this.onMediaStop,
-      'audio:updateAudioStatus': this.setVideoVolume
-    });
+    // Video
+    if (this.model.get('_video') && this.model.get('_video')._media.cc) {
+      this.listenTo(Adapt, {
+        'remove': this.onRemove,
+        'media:stop': this.onMediaStop,
+        'audio:updateAudioStatus': this.setVideoVolume
+      });
 
-    _.bindAll(this, 'onMediaElementPlay', 'onMediaElementPause', 'onMediaElementEnded', 'onMediaElementTimeUpdate', 'onMediaElementSeeking');
+      _.bindAll(this, 'onMediaElementPlay', 'onMediaElementPause', 'onMediaElementEnded', 'onMediaElementTimeUpdate', 'onMediaElementSeeking');
 
-    // set initial player state attributes
-    this.model.set({
-      '_isMediaEnded': false,
-      '_isMediaPlaying': false
-    });
+      // set initial player state attributes
+      this.model.set({
+        '_isMediaEnded': false,
+        '_isMediaPlaying': false
+      });
+    }
 
     this.render();
   }
 
   onOpened() {
-    this.setupPlayer();
-    this.addMejsButtonClass();
+    if (this.model.get('_video') && this.model.get('_video')._media.cc) {
+      this.setupPlayer();
+      this.addMejsButtonClass();
+    }
 
     if (!this.audioIsEnabled) return;
 
@@ -312,11 +318,11 @@ export default class PopupView extends Backbone.View {
     if(!isPaused) player.pause();
   }
 
-  remove() {
+  onRemove() {
     this.$('.mejs-overlay-button').off("click", this.onOverlayClick);
     this.$('.mejs-mediaelement').off("click", this.onMediaElementClick);
 
-    if(this.model.get('_video')._media.cc) {
+    if (this.model.get('_video')._media.cc) {
       this.$('.mejs-captions-button button').off('click.mediaCaptionsChange');
     }
 
