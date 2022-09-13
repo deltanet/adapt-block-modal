@@ -2,26 +2,32 @@
   <div class="iconpopup__items">
     {{#each _iconPopup._items}}
     <div class="iconpopup__item item-{{@index}}">
-
-        {{#if _buttonGraphic._isEnabled}}
-        <button class="iconpopup__btn is-image{{#if _buttonGraphic.srcHover}} iconpopup-button-states-image{{/if}} js-iconpopup-btn-click" aria-label="{{_ariaLabels.openPopup}}">
-          <img src="{{_buttonGraphic.src}}" class="iconpopup-button-image-default"/>
-          <img src="{{_buttonGraphic.srcHover}}" class="iconpopup-button-image-hover"/>
-          <img src="{{_buttonGraphic.srcVisited}}" class="iconpopup-button-image-visited"/>
-        </button>
+      
+      {{#if _buttonGraphic._isEnabled}}
+      <button class="iconpopup__btn is-image{{#any _buttonGraphic.srcHover _buttonGraphic.srcVisited}} iconpopup-button-states-image{{/any}} js-iconpopup-btn-click" aria-label="{{_ariaLabels.openPopup}}">
+        <img src="{{_buttonGraphic.src}}" class="iconpopup-button-image-default"/>
+        {{#if _buttonGraphic.srcHover}}
+        <img src="{{_buttonGraphic.srcHover}}" class="iconpopup-button-image-hover"/>
         {{/if}}
+        {{#if _buttonGraphic.srcVisited}}
+        <img src="{{_buttonGraphic.srcVisited}}" class="iconpopup-button-image-visited"/>
+        {{/if}}
+      </button>
+      {{/if}}
 
-        <button class="iconpopup__btn js-iconpopup-btn-click" aria-label="{{_ariaLabels.openPopup}}">
-          {{#any _buttonIcon._iconSelection _buttonIcon._icon}}
-          <div class="icon {{#if _buttonIcon._iconSelection}}{{_buttonIcon._iconSelection}}{{else if _buttonIcon._icon}}{{_buttonIcon._icon}}{{/if}}"></div>
-          {{/any}}
+      {{#any _buttonIcon._iconSelection _buttonIcon._icon _buttonTitle}}
+      <button class="iconpopup__btn js-iconpopup-btn-click" aria-label="{{_ariaLabels.openPopup}}">
+        {{#any _buttonIcon._iconSelection _buttonIcon._icon}}
+        <div class="icon {{#if _buttonIcon._iconSelection}}{{_buttonIcon._iconSelection}}{{else if _buttonIcon._icon}}{{_buttonIcon._icon}}{{/if}}"></div>
+        {{/any}}
 
-          {{#if _buttonTitle}}
-          <div class="iconpopup__btn-text{{#any _buttonIcon._iconSelection _buttonIcon._icon}} is-icon{{/any}}">
-            {{_buttonTitle}}
-          </div>
-          {{/if}}
-        </button>
+        {{#if _buttonTitle}}
+        <div class="iconpopup__btn-text{{#any _buttonIcon._iconSelection _buttonIcon._icon}} is-icon{{/any}}">
+          {{_buttonTitle}}
+        </div>
+        {{/if}}
+      </button>
+      {{/any}}
 
       </div>
     {{/each}}
