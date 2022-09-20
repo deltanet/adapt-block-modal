@@ -1,7 +1,8 @@
 define([
   'core/js/adapt',
+  'core/js/device',
   'libraries/mediaelement-and-player'
-], function(Adapt) {
+], function(Adapt, device) {
   var mepPrototype = $.extend({}, mejs.MediaElementPlayer.prototype);
 
   $.extend(mejs.MediaElementPlayer.prototype, {
@@ -36,7 +37,7 @@ define([
     * because the fullscreen events and properties are still vendor-prefixed in some browsers...
     */
     getVendorPrefix: function() {
-      var browser = Adapt.device.browser;
+      var browser = device.browser;
 
       if (browser === 'internet explorer') {
         return 'ms';

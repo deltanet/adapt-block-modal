@@ -111,8 +111,8 @@ The Icon popup attribute group contains values for **_isEnabled**, **_classes**,
 No known limitations.
 
 ----------------------------
-**Version number:**  4.4.2     
-**Framework versions supported:**  5.8+    
+**Version number:**  5.0.0     
+**Framework versions supported:**  5.19.1+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-icon-popup/graphs/contributors)     
 **Accessibility support:** Yes  
 **RTL support:** Yes  

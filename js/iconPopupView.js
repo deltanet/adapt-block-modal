@@ -1,4 +1,5 @@
 import Adapt from 'core/js/adapt';
+import notify from 'core/js/notify';
 import PopupView from './popupView';
 
 export default class IconPopupView extends Backbone.View {
@@ -192,7 +193,7 @@ export default class IconPopupView extends Backbone.View {
       model: popupModel
     });
 
-    Adapt.notify.popup({
+    notify.popup({
       _view: this.popupView,
       _isCancellable: true,
       _showCloseButton: false,
